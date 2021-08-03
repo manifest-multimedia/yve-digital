@@ -3,14 +3,17 @@ namespace Deployer;
 
 require 'recipe/laravel.php';
 
+set('ssh_type', 'native'); 
+set('ssh_multiplexing', false); 
+
 // Project name
 set('application', 'YVE');
 
 // Project repository
-set('repository', 'https://github.com/manifest-multimedia/yve-digital.git');
+set('repository', 'git@github.com:manifest-multimedia/yve-digital.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', true); 
+//set('git_tty', true); 
 
 // Shared files/dirs between deploys 
 add('shared_files', []);
@@ -23,9 +26,9 @@ add('writable_dirs', []);
 // Hosts
 
 host('194.135.82.202')
-    ->set('deploy_path', '~/{{application}}')
+    //->set('deploy_path', '~/{{application}}')
     ->user('deployer')
-    ->identityFile('~/.ssh/deployerkey')
+    ->identityFile('deployerkey', 'deployerkey.pub')
     ->set('deploy_path', '/var/www/html/app');
     
     
