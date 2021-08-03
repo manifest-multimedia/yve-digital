@@ -1,0 +1,44 @@
+<?php
+namespace Deployer;
+
+require 'recipe/laravel.php';
+
+// Project name
+set('application', 'YVE');
+
+// Project repository
+set('repository', 'https://github.com/manifest-multimedia/yve-digital.git');
+
+// [Optional] Allocate tty for git clone. Default value is false.
+set('git_tty', true); 
+
+// Shared files/dirs between deploys 
+add('shared_files', []);
+add('shared_dirs', []);
+
+// Writable dirs by web server 
+add('writable_dirs', []);
+
+
+// Hosts
+
+host('194.135.82.202')
+    ->set('deploy_path', '~/{{application}}')
+    ->user('deployer')
+    ->identityFile('~/.ssh/deployerkey')
+    ->set('deploy_path', '/var/www/html/app');
+    
+    
+// Tasks
+
+task('build', function () {
+    run('cd {{release_path}} && build');
+});
+
+// [Optional] if deploy fails automatically unlock.
+after('deploy:failed', 'deploy:unlock');
+
+// Migrate database before symlink new release.
+
+//before('deploy:symlink', 'artisan:migrate');
+
