@@ -57,7 +57,7 @@
                     <a href="/oauth/google"  class="btn btn-lg btn-circle google-btn shadow-btn1 mr-2"> <img src="{{asset('images/google.png')}}" class="img-fluid mr-2">GOOGLE</a>
                 </div>
                 <div class="btn-group" role="group" aria-label="Third group">
-                    <a href="/oauth/facebook"  class="btn btn-lg btn-circle fb-btn shadow-btn1 ml-2"> <img src="{{asset('images/facebook.png')}}" class="img-fluid mr-2">FACEBOOK</a>
+                    <a href="/oauth/facebook"  class="btn btn-lg btn-circle fb-btn shadow-btn1 ml-2"> <img src="{{asset('images/facebook_icon.png')}}" class="img-fluid mr-2">FACEBOOK</a>
                 </div>
             </div>
         </div>

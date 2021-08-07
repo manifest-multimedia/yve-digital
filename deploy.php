@@ -10,8 +10,8 @@ set('ssh_multiplexing', false);
 set('application', 'YVE');
 
 // Project repository
-set('repository', 'git@github.com:manifest-multimedia/yve-digital.git');
-
+// set('repository', 'git@github.com:manifest-multimedia/yve-digital.git');
+set('repository', 'https://github.com/manifest-multimedia/yve-digital.git');
 // [Optional] Allocate tty for git clone. Default value is false.
 //set('git_tty', true); 
 
@@ -27,15 +27,15 @@ add('writable_dirs', []);
 
 host('194.135.82.202')
     //->set('deploy_path', '~/{{application}}')
-    ->user('deployer')
-    ->identityFile('deployerkey', 'deployerkey.pub')
-    ->set('deploy_path', '/var/www/html/app');
+    ->user('yvedigital')
+    ->identityFile('id_rsa', 'id_rsa.pub')
+    ->set('deploy_path', '/var/www/yvedigital.com/app');
     
     
 // Tasks
 
 task('build', function () {
-    run('cd {{release_path}} && build');
+    run('cd {{release_path}} && npm run build');
 });
 
 // [Optional] if deploy fails automatically unlock.
@@ -43,5 +43,5 @@ after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
-//before('deploy:symlink', 'artisan:migrate');
+before('deploy:symlink', 'artisan:migrate');
 
