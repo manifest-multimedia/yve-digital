@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacebookController; 
 use App\Http\Controllers\TwitterAuthController; 
 use App\Http\Controllers\GoogleAuthController; 
+use App\Http\Controllers\ReleasesController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/promotion', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/new-release', function () {
     return view('new-release');
 })->name('new-release');
+
+Route::resource('/release', ReleasesController::class)->middleware(['auth:sanctum', 'verified']); 
