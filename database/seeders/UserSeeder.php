@@ -22,17 +22,6 @@ class UserSeeder extends Seeder
 
                 [
 
-                    'name' => 'Johnson Sebire',
-                    'username' => 'johnsonsebire',
-                    'password' => Hash::make('p@$$wordGH13'), 
-                    'account_status'=>'new', 
-                    'user_role'=>'admin', 
-                    'email'=> 'johnson@manifestghana.com',
-                    
-                ], 
-
-                [
-
                     'name' => 'java',
                     'username' => 'java',
                     'password' => Hash::make('a'), 
