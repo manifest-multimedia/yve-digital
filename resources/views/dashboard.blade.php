@@ -69,16 +69,29 @@ Dashboard - {{Auth::user()->name}}
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Good morning, {{Auth::user()->name}}</h1>
-                            <small>Ready to get your music out there?</small>
+                            <h1 class="greet">Welcome back, {{Auth::user()->name}}</h1>
+                            <small>See how your busic is performing!</small>
                         </div>
                         <div>
+                            <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-circle create-new float-right"
+                                style="float:right;;"
+                                >
+                                    {{ __('Logout') }}
+                                </button>
+                            </form>
                             <div class="btn-div">
                                 @if (Route::has('new-release'))
                                 
-                                <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create New Release</a>
+                                <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create Release</a>
                                 
                                 @endif 
+                                
+                              
+
+                               
+
                                 
                                 {{-- <a href="#" class="btn btn-default btn-rounded"><span><img src="{{asset('images/hi1.png')}}"></span></a>
                                 <a href="#" class="btn btn-default btn-rounded"><span><img src="{{asset('images/hi2.png')}}"></span></a>
@@ -110,7 +123,7 @@ Dashboard - {{Auth::user()->name}}
                                     <li class="active"><a href="#pilltab1" data-toggle="tab" aria-expanded="true">ALL(0)</a></li>
                                     <li class=""><a href="#pilltab2" data-toggle="tab" aria-expanded="false">SPOTIFY(0)</a></li>
                                     <li class=""><a href="#pilltab3" data-toggle="tab" aria-expanded="true">APPLE(0)</a></li>
-                                    <li class=""><a href="#pilltab4" data-toggle="tab" aria-expanded="true">TIDAL(10)</a></li>
+                                    <li class=""><a href="#pilltab4" data-toggle="tab" aria-expanded="true">TIDAL(0)</a></li>
                                     <li class=""><a href="#pilltab5" data-toggle="tab" aria-expanded="true">YOUTUBE(0)</a></li>
                                 </ul>
                                 <div class="tab-content">
@@ -134,7 +147,7 @@ Dashboard - {{Auth::user()->name}}
                                                                         <p class="tag-line">Latest release</p>
                                                                     </div>
                                                                     <div>
-                                                                        <img src="../images/spotify.png" class="img-fluid">
+                                                                        <img src="{{asset('images/spotify.png')}}" class="img-fluid">
                                                                     </div>
                                                                 </div>
                                                                 <div class="tracks">
@@ -145,17 +158,17 @@ Dashboard - {{Auth::user()->name}}
                                                                         <p class="track_time">2021-1 song, 2 min 41sec</p>
                                                                     </div>
                                                                     <div>
-                                                                        <img src="../images/mg.png" alt="">
+                                                                        <img src="{{'images/mg.png'}}" alt="">
                                                                     </div>
                                                                 </div>
                                                                 <div class="time-line">
                                                                     <div>
-                                                                        <p class="time-line-heading">Last Week <span class="red-drop"><i class="glyphicon glyphicon-triangle-bottom "></i> 12%</span></p>
-                                                                        <h3 class="time-line-subheading">150,000 plays</h3>
+                                                                        <p class="time-line-heading">Last Week <span class="red-drop"><i class="glyphicon glyphicon-triangle-bottom "></i> 0%</span></p>
+                                                                        <h3 class="time-line-subheading">0 plays</h3>
                                                                     </div>
                                                                     <div>
-                                                                        <p class="time-line-heading">Last Week <span class="white-top"><i class="glyphicon glyphicon-triangle-top "></i> 13%</span></p>
-                                                                        <h3 class="time-line-subheading">150,000 plays</h3>
+                                                                        <p class="time-line-heading">Last Week <span class="white-top"><i class="glyphicon glyphicon-triangle-top "></i> 0%</span></p>
+                                                                        <h3 class="time-line-subheading">0 plays</h3>
                                                                     </div>							
                                                                 </div>
                                                             </div>
@@ -171,7 +184,7 @@ Dashboard - {{Auth::user()->name}}
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Itunes</small>
-                                                            <p><b>50%</b></p>
+                                                            <p><b>0%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
@@ -182,7 +195,7 @@ Dashboard - {{Auth::user()->name}}
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Spotify</small>
-                                                            <p><b>50%</b></p>
+                                                            <p><b>0%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
@@ -193,7 +206,7 @@ Dashboard - {{Auth::user()->name}}
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Tidal</small>
-                                                            <p><b>15%</b></p>
+                                                            <p><b>0%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
@@ -204,7 +217,7 @@ Dashboard - {{Auth::user()->name}}
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Amazon Music</small>
-                                                            <p><b>7%</b></p>
+                                                            <p><b>0%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
@@ -215,7 +228,7 @@ Dashboard - {{Auth::user()->name}}
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Boomplay</small>
-                                                            <p><b>3%</b></p>
+                                                            <p><b>0%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
@@ -241,7 +254,7 @@ Dashboard - {{Auth::user()->name}}
                                                                         <span class="country-name">GHA</span>
                                                                     </div>
                                                                     <div>
-                                                                        <span class="green-drop"><i class="glyphicon glyphicon-triangle-top "></i> 12%</span>	
+                                                                        <span class="green-drop"><i class="glyphicon glyphicon-triangle-top "></i> 0%</span>	
                                                                     </div>
                                                                 </div>
                                                                 <div class="country-tabs">
@@ -250,7 +263,7 @@ Dashboard - {{Auth::user()->name}}
                                                                         <span class="country-name">GBR</span>
                                                                     </div>
                                                                     <div>
-                                                                        <span class="green-drop"><i class="glyphicon glyphicon-triangle-top "></i> 12%</span>	
+                                                                        <span class="green-drop"><i class="glyphicon glyphicon-triangle-top "></i> 0%</span>	
                                                                     </div>
                                                                 </div>
                                                                 <div class="country-tabs">
@@ -259,12 +272,12 @@ Dashboard - {{Auth::user()->name}}
                                                                         <span class="country-name">USA</span>
                                                                     </div>
                                                                     <div>
-                                                                        <span class="red-drop"><i class="glyphicon glyphicon-triangle-bottom "></i> 12%</span>	
+                                                                        <span class="red-drop"><i class="glyphicon glyphicon-triangle-bottom "></i> 0%</span>	
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div>
-                                                                <a href="#">See all countries</a>
+                                                                <a href="{{route('analytics')}}">See all countries</a>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 col-ls-6 col-sm-6 col-xs-6">
@@ -281,7 +294,7 @@ Dashboard - {{Auth::user()->name}}
                                                         <img src="../images/pr1.png" alt="" class="img-responsive">
                                                     </div>
                                                     <div class="yellow-box-btn-box">
-                                                        <a href="#" class="btn btn-circle btn-yellow-box">Create Release +</a>
+                                                        <a href="{{route('new-release')}}" class="btn btn-circle btn-yellow-box">Create Release +</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -311,7 +324,7 @@ Dashboard - {{Auth::user()->name}}
             </div>
     </div><!--/.row-->
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default bo-radius">
                 <div class="panel-heading_">
@@ -454,7 +467,7 @@ Dashboard - {{Auth::user()->name}}
                     </div>
                 </div>
             </div>
-    </div><!--/.row-->
+    </div><!--/.row--> --}}
 
     
 </div><!--/.row-->

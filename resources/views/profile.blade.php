@@ -69,8 +69,8 @@ Dashboard - {{Auth::user()->name}}
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Create a New Release!</h1>
-                            <small>Take your music to the world! </small>
+                            <h1 class="greet">Profile Information!</h1>
+                            <small>Take Control of Your Account! </small>
                         </div>
                         <div>
                             <div class="btn-div">

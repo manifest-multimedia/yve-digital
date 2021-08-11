@@ -1,13 +1,8 @@
-@extends('layouts.athentication')
-
-@section('page-title', 'Login')
-@section('form-title', 'Password Reset')
-@section('new', 'Rembered your password?')
-@section('new-action', 'Login')
-@section('action-url', '/login')
-
-
-@section('form')
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -24,16 +19,16 @@
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
-            <div class="form-control">
-                <label for="email"> {{ __('Email') }} </label>
-                <input id="email" class="form-control block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Type Registered Email Address" required autofocus />
+            <div class="block">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <button type="submit" class="btn btn-primary">
+                <x-jet-button>
                     {{ __('Email Password Reset Link') }}
-                </button>
+                </x-jet-button>
             </div>
         </form>
-
-@endsection
+    </x-jet-authentication-card>
+</x-guest-layout>

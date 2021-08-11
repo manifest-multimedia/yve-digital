@@ -21,6 +21,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+
+Route::get('/privacy', function () {
+    return view('privacy');
+});
+
+Route::get('/legal', function () {
+    return view('legal');
+});
+
+
 Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']); 
 Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']); 
 Route::get('auth/google/callback', [GoogleAuthController::class, 'hanldeGoogleCallback']); 
