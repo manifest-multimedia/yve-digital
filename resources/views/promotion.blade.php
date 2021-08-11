@@ -17,8 +17,8 @@ Dashboard - {{Auth::user()->name}}
         <ul class="nav menu">
             <li><a href="/dashboard">MUSIC</a></li>
             <li><a href="/analytics">ANALYTICS</a></li>
-            <li class=""><a href="/royalties">ROYALTIES</a></li>
-            <li><a href="/promotion">PROMOTION</a></li>
+            <li><a href="/royalties">ROYALTIES</a></li>
+            <li  class="active"><a href="/promotion">PROMOTION</a></li>
         </ul>
     </div>
 
@@ -36,16 +36,16 @@ Dashboard - {{Auth::user()->name}}
     </div>
 
     <div class="btn-area">
-        <a href="#" class="btn btn-circle btn-primary">Get Support Now</a>
+        <a href="https://support.yvedigital.com" class="btn btn-circle btn-primary">Get Support Now</a>
     </div>
 
     <div>
         <div class="terms">
 
             <ul>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="/legal">Terms</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="https://support.yvedigital.com">Help</a></li>
             </ul>
 
 
@@ -72,15 +72,27 @@ Dashboard - {{Auth::user()->name}}
                             <h1 class="greet">Promotion</h1>
                             <small>Take it a notch higher! </small>
                         </div>
+                        
                         <div>
+                            <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-circle create-new float-right"
+                                style="float:right;;"
+                                >
+                                    {{ __('Logout') }}
+                                </button>
+                            </form>
                             <div class="btn-div">
-                                <a href="#" class="btn btn-default btn-circle create-new"><span></span> + Create New</a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi1.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi2.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi3.png"></span></a>
+                                @if (Route::has('new-release'))
+                                
+                                <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create Release</a>
+                                
+                                @endif 
+                                    
                                 <a href="#" class="btn btn-default btn-rounded-img">
-                                    <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+                                    <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
                                 </a>
+
                             </div>
                         </div>
                     </div>

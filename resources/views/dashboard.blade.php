@@ -36,16 +36,16 @@ Dashboard - {{Auth::user()->name}}
     </div>
 
     <div class="btn-area">
-        <a href="#" class="btn btn-circle btn-primary">Get Support Now</a>
+        <a href="https://support.yvedigital.com" class="btn btn-circle btn-primary">Get Support Now</a>
     </div>
 
     <div>
         <div class="terms">
 
             <ul>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="/legal">Terms</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="https://support.yvedigital.com">Help</a></li>
             </ul>
 
 
@@ -70,8 +70,9 @@ Dashboard - {{Auth::user()->name}}
                     <div class="heading-bar">
                         <div class="greetings">
                             <h1 class="greet">Welcome back, {{Auth::user()->name}}</h1>
-                            <small>See how your busic is performing!</small>
+                            <small>See how your music is performing!</small>
                         </div>
+
                         <div>
                             <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
                                 @csrf
