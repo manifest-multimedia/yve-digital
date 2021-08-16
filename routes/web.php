@@ -58,3 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/new-release', function ()
 })->name('new-release');
 
 Route::resource('/release', ReleasesController::class)->middleware(['auth:sanctum', 'verified']); 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile', function () {
+    return view('profile');
+})->name('profile');

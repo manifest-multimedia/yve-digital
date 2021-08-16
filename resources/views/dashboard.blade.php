@@ -74,33 +74,44 @@ Dashboard - {{Auth::user()->name}}
                         </div>
 
                         <div>
-                            <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
+
+                            {{-- <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
                                 @csrf
                                 <button type="submit" class="btn btn-danger btn-circle create-new float-right"
-                                style="float:right;;"
+                                style="float:right;"
                                 >
                                     {{ __('Logout') }}
                                 </button>
-                            </form>
+                            </form> --}}
+
                             <div class="btn-div">
                                 @if (Route::has('new-release'))
                                 
                                 <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create Release</a>
                                 
                                 @endif 
-                                
-                              
-
-                               
-
-                                
+              
                                 {{-- <a href="#" class="btn btn-default btn-rounded"><span><img src="{{asset('images/hi1.png')}}"></span></a>
                                 <a href="#" class="btn btn-default btn-rounded"><span><img src="{{asset('images/hi2.png')}}"></span></a>
                                 <a href="#" class="btn btn-default btn-rounded"><span><img src="{{asset('images/hi3.png')}}"></span></a> --}}
                                 
-                                <a href="#" class="btn btn-default btn-rounded-img">
-                                    <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
-                                </a>
+                                
+                                    @if (Route::has('profile'))
+                                    <a href="{{route('profile')}}" class="btn btn-default btn-rounded-img">
+                                        <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
+                                    </a>
+                                    @endif 
+
+                                    <form action="{{ route('logout') }}" method="POST" style="vertical-align:middle; display:inline-block">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-circle create-new"
+                                        style="color:white"
+                                        >
+                                            {{ __('Logout') }}
+                                        </button>
+                                    </form>
+                                   
+                                
 
                             </div>
                         </div>
@@ -189,7 +200,7 @@ Dashboard - {{Auth::user()->name}}
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 50%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -200,7 +211,7 @@ Dashboard - {{Auth::user()->name}}
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 50%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -211,7 +222,7 @@ Dashboard - {{Auth::user()->name}}
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 15%;" class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,7 +233,7 @@ Dashboard - {{Auth::user()->name}}
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 7%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -233,7 +244,7 @@ Dashboard - {{Auth::user()->name}}
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 3%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -302,20 +313,21 @@ Dashboard - {{Auth::user()->name}}
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="pilltab2">
-                                        <h4>SPOTIFY(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
+                                        <h4>SPOTIFY(0)</h4>
+                                        <p> Here's how your music is performing on Spotify</p>
                                     </div>
                                     <div class="tab-pane fade  in" id="pilltab3">
-                                        <h4>APPLE(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
+                                        <h4>APPLE(0)</h4>
+                                        <p>Here's how your music is performing on Apple Music</p>
                                     </div>
                                     <div class="tab-pane fade  in" id="pilltab4">
-                                        <h4>TIDAL(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
+                                        <h4>TIDAL(0)</h4>
+                                        <p>Here's how your music is performing on Tidal</p>
                                     </div>
                                     <div class="tab-pane fade" id="pilltab5">
-                                        <h4>YOUTUBE(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
+                                        <h4>YOUTUBE(0)</h4>
+                                        <p>Here's how your music is performing on YouTube</p>
+
                                     </div>
                                 </div>
                             </div>

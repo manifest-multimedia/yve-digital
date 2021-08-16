@@ -62,6 +62,7 @@ Dashboard - {{Auth::user()->name}}
 
 @section('content')
 
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main menu-sidearea custom-main-box">
     <div class="row">
         <div class="col-md-12">
@@ -69,36 +70,128 @@ Dashboard - {{Auth::user()->name}}
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Create a New Release!</h1>
-                            <small>Take your music to the world! </small>
+                            <h1 class="greet">Create Release</h1>
+                            <small>Take your music to the World! </small>
                         </div>
+
                         <div>
+                            <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-circle create-new float-right"
+                                style="float:right;;"
+                                >
+                                    {{ __('Logout') }}
+                                </button>
+                            </form>
                             <div class="btn-div">
-                                <a href="#" class="btn btn-default btn-circle create-new"><span></span> + Create New</a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi1.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi2.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi3.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded-img">
-                                    <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+                                @if (Route::has('profile'))
+                                <a href="{{route('profile')}}" class="btn btn-default btn-rounded-img">
+                                    <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
                                 </a>
+                                @endif 
                             </div>
                         </div>
                     </div>
                     
-                    {{-- <div class="round-tabs">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><small>1HR</small></a></li>
-                                <li><a href=""><small>1D</small></a></li>
-                                <li class="active"><a href=""><small>1W</small></a></li>
-                                <li><a href=""><small>1M</small></a></li>
-                                <li><a href=""><small>1Y</small></a></li>
-                            </ul>										
-                    </div> --}}
+                    
 
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
+                  
                     <div class="panel-body custom-body">
+                        <form > 
+                            @csrf
+
+                            <div class="release col-md-6" style="padding-top:50px">
+
+                                
+                                    <label> Release Name *</label>
+                                    <input class="form-control" type="text" placeholder="Release Name"/> 
+            
+                            
+        
+                            </div>
+
+                            <div class="release col-md-6" style="padding-top:50px">
+
+                                
+                                    <label> Genre *</label>
+                                    <input class="form-control" type="text" placeholder="Genre"/> 
+            
+        
+                            </div>
+
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                            
+                                    <label> Name of Artist *</label>
+                                    <input class="form-control" type="text" placeholder="Name of Artist"/> 
+            
+                            </div>
+
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                            
+                                <label> Record Label *</label>
+                                <input class="form-control" type="text" placeholder="Record Label"/> 
+
+                            </div>
+
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                            
+                                <label> No. of Songs *</label>
+                                <input class="form-control" type="text" placeholder="Record Label"/> 
+
+                            </div>
+
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                            
+                                <label> Territory *</label>
+
+                                <select class="form-control" style="height:46px"> 
+                                    <option> -- SELECT -- </option>
+                                    <option> Worldwide </option>
+                                    <option> Ghana </option>
+                                    <option> South Africa </option>
+                                    <option> Kenya </option>
+                                    <option> Other? </option>
+
+                                </select>
+
+                            </div>
+
+                            
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                                <label> Release Date *</label>
+                                <input class="form-control" type="date" placeholder="Release Date"/> 
+
+                            </div>
+                            
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                                <label> Upload Cover Art (2000px x 2000px) *</label>
+                                <input class="form-control" type="file" placeholder="Release Date"/> 
+
+                            </div>
+                            <div class="release col-md-6" style="padding-top:20px">
+
+                                <button type="submit" class="btn btn-primary">
+                                Submit Release    
+                                </button>
+                            
+                            </div>
+                        
+                        </form> 
+                       
+      
+                    </div>
                         
                     </div>
+
+                    
+                    
                 </div>
             </div>
     </div><!--/.row-->
@@ -107,5 +200,4 @@ Dashboard - {{Auth::user()->name}}
 
     
 </div><!--/.row-->
-
 @endsection

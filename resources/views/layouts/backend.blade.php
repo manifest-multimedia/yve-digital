@@ -12,7 +12,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	
-	
+	@livewireStyles
+
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<!--[if lt IE 9]>
@@ -30,16 +31,17 @@
 
 	</div>	<!--/.main-->
 
-	<script src="{{asset('backend/js/jquery-1.11.1.min.js')}}"></script>
-	<script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
-	<script src="{{asset('backend/js/chart.min.js')}}"></script>
-	<script src="{{asset('backend/js/chart-data.js')}}"></script>
-	<script src="{{asset('js/easypiechart.js')}}"></script>
-	<script src="{{asset('js/easypiechart-data.js')}}"></script>
-	<script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
-	<script src="{{asset('js/custom.js')}}"></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="{{asset('backend/js/jquery-1.11.1.min.js')}}" defer></script>
+	<script src="{{asset('backend/js/bootstrap.min.js')}}" defer></script>
+	<script src="{{asset('backend/js/chart.min.js')}}" defer></script>
+	<script src="{{asset('backend/js/chart-data.js')}}" defer></script>
+	<script src="{{asset('js/easypiechart.js')}}" defer></script>
+	<script src="{{asset('js/easypiechart-data.js')}}" defer></script>
+	<script src="{{asset('js/bootstrap-datepicker.js')}}" defer></script>
+	<script src="{{asset('js/custom.js')}}" defer></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.js" defer></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+	<script src="{{ mix('js/app.js') }}" defer></script>
 
 	<script defer>
 		window.onload = function () {
@@ -68,6 +70,8 @@
 			},
 		});
 	</script>
+
+@livewireScripts
 
 </body>
 </html>
