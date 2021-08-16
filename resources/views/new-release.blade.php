@@ -178,7 +178,7 @@ Dashboard - {{Auth::user()->name}}
                             <div class="release col-md-6" style="padding-top:20px">
 
                                 <button type="submit" class="btn btn-primary">
-                                Submit Release    
+                                Submit Release
                                 </button>
                             
                             </div>
