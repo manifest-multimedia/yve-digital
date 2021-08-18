@@ -75,20 +75,23 @@ Dashboard - {{Auth::user()->name}}
                         </div>
 
                         <div>
-                            <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-circle create-new float-right"
-                                style="float:right;;"
-                                >
-                                    {{ __('Logout') }}
-                                </button>
-                            </form>
+                            
                             <div class="btn-div">
                                 @if (Route::has('profile'))
                                 <a href="{{route('profile')}}" class="btn btn-default btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
                                 </a>
                                 @endif 
+
+                                <form action="{{ route('logout') }}" method="POST" style="vertical-align:middle; display:inline-block">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle create-new float-right"
+                                    style="color:white;;"
+                                    >
+                                        {{ __('Logout') }}
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -98,10 +101,10 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                   
                     <div class="panel-body custom-body">
-                        <form > 
+                        <form style="padding-top:20px" > 
                             @csrf
 
-                            <div class="release col-md-6" style="padding-top:50px">
+                            <div class="release col-md-6">
 
                                 
                                     <label> Release Name *</label>
@@ -111,7 +114,7 @@ Dashboard - {{Auth::user()->name}}
         
                             </div>
 
-                            <div class="release col-md-6" style="padding-top:50px">
+                            <div class="release col-md-6">
 
                                 
                                     <label> Genre *</label>

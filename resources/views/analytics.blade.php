@@ -74,14 +74,7 @@ Dashboard - {{Auth::user()->name}}
                         </div>
 
                         <div>
-                            <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-circle create-new float-right"
-                                style="float:right;;"
-                                >
-                                    {{ __('Logout') }}
-                                </button>
-                            </form>
+                            
                             <div class="btn-div">
                                 @if (Route::has('new-release'))
                                 
@@ -93,6 +86,15 @@ Dashboard - {{Auth::user()->name}}
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
                                 </a>
 
+                                <form action="{{ route('logout') }}" method="POST" style="vertical-align:middle; display:inline-block">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle create-new float-right"
+                                    style="color:white;"
+                                    >
+                                        {{ __('Logout') }}
+                                    </button>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
