@@ -73,14 +73,23 @@ Dashboard - {{Auth::user()->name}}
                             <small>Take Control of Your Account! </small>
                         </div>
                         <div>
+
                             <div class="btn-div">
-                                <a href="#" class="btn btn-default btn-circle create-new"><span></span> + Create New</a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi1.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi2.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded"><span><img src="../images/hi3.png"></span></a>
-                                <a href="#" class="btn btn-default btn-rounded-img">
-                                    <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+                             
+                                    
+                                <a href="#" class="btn btn-rounded-img">
+                                    <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
                                 </a>
+
+                                <form action="{{ route('logout') }}" method="POST" style="vertical-align:middle; display:inline-block">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle create-new float-right"
+                                    style="color:white;"
+                                    >
+                                        {{ __('Logout') }}
+                                    </button>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -112,42 +121,65 @@ Dashboard - {{Auth::user()->name}}
                     
                     
                                 <div class="col-xl-8">
-                                    
-                                               
-                                                    @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                                                    <div class="col-md-12"> 
-                                                        @livewire('profile.update-profile-information-form')
-                                                    </div>
-                                                       
-                                        
-                                                    @endif
-                                        
-                                                    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                                                        <div class="col-md-12">
-                                                            @livewire('profile.update-password-form')
-                                                        </div>
-                                        
-                                                    @endif
-                                        
-                                                    @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                                                        <div class="col-md-12">
-                                                            @livewire('profile.two-factor-authentication-form')
-                                                        </div>
-                                        
-                                                        
-                                                    @endif
-                                        
-                                                    <div class="col-md-12">
-                                                        @livewire('profile.logout-other-browser-sessions-form')
-                                                    </div>
-                                        
-                                                    @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                                                       
-                                        
-                                                        <div class="col-md-12">
-                                                            @livewire('profile.delete-user-form')
-                                                        </div>
-                                                    @endif
+                                   
+                                
+                            
+                                <div>
+                                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                                            @livewire('profile.update-profile-information-form')
+                            
+                                          
+                                        @endif
+                            
+                                        @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()) && ! is_null($user->password))
+                                            <div class="mt-10 sm:mt-0">
+                                                @livewire('profile.update-password-form')
+                                            </div>
+                            
+                                            
+                                        @else
+                                            <div class="mt-10 sm:mt-0">
+                                                @livewire('profile.set-password-form')
+                                            </div>
+                            
+                                            
+                                        @endif
+                            
+                                        @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication() && ! is_null($user->password))
+                                            <div class="mt-10 sm:mt-0">
+                                                @livewire('profile.two-factor-authentication-form')
+                                            </div>
+                            
+                                            
+                                        @endif
+                            
+                                        @if (JoelButcher\Socialstream\Socialstream::show())
+                                            <div class="mt-10 sm:mt-0">
+                                                @livewire('profile.connected-accounts-form')
+                                            </div>
+                                        @endif
+                            
+                            
+                                        @if ( ! is_null($user->password))
+                                            
+                            
+                                            <div class="mt-10 sm:mt-0">
+                                                @livewire('profile.logout-other-browser-sessions-form')
+                                            </div>
+                                        @endif
+                            
+                                        @if (! is_null($user->password))
+                                           
+                            
+                                            <div class="mt-10 sm:mt-0">
+                                                @livewire('profile.delete-user-form')
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                                   
                           
                                           
                                         

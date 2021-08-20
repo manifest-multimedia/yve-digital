@@ -20,7 +20,7 @@
             {{ __('You are free to connect any social accounts to your profile and may remove any connected accounts at any time. If you feel any of your connected accounts have been compromised, you should disconnect them immediately and change your password.') }}
         </div>
 
-        <div class="mt-5 space-y-6">
+         <div class="mt-5 space-y-6">
             @foreach ($this->providers as $provider)
                 @php
                     $account = null;
@@ -44,7 +44,7 @@
                                 @endif
                             </div>
                         @else
-                            <x-action-link href="{{ route('oauth.redirect', ['provider' => $provider]) }}">
+                            <x-action-link href="{{ route('oauth.redirect', ['provider' => $provider]) }}" class="btn btn-primary">
                                 {{ __('Connect') }}
                             </x-action-link>
                         @endif
@@ -52,7 +52,7 @@
 
                 </x-connected-account>
             @endforeach
-        </div>
+        </div> 
 
         <!-- Logout Other Devices Confirmation Modal -->
         <x-jet-dialog-modal wire:model="confirmingRemove">

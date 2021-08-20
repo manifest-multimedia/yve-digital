@@ -6,6 +6,7 @@ use App\Http\Controllers\TwitterAuthController;
 use App\Http\Controllers\GoogleAuthController; 
 use App\Http\Controllers\ReleasesController; 
 use App\Http\Middleware\CheckRole; 
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +34,15 @@ Route::middleware(['auth:sanctum', 'verified', 'CheckRole'])->get('/dashboard', 
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+    
     return view('dashboard');
+
 })->name('admin');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/user', function () {
+   
     return view('dashboard');
+
 })->name('user');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/analytics', function () {
@@ -59,5 +64,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/new-release', function ()
 Route::resource('/release', ReleasesController::class)->middleware(['auth:sanctum', 'verified']); 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/profile', function () {
-    return view('profile');
+    $user=Auth::user();
+    return view('profile', compact('user'));
 })->name('profile');
