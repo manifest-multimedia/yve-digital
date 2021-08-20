@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified', 'CheckRole'])->get('/dashboard', 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     
-    return view('dashboard');
+    return view('admin');
 
 })->name('admin');
 
@@ -59,13 +59,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/royalties', function () {
     return view('royalties');
 })->name('royalties');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/manager', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/manage', function () {
     // $users=DB::table('users')
     // ->where('user_role', 'user')
     // ->get(); 
 
-    return view('manager');
-})->name('manager');
+    return view('manage');
+})->name('manage');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/new-release', function () {
     return view('new-release');

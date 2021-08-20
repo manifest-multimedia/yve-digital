@@ -18,7 +18,6 @@ Dashboard - {{Auth::user()->name}}
             <li><a href="/dashboard">MUSIC</a></li>
             <li class="active"><a href="/analytics">ANALYTICS</a></li>
             <li><a href="/royalties">ROYALTIES</a></li>
-            <li><a href="/promotion">PROMOTION</a></li>
         </ul>
     </div>
 

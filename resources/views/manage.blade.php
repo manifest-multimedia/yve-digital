@@ -16,9 +16,9 @@ Administration - {{Auth::user()->name}}
         </div>
         <ul class="nav menu">
             <li><a href="/dashboard">MUSIC</a></li>
-            <li><a href="/analytics">ANALYTICS</a></li>
-            <li><a href="/royalties">ROYALTIES</a></li>
-            <li  class="active"><a href="/promotion">MANAGE</a></li>
+            {{-- <li><a href="/analytics">ANALYTICS</a></li>
+            <li><a href="/royalties">ROYALTIES</a></li> --}}
+            <li  class="active"><a href="/manage">MANAGE</a></li>
         </ul>
     </div>
 

@@ -14,7 +14,9 @@ class Royalties extends Component
     {
 
         
-        $users=DB::table('users')->get(); 
+        $users=DB::table('users')
+        ->where('user_role', 'user')
+        ->get(); 
 
         //$selected=$this->selectUser; 
        
@@ -25,7 +27,7 @@ class Royalties extends Component
             ->get(); 
         
        } else {
-        $releases=[]; 
+        $releases=DB::table('royalties')->get(); 
        }
             
             return view('livewire.royalties', compact('users', 'releases'));
