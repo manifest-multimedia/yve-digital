@@ -98,7 +98,7 @@ Dashboard - {{Auth::user()->name}}
                                 
                                     @if (Route::has('profile'))
                                     <a href="{{route('profile')}}" class="btn btn-default btn-rounded-img">
-                                        <img src="{{ Auth::user()->profile_photo_url }}" class="img-responsive" alt="">
+                                        <img src="{{ Auth::user()->profile_photo_url }}" alt=""  class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
                                     </a>
                                     @endif 
 

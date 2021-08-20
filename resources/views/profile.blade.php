@@ -3,7 +3,7 @@
 
 @section('page-title')
 
-Dashboard - {{Auth::user()->name}}
+User Profile - {{Auth::user()->name}}
 
 @endsection
 
@@ -74,10 +74,12 @@ Dashboard - {{Auth::user()->name}}
                         </div>
                         <div>
 
+                           
+
                             <div class="btn-div">
-                             
+                                
                                     
-                                <a href="#" class="btn btn-rounded-img">
+                                <a href="/profile" class="btn btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
                                 </a>
 
@@ -109,11 +111,16 @@ Dashboard - {{Auth::user()->name}}
                         
                     </div>
 
-
+                   
 
                     <div class="content-body"> 
                         <div class="container-fluid"> 
-                             
+
+                            @if($user->account_status=='old')
+                            Dear {{ $user->name; }}, thanks for working with YVE Digital. We're delighted to bring you a more improved user experience. 
+                            Kindly take a moment to update your new account credentials with a valid email and secure password to keep your account secure.
+                            NB: You'll not be able to access your dashboard until you have completed this verification step. Thank you. 
+                            @endif 
                             <!-- Row --> 
                     
                             <div class="row">

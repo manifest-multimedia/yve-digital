@@ -82,8 +82,8 @@ Dashboard - {{Auth::user()->name}}
                                 
                                 @endif 
                                     
-                                <a href="#" class="btn btn-rounded-img">
-                                    <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="">
+                                <a href="/profile" class="btn btn-rounded-img">
+                                    <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
                                 </a>
 
                                 <form action="{{ route('logout') }}" method="POST" style="vertical-align:middle; display:inline-block">

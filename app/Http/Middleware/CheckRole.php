@@ -44,25 +44,29 @@ class CheckRole
                 case 'admin': 
                     $dashboard="admin";
                     break; 
+
                 case 'user':
-                    $dashboard="user"; 
+                    
+                    if($account_status=='verified') {
+                        $dashboard="user";    
+                        
+                    }
+                    else if ($account_status=='old'){
+                        $dashboard="profile";
+                    } 
+                    else {
+                        $dashboard="account-verification";
+                    }
                     break;
 
+
                     default: 
-                    $dashboard ="user";
+                    $dashboard ="account-verification";
             };
 
-           
-            
-           if ($account_status!='new') {
-               return redirect()->route('profile'); 
-           }
-           else {
-
             return redirect()->route($dashboard);
-
-           }
-
+            
+       
              
         }
     }

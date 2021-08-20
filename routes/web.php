@@ -45,6 +45,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/user', function () {
 
 })->name('user');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/account-verification', function () {
+   
+    return view('account-verification');
+
+})->name('account-verification');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/analytics', function () {
     return view('analytics');
 })->name('analytics');

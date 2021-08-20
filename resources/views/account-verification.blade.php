@@ -15,10 +15,10 @@ Dashboard - {{Auth::user()->name}}
             <p class="innerpage-site-title">YVE</p>
         </div>
         <ul class="nav menu">
-            <li><a href="/dashboard">MUSIC</a></li>
+            {{-- <li><a href="/dashboard">MUSIC</a></li>
             <li><a href="/analytics">ANALYTICS</a></li>
             <li><a href="/royalties">ROYALTIES</a></li>
-            <li  class="active"><a href="/promotion">PROMOTION</a></li>
+            <li  class="active"><a href="/promotion">PROMOTION</a></li> --}}
         </ul>
     </div>
 
@@ -69,18 +69,18 @@ Dashboard - {{Auth::user()->name}}
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Promotion</h1>
-                            <small>Take it a notch higher! </small>
+                            <h1 class="greet">Account Verification</h1>
+                            <small>Verification Checkpoint! </small>
                         </div>
                         
                         <div>
                             
                             <div class="btn-div">
-                                @if (Route::has('new-release'))
+                                {{-- @if (Route::has('new-release'))
                                 
                                 <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create Release</a>
                                 
-                                @endif 
+                                @endif  --}}
                                     
                                 <a href="/profile" class="btn btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
@@ -112,6 +112,11 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                     <div class="panel-body custom-body">
                         
+                        Dear {{Auth::user()->name;}}, your account is currently under review for manual verification processes to be completed. You will not be able to access the features of the system until your account has been fully verified. 
+                        Please ensure you have provided all details needed for verification or contact support@yvedigital.com for further help. 
+                        Thank you for choosing YVE Digital. 
+
+
                     </div>
                 </div>
             </div>
