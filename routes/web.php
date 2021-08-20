@@ -5,6 +5,7 @@ use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\TwitterAuthController; 
 use App\Http\Controllers\GoogleAuthController; 
 use App\Http\Controllers\ReleasesController; 
+use App\Http\Middleware\CheckRole; 
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +18,9 @@ use App\Http\Controllers\ReleasesController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-
-
-Route::get('/privacy', function () {
-    return view('privacy');
-});
-
-Route::get('/legal', function () {
-    return view('legal');
-});
+Route::view('/', 'auth.login');
+Route::view('/privacy', 'privacy');
+Route::view('/legal', 'legal');
 
 
 Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']); 
@@ -37,9 +28,17 @@ Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebook
 Route::get('auth/google/callback', [GoogleAuthController::class, 'hanldeGoogleCallback']); 
 Route::get('auth/twitter/callback', [TwitterAuthController::class, 'handleTwitterCallback']); 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'CheckRole'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+    return view('dashboard');
+})->name('admin');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/user', function () {
+    return view('dashboard');
+})->name('user');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/analytics', function () {
     return view('analytics');

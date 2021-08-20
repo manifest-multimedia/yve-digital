@@ -111,6 +111,10 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                     <div class="panel-body custom-body">
                         
+
+                        
+
+
                     </div>
                 </div>
             </div>

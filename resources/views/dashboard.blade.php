@@ -69,7 +69,7 @@ Dashboard - {{Auth::user()->name}}
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Welcome back, {{Auth::user()->name}}</h1>
+                            <h1 class="greet">Welcome back, {{Auth::user()->name}} </h1>
                             <small>See how your music is performing!</small>
                         </div>
 

@@ -28,7 +28,7 @@ add('writable_dirs', []);
 host('194.135.82.202')
     //->set('deploy_path', '~/{{application}}')
     ->user('yvedigital')
-    ->identityFile('id_rsa', 'id_rsa.pub')
+    //->identityFile('id_rsa', 'id_rsa.pub')
     ->set('deploy_path', '/var/www/yvedigital.com/app');
     
     
