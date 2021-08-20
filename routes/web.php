@@ -59,9 +59,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/royalties', function () {
     return view('royalties');
 })->name('royalties');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/promotion', function () {
-    return view('promotion');
-})->name('promotion');
+Route::middleware(['auth:sanctum', 'verified'])->get('/manager', function () {
+    // $users=DB::table('users')
+    // ->where('user_role', 'user')
+    // ->get(); 
+
+    return view('manager');
+})->name('manager');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/new-release', function () {
     return view('new-release');
