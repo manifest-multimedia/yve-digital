@@ -120,7 +120,7 @@ Administration - {{Auth::user()->name}}
                                 
                                 
 
-                                @livewire('royalties')
+                                @livewire('updateroyalties')
 
                                 
                             

@@ -12,7 +12,9 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	
+	@livewireScripts
 	@livewireStyles
+	
 
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -30,7 +32,8 @@
 	@yield('content')
 
 	</div>	<!--/.main-->
-
+	
+	
 	<script src="{{asset('backend/js/jquery-1.11.1.min.js')}}" defer></script>
 	<script src="{{asset('backend/js/bootstrap.min.js')}}" defer></script>
 	<script src="{{asset('backend/js/chart.min.js')}}" defer></script>
@@ -71,7 +74,7 @@
 		});
 	</script>
 
-@livewireScripts
+
 
 </body>
 </html>

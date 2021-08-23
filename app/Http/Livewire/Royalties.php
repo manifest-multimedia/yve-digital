@@ -4,37 +4,37 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\User; 
+use App\Models\Release; 
+
 use DB; 
 
 class Royalties extends Component
 {
-    public $selectUser=NULL; 
 
-    public function render()
-    {
+    public $selectedUser = null;
+    public $releases = null;
+    public $users; 
 
-        
-        $users=DB::table('users')
-        ->where('user_role', 'user')
-        ->get(); 
+    public function mount(){
 
-        //$selected=$this->selectUser; 
-       
-        if(!is_null($selected=$this->selectUser)){
-            
-        $releases=DB::table('royalties')
-            ->where('username', $selected)
-            ->get(); 
-        
-       } else {
-        $releases=DB::table('royalties')->get(); 
-       }
-            
-            return view('livewire.royalties', compact('users', 'releases'));
-        
+        $this->users=User::all(); 
+      
+    } 
+
+    public function render(){
+
+            return view('livewire.royalties');
 
     }
 
-   
+    public function updatedSelectedUser($selectedUser) {
+
+        $this->releases=DB::table('royalties')
+        ->where('username', $selectedUser)
+        ->get();
+
+    }
 
 }
+
