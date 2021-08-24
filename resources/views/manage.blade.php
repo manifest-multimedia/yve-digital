@@ -70,17 +70,17 @@ Administration - {{Auth::user()->name}}
                     <div class="heading-bar">
                         <div class="greetings">
                             <h1 class="greet">Manager</h1>
-                            <small>Take it a notch higher! </small>
+                            <small>Howdy {{Auth::user()->name}}! </small>
                         </div>
                         
                         <div>
                             
                             <div class="btn-div">
-                                @if (Route::has('new-release'))
+                                {{-- @if (Route::has('new-release'))
                                 
                                 <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create Release</a>
                                 
-                                @endif 
+                                @endif  --}}
                                     
                                 <a href="/profile" class="btn btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
@@ -113,107 +113,97 @@ Administration - {{Auth::user()->name}}
                     <div class="panel-body custom-body">
                         
 
-                        <form> 
-                            @csrf
-                           
-                            <div class="row"> 
+                       
                                 
-                                
-
+                             
                                 @livewire('updateroyalties')
 
-                                
-                            
-                        
-
-
-                            <div class="col-md-6"> 
-                            <fieldset> 
-                            <h3> Spotify </h3> 
-                            <label> Downloads</label>
-                            <input class="form-control" type="text" /> 
-                            <label> Streams</label>
-                            <input class="form-control" type="text" /> 
-                            <label> Earnings</label>
-                            <input class="form-control" type="text" /> 
-                            </fieldset>
-                            </div> 
-
-                            <div class="col-md-6"> 
+                            {{-- <div class="col-md-6"> 
                                 <fieldset> 
-                                <h3> Deezer </h3> 
-                                <label> Downloads</label>
-                                <input class="form-control" type="text" /> 
-                                <label> Streams</label>
-                                <input class="form-control" type="text" /> 
-                                <label> Earnings</label>
-                                <input class="form-control" type="text" /> 
-                                </fieldset>
-                                </div> 
-                            
-
-                                <div class="col-md-6"> 
-                                    <fieldset> 
-                                    <h3> YouTube </h3> 
+                                    <h3> Spotify </h3> 
                                     <label> Downloads</label>
                                     <input class="form-control" type="text" /> 
                                     <label> Streams</label>
                                     <input class="form-control" type="text" /> 
                                     <label> Earnings</label>
                                     <input class="form-control" type="text" /> 
-                                    </fieldset>
-                                    </div> 
+                                </fieldset>
+                            </div> 
 
-                                    <div class="col-md-6"> 
-                                        <fieldset> 
-                                        <h3> Tidal </h3> 
-                                        <label> Downloads</label>
-                                        <input class="form-control" type="text" /> 
-                                        <label> Streams</label>
-                                        <input class="form-control" type="text" /> 
-                                        <label> Earnings</label>
-                                        <input class="form-control" type="text" /> 
-                                        </fieldset>
-                                        </div> 
+                            <div class="col-md-6"> 
+                                <fieldset> 
+                                    <h3> Deezer </h3> 
+                                    <label> Downloads</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Streams</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Earnings</label>
+                                    <input class="form-control" type="text" /> 
+                                </fieldset>
+                            </div> 
+                        
 
-                                        <div class="col-md-6"> 
-                                            <fieldset> 
-                                            <h3> Apple Music </h3> 
-                                            <label> Downloads</label>
-                                            <input class="form-control" type="text" /> 
-                                            <label> Streams</label>
-                                            <input class="form-control" type="text" /> 
-                                            <label> Earnings</label>
-                                            <input class="form-control" type="text" /> 
-                                            </fieldset>
-                                            </div> 
+                            <div class="col-md-6"> 
+                                <fieldset> 
+                                <h3> YouTube </h3> 
+                                    <label> Downloads</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Streams</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Earnings</label>
+                                    <input class="form-control" type="text" /> 
+                                </fieldset>
+                            </div> 
 
-                                            <div class="col-md-6"> 
-                                                <fieldset> 
-                                                <h3> Vevo </h3> 
-                                                <label> Downloads</label>
-                                                <input class="form-control" type="text" /> 
-                                                <label> Streams</label>
-                                                <input class="form-control" type="text" /> 
-                                                <label> Earnings</label>
-                                                <input class="form-control" type="text" /> 
-                                                </fieldset>
-                                                </div> 
+                            <div class="col-md-6"> 
+                                <fieldset> 
+                                    <h3> Tidal </h3> 
+                                    <label> Downloads</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Streams</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Earnings</label>
+                                    <input class="form-control" type="text" /> 
+                                </fieldset>
+                            </div> 
 
-                                                <div class="col-md-6"> 
-                                                    <fieldset> 
-                                                    <h3> Amazon </h3> 
-                                                    <label> Downloads</label>
-                                                    <input class="form-control" type="text" /> 
-                                                    <label> Streams</label>
-                                                    <input class="form-control" type="text" /> 
-                                                    <label> Earnings</label>
-                                                    <input class="form-control" type="text" /> 
-                                                    </fieldset>
-                                                    </div> 
+                            <div class="col-md-6"> 
+                                <fieldset> 
+                                    <h3> Apple Music </h3> 
+                                    <label> Downloads</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Streams</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Earnings</label>
+                                    <input class="form-control" type="text" /> 
+                                </fieldset>
+                            </div> 
 
-                        </div>
-                        </form>
+                            <div class="col-md-6"> 
+                                <fieldset> 
+                                    <h3> Vevo </h3> 
+                                    <label> Downloads</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Streams</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Earnings</label>
+                                    <input class="form-control" type="text" /> 
+                                </fieldset>
+                            </div> 
+
+                            <div class="col-md-6"> 
+                                <fieldset> 
+                                    <h3> Amazon </h3> 
+                                    <label> Downloads</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Streams</label>
+                                    <input class="form-control" type="text" /> 
+                                    <label> Earnings</label>
+                                    <input class="form-control" type="text" /> 
+                                </fieldset>
+                            </div>  --}}
+
+                        
 
 
                     </div>
