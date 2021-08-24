@@ -16,257 +16,281 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(
 
-            [
+        //Users Array
 
+        $tempusers = array(
+            array('id' => '1','username' => 'java','cust_phone' => '0240131657','pass' => 'a','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:34:40am','trans_date' => '2019-12-25'),
+            array('id' => '2','username' => 'kwamebaah','cust_phone' => '0241844159','pass' => 'adjoaattaa','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:45:28pm','trans_date' => '2020-05-14'),
+            array('id' => '3','username' => 'myAdmin','cust_phone' => 'admin','pass' => 'my@123','privilege' => 'admin','online_stat' => '','active_stat' => '','trans_time' => '15:34:18pm','trans_date' => '2021-06-12'),
+            array('id' => '4','username' => 'George Bows','cust_phone' => '0246161812','pass' => '0240337887','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '05:53:11am','trans_date' => '2020-06-22'),
+            array('id' => '5','username' => 'Dhamie','cust_phone' => '0501069918','pass' => 'teamrydinsolo','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:14:39am','trans_date' => '2019-05-10'),
+            array('id' => '6','username' => 'hypegh','cust_phone' => '0248206454','pass' => 'zulugh','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:48:44pm','trans_date' => '2019-05-11'),
+            array('id' => '7','username' => 'Tuffour Frank','cust_phone' => '0242035587','pass' => 'tf5775jc','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:00:29am','trans_date' => '2019-05-23'),
+            array('id' => '8','username' => 'Kuami Ufresh','cust_phone' => '249952019','pass' => 'newmanteyeo6','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:13:33am','trans_date' => '2019-05-18'),
+            array('id' => '9','username' => '@kuamiufresh','cust_phone' => '0249952019','pass' => '0249952019teye','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:41:35am','trans_date' => '2019-05-29'),
+            array('id' => '10','username' => 'ADONIY','cust_phone' => '8134082054','pass' => 'Ozymandiah@1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:03:02pm','trans_date' => '2019-06-08'),
+            array('id' => '11','username' => 'DBlack','cust_phone' => '0204330110','pass' => 'blackavenuemuzik','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '16:11:25pm','trans_date' => '2020-03-18'),
+            array('id' => '12','username' => 'Stepper','cust_phone' => '0551407745','pass' => 'lion1995','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:50:09pm','trans_date' => '2019-06-13'),
+            array('id' => '13','username' => 'SCRATCH MUSIC','cust_phone' => '0547344888','pass' => 'Stephen1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:34:40am','trans_date' => '2019-06-30'),
+            array('id' => '14','username' => 'Phrimpong','cust_phone' => '0247664703','pass' => 'wanyaLN','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:56:47pm','trans_date' => '2020-11-16'),
+            array('id' => '15','username' => 'Adi ruler','cust_phone' => '0243251048','pass' => 'Rulenationz','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:58:36pm','trans_date' => '2019-08-23'),
+            array('id' => '16','username' => 'BURZY','cust_phone' => '0244724493','pass' => 'VIMCITYMUSICG1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:37:04am','trans_date' => '2020-03-15'),
+            array('id' => '17','username' => 'Richmond Boateng','cust_phone' => '0555566263','pass' => 'hosbbic','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:25:33pm','trans_date' => '2019-10-21'),
+            array('id' => '18','username' => 'KOBBYSILENCE','cust_phone' => '0541673181','pass' => '200Ghana','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '21:56:04pm','trans_date' => '2019-10-24'),
+            array('id' => '19','username' => 'deep5623','cust_phone' => '9855862309','pass' => 'Long0987','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '02:12:01am','trans_date' => '2019-10-30'),
+            array('id' => '20','username' => 'TYMA','cust_phone' => '0559488742','pass' => 'tymamusic1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:48:55am','trans_date' => '2019-10-31'),
+            array('id' => '21','username' => 'FaliFinest','cust_phone' => '0209524049','pass' => '1Falifinest','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:04:03pm','trans_date' => '2019-11-04'),
+            array('id' => '23','username' => 'Loaded47','cust_phone' => '0544827977','pass' => 'kingsley47','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '23:48:38pm','trans_date' => '2019-11-04'),
+            array('id' => '22','username' => 'FRIMPONG','cust_phone' => '0553540182','pass' => 'amekugee','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:55:52pm','trans_date' => '2020-11-24'),
+            array('id' => '24','username' => 'KwameBaahGH','cust_phone' => '0209094853','pass' => 'adjoaattaa','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '06:39:19am','trans_date' => '2019-11-21'),
+            array('id' => '25','username' => 'chilmore','cust_phone' => '7766390181','pass' => 'Ruvarashe3','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:48:29am','trans_date' => '2019-11-07'),
+            array('id' => '26','username' => 'New breedz Generationz','cust_phone' => '6477857960','pass' => 'Lilgames4$','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:45:02pm','trans_date' => '2019-11-08'),
+            array('id' => '27','username' => 'aspikaspoila','cust_phone' => '0701473804','pass' => 'moneys1pop','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:22:26pm','trans_date' => '2019-11-10'),
+            array('id' => '28','username' => 'aspikaspoila','cust_phone' => '0701473804','pass' => 'moneys1pop','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:22:26pm','trans_date' => '2019-11-10'),
+            array('id' => '29','username' => 'Jonas Dayo','cust_phone' => '0405514904','pass' => 'jjjonny5','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '16:09:13pm','trans_date' => '2019-11-13'),
+            array('id' => '30','username' => 'Lil Lunna','cust_phone' => '3512865053','pass' => 'happyMICHAEL!%2000','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:52:27am','trans_date' => '2019-11-15'),
+            array('id' => '31','username' => 'sabbirdj','cust_phone' => '1742719825','pass' => 'Sabbird&j123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:46:23am','trans_date' => '2020-01-17'),
+            array('id' => '32','username' => 'terbang321','cust_phone' => '6001537507','pass' => 'Leavem3alone','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:09:32pm','trans_date' => '2019-11-22'),
+            array('id' => '33','username' => 'iamalwaysenough@gmail.com','cust_phone' => '3108462060','pass' => 'Matthew1926!','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '05:22:41am','trans_date' => '2019-11-27'),
+            array('id' => '34','username' => 'fareal','cust_phone' => '0881735906','pass' => 'mushevybz','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:27:00am','trans_date' => '2019-12-05'),
+            array('id' => '35','username' => 'Winfredsai','cust_phone' => '0247520209','pass' => 'Saililwin1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:40:19am','trans_date' => '2019-12-17'),
+            array('id' => '36','username' => 'FAMEYE','cust_phone' => '0540279412','pass' => 'mygodisable','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:13:56am','trans_date' => '2021-04-10'),
+            array('id' => '38','username' => 'satyendra','cust_phone' => '8919869727','pass' => 'RAGAsandyu1@','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:07:45pm','trans_date' => '2019-12-31'),
+            array('id' => '37','username' => 'fredarhymz','cust_phone' => '0244424363','pass' => 'p@ssw0rd','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '21:50:01pm','trans_date' => '2021-05-26'),
+            array('id' => '39','username' => 'Officialbanga1','cust_phone' => '2462618798','pass' => 'addiction','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:10:37pm','trans_date' => '2020-01-14'),
+            array('id' => '40','username' => 'Kevin Sol','cust_phone' => '0247124199','pass' => 'rapido','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:43:17pm','trans_date' => '2020-01-22'),
+            array('id' => '41','username' => 'mannobeats','cust_phone' => '4136484258','pass' => 'MannoBeats123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:04:43pm','trans_date' => '2021-02-05'),
+            array('id' => '42','username' => 'Itz Tee N','cust_phone' => '0245593098','pass' => 'Ebefa1996','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:06:28pm','trans_date' => '2020-02-02'),
+            array('id' => '43','username' => 'Yawbeats','cust_phone' => '0240143886','pass' => '0240143886','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:02:49am','trans_date' => '2020-02-25'),
+            array('id' => '44','username' => 'Chikel Baibe','cust_phone' => '0262010477','pass' => 'ChikelYv1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:10:31am','trans_date' => '2020-02-02'),
+            array('id' => '45','username' => 'tayyylee16','cust_phone' => '7826659505','pass' => 'dashing16','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:34:30pm','trans_date' => '2020-02-04'),
+            array('id' => '46','username' => 'UBUNTUBROTHERS','cust_phone' => '0845591899','pass' => '30112255','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:03:54am','trans_date' => '2020-02-05'),
+            array('id' => '47','username' => 'Naspito','cust_phone' => '0246429861','pass' => 'naspito,','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:12:06pm','trans_date' => '2020-02-05'),
+            array('id' => '48','username' => 'Yaw Krrish','cust_phone' => '0202638461','pass' => '1Raymon$','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:02:33am','trans_date' => '2020-02-09'),
+            array('id' => '49','username' => 'Kenx music','cust_phone' => '0558391379','pass' => '1Raymon$','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:08:56pm','trans_date' => '2020-02-12'),
+            array('id' => '50','username' => 'KOSTASPEED','cust_phone' => '6992238636','pass' => 'dj_speed333333','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:51:45pm','trans_date' => '2020-02-23'),
+            array('id' => '55','username' => 'KYLEM','cust_phone' => '3337870092','pass' => 'Mbamesarah11','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '21:15:52pm','trans_date' => '2020-03-12'),
+            array('id' => '51','username' => 'SamBoee','cust_phone' => '2055192969','pass' => 'SamBoee2020','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:11:28pm','trans_date' => '2020-03-01'),
+            array('id' => '52','username' => 'Joey_lowso_official','cust_phone' => '0208325924','pass' => 'Lowso891','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:48:39am','trans_date' => '2020-03-02'),
+            array('id' => '53','username' => 'kojomaurice','cust_phone' => '0241226956','pass' => '1Realjoeym','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:31:51pm','trans_date' => '2020-03-03'),
+            array('id' => '54','username' => 'Jay Jnr','cust_phone' => '0792123452','pass' => 'Barcode_jnr_1998','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:48:14pm','trans_date' => '2020-03-06'),
+            array('id' => '56','username' => 'Myra Kay','cust_phone' => '0208504365','pass' => 'myrakaymusic','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:08:56pm','trans_date' => '2021-06-12'),
+            array('id' => '57','username' => 'DJ Ezee','cust_phone' => '8768998380','pass' => 'Mafiezee1981','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '21:13:41pm','trans_date' => '2020-03-19'),
+            array('id' => '58','username' => 'GeorgePraize','cust_phone' => '0246839656','pass' => 'kwekup33','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '05:06:42am','trans_date' => '2020-03-21'),
+            array('id' => '59','username' => 'officialmceerich','cust_phone' => '273575139','pass' => 'officialmceerich','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:25:30am','trans_date' => '2020-04-02'),
+            array('id' => '60','username' => 'ADfADFdfsff','cust_phone' => '07741756','pass' => 'qwerty12345','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:04:16am','trans_date' => '2020-04-03'),
+            array('id' => '61','username' => 'Zane Wrld','cust_phone' => '0122362718','pass' => 'ZZ01223627182Z','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '04:30:51am','trans_date' => '2020-04-14'),
+            array('id' => '62','username' => 'arief iskandar music','cust_phone' => '628619286','pass' => 'arief142947','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:21:36am','trans_date' => '2020-04-20'),
+            array('id' => '63','username' => 'kadobeatz','cust_phone' => '5359211743','pass' => 'venessa21','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:06:57pm','trans_date' => '2020-04-27'),
+            array('id' => '64','username' => 'jamarjargo','cust_phone' => '0544500540','pass' => 'candela9500','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:41:55am','trans_date' => '2020-05-14'),
+            array('id' => '65','username' => 'Skrybla','cust_phone' => '0547334867','pass' => '0249923064','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:37:19am','trans_date' => '2020-04-30'),
+            array('id' => '66','username' => 'YETOLLA BEATZ','cust_phone' => '0244106063','pass' => 'Adelmusic310519','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:56:24am','trans_date' => '2020-05-08'),
+            array('id' => '67','username' => 'DJ LuHleRh','cust_phone' => '0662100649','pass' => 'luhle12','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:56:31pm','trans_date' => '2020-05-20'),
+            array('id' => '68','username' => 'Prixce','cust_phone' => '4036155780','pass' => 'SumKum1212','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:58:14am','trans_date' => '2020-05-19'),
+            array('id' => '69','username' => 'UBUNTU BROTHERS','cust_phone' => '0813640951','pass' => '30112255','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:57:27pm','trans_date' => '2020-05-25'),
+            array('id' => '70','username' => 'mccaphy','cust_phone' => '0554757360','pass' => 'operamini8','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:56:18pm','trans_date' => '2020-06-03'),
+            array('id' => '71','username' => 'Detruu35','cust_phone' => '2482754662','pass' => 'Kiddo313','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:56:29pm','trans_date' => '2020-06-05'),
+            array('id' => '72','username' => 'Arold','cust_phone' => '0546123134','pass' => 'stonec316','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:08:40am','trans_date' => '2020-08-11'),
+            array('id' => '73','username' => 'MICHAEL SPEARS JR.','cust_phone' => '0787532690','pass' => 'Ash130195','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:12:54am','trans_date' => '2020-06-21'),
+            array('id' => '77','username' => 'YAW BERK','cust_phone' => '0240804819','pass' => 'HITSONGS','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:56:41am','trans_date' => '2020-07-16'),
+            array('id' => '74','username' => 'Kojjo Zagga','cust_phone' => '0558259112','pass' => '0558259112','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:20:44pm','trans_date' => '2021-02-02'),
+            array('id' => '75','username' => '_ilest','cust_phone' => '0774210665','pass' => 'mazikunumber','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:16:28pm','trans_date' => '2020-07-02'),
+            array('id' => '76','username' => 'Tyjjae12','cust_phone' => '5049193235','pass' => 'Tyjjae13','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:32:03am','trans_date' => '2020-07-03'),
+            array('id' => '78','username' => 'abuhuda5','cust_phone' => '8074414333','pass' => 'skmaction@1payeer','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '21:01:42pm','trans_date' => '2020-07-16'),
+            array('id' => '79','username' => 'mrpercy','cust_phone' => '0734832306','pass' => 'mecks020','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:45:26am','trans_date' => '2021-06-18'),
+            array('id' => '80','username' => 'OokomfoooKwadee33','cust_phone' => '4707084483','pass' => 'J3rry-3000','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:44:49am','trans_date' => '2021-05-04'),
+            array('id' => '81','username' => 'josh campbell','cust_phone' => '3669977','pass' => 'onelove6778','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:13:05am','trans_date' => '2020-08-24'),
+            array('id' => '82','username' => 'Winky','cust_phone' => '0268543283','pass' => 'MusicDistribution','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '02:12:35am','trans_date' => '2020-08-29'),
+            array('id' => '83','username' => 'Y.O.G','cust_phone' => '0270649181','pass' => 'yogmusictotheworld','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:20:53pm','trans_date' => '2020-08-30'),
+            array('id' => '84','username' => 'navdeep.nick','cust_phone' => '9768661313','pass' => 'xudsas-jymhyx-boCpo2','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:22:55am','trans_date' => '2020-09-01'),
+            array('id' => '85','username' => 'Fantana','cust_phone' => '0243005695','pass' => 'this is right','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:59:28pm','trans_date' => '2020-09-05'),
+            array('id' => '86','username' => 'Unicusperial','cust_phone' => '0279076030','pass' => '0279076030','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:27:36am','trans_date' => '2021-01-06'),
+            array('id' => '87','username' => '3rdmusic','cust_phone' => '0274298867','pass' => '3rdonline','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:02:50pm','trans_date' => '2020-09-24'),
+            array('id' => '88','username' => 'BlackEagleEntertainment','cust_phone' => '0555608800','pass' => 'BlackEagleEnt2020','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:42:19pm','trans_date' => '2021-03-01'),
+            array('id' => '89','username' => 'Jamaika','cust_phone' => '0557429403','pass' => 'blackhole1585','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:24:41am','trans_date' => '2020-10-10'),
+            array('id' => '90','username' => 'HD Empire Zambia','cust_phone' => '0974148009','pass' => 'ikatapoapa','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:01:58am','trans_date' => '2020-10-13'),
+            array('id' => '91','username' => 'LOD','cust_phone' => '0550836725','pass' => 'demigadcode1581','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '23:19:48pm','trans_date' => '2020-10-13'),
+            array('id' => '92','username' => 'Amerado','cust_phone' => '0543936497','pass' => 'micburner1402','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:46:39am','trans_date' => '2021-06-07'),
+            array('id' => '93','username' => 'dadrippababy','cust_phone' => '0540305842','pass' => 'Mymu$ic1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:25:07pm','trans_date' => '2020-10-23'),
+            array('id' => '94','username' => 'Eddy Drizzy','cust_phone' => '9036623341','pass' => 'edDY1drizzy','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:50:17pm','trans_date' => '2020-11-08'),
+            array('id' => '95','username' => 'sidecut','cust_phone' => '9041972992','pass' => 'harry@1993','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:02:37am','trans_date' => '2020-11-09'),
+            array('id' => '96','username' => 'The official flyboy','cust_phone' => '0500159892','pass' => '5KSiLEFJP5pGqt7','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:57:47am','trans_date' => '2020-11-09'),
+            array('id' => '97','username' => 'Jayfaculty1','cust_phone' => '0240536268','pass' => 'facultyf','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:58:46am','trans_date' => '2020-11-09'),
+            array('id' => '98','username' => 'VC BLAQ','cust_phone' => '0554311992','pass' => 'Rapgod1234','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:00:13am','trans_date' => '2020-11-09'),
+            array('id' => '99','username' => 'Melchidaine','cust_phone' => '0544252039','pass' => '0242673807','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:41:17am','trans_date' => '2020-11-09'),
+            array('id' => '100','username' => 'Nehs Banko','cust_phone' => '0249112159','pass' => 'Kboadione','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:32:11am','trans_date' => '2020-11-11'),
+            array('id' => '101','username' => 'KatKiz','cust_phone' => '0242132300','pass' => 'aroma317','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:24:29pm','trans_date' => '2020-11-09'),
+            array('id' => '102','username' => 'Original capelo','cust_phone' => '0557560958','pass' => 'oneday123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:00:49pm','trans_date' => '2021-03-20'),
+            array('id' => '103','username' => 'OPPONG-ANTWI','cust_phone' => '0502074264','pass' => 'Greatness885','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:41:48am','trans_date' => '2020-11-11'),
+            array('id' => '104','username' => 'Nana OT','cust_phone' => '0543718186','pass' => 'nana@2002','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:47:19am','trans_date' => '2020-11-10'),
+            array('id' => '105','username' => 'Dace Boateng','cust_phone' => '0244714136','pass' => 'Gadboy001','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '16:21:56pm','trans_date' => '2020-11-10'),
+            array('id' => '106','username' => 'theoranks2000@gmail.com','cust_phone' => '0559015010','pass' => 'statema2000','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:51:29pm','trans_date' => '2020-11-10'),
+            array('id' => '107','username' => 'Dopebwoy Kingpin','cust_phone' => '0550759247','pass' => 'kingpin112','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:43:15am','trans_date' => '2020-11-18'),
+            array('id' => '108','username' => 'Blackboy coba','cust_phone' => '0243796492','pass' => 'nanayaw1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:52:07am','trans_date' => '2020-11-11'),
+            array('id' => '109','username' => 'Jhuicy Jay','cust_phone' => '0241460046','pass' => 'Dufie10.','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:44:54pm','trans_date' => '2020-11-11'),
+            array('id' => '110','username' => 'Kwesi Law','cust_phone' => '0553964900','pass' => 'astonish21','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:58:09am','trans_date' => '2020-11-12'),
+            array('id' => '111','username' => 'Blackboycoba','cust_phone' => '0541150887','pass' => 'nanayaw1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:51:20am','trans_date' => '2020-11-12'),
+            array('id' => '112','username' => 'Cartun','cust_phone' => '0248639751','pass' => 'Gazadon123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:23:20pm','trans_date' => '2020-11-12'),
+            array('id' => '113','username' => 'blackness','cust_phone' => '0248393717','pass' => 'nanayaw1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:24:04pm','trans_date' => '2020-11-15'),
+            array('id' => '114','username' => 'opankagh','cust_phone' => '0246988517','pass' => 'tiee@.com','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:58:03am','trans_date' => '2020-11-14'),
+            array('id' => '115','username' => 'minimoneygang','cust_phone' => '0571127347','pass' => 'officialfamily','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:57:04pm','trans_date' => '2020-11-22'),
+            array('id' => '116','username' => 'Kweku Flick','cust_phone' => '0240017565','pass' => 'Power2thepeople','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:08:15pm','trans_date' => '2021-06-03'),
+            array('id' => '117','username' => 'MMG','cust_phone' => '0505610938','pass' => 'officialfamily11310','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:35:31pm','trans_date' => '2020-11-19'),
+            array('id' => '118','username' => 'K Quart','cust_phone' => '0242353128','pass' => 'nyanta92','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:09:42pm','trans_date' => '2020-11-21'),
+            array('id' => '119','username' => 'New_lordz','cust_phone' => '0541605380','pass' => 'malone231996','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:34:43pm','trans_date' => '2020-12-06'),
+            array('id' => '120','username' => 'JhuxtelloHub','cust_phone' => '0541709799','pass' => 'jhuxtello','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '02:34:12am','trans_date' => '2020-12-08'),
+            array('id' => '121','username' => 'Shortcode','cust_phone' => '0549696388','pass' => '0549696388v','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:31:28am','trans_date' => '2020-12-11'),
+            array('id' => '122','username' => 'Nii Afro','cust_phone' => '0558636157','pass' => 'moose.hypez.1996','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:16:48pm','trans_date' => '2020-12-13'),
+            array('id' => '123','username' => 'mayteemusic@gmail.com','cust_phone' => '0558316580','pass' => 'mayteemusic@19977','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:49:35am','trans_date' => '2021-01-07'),
+            array('id' => '124','username' => 'KishKobby','cust_phone' => '0559048917','pass' => 'kobbi321','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:34:39am','trans_date' => '2020-12-20'),
+            array('id' => '125','username' => 'Ekkahmusic','cust_phone' => '248867979','pass' => '@Ekkah1001@','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:56:01pm','trans_date' => '2020-12-17'),
+            array('id' => '126','username' => 'Samant','cust_phone' => '958895958','pass' => 'twoshot77','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:59:52pm','trans_date' => '2020-12-17'),
+            array('id' => '127','username' => 'Omega','cust_phone' => '0549614139','pass' => 'omega938','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:50:54pm','trans_date' => '2020-12-17'),
+            array('id' => '128','username' => 'K siaw','cust_phone' => '0557173554','pass' => 'Stevoo99','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '02:05:33am','trans_date' => '2020-12-18'),
+            array('id' => '129','username' => 'Bryne0547','cust_phone' => '0547636709','pass' => 'Stonebwoy1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:19:01pm','trans_date' => '2020-12-19'),
+            array('id' => '130','username' => 'princekoomson3@gmail.com','cust_phone' => '551900815','pass' => 'FORTUNE#2020','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:52:54pm','trans_date' => '2020-12-18'),
+            array('id' => '131','username' => 'Lil curry','cust_phone' => '0552354285','pass' => 'quavoHuncho','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:19:58pm','trans_date' => '2020-12-19'),
+            array('id' => '132','username' => 'Samkrew','cust_phone' => '0591844669','pass' => 'Samkrewmuzik1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:57:56pm','trans_date' => '2020-12-20'),
+            array('id' => '133','username' => 'Tsetse boi','cust_phone' => '0547528901','pass' => 'Peekay@69','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:31:00am','trans_date' => '2020-12-28'),
+            array('id' => '134','username' => '3ar1','cust_phone' => '0202053811','pass' => 'Mymu$ic1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:21:44am','trans_date' => '2020-12-21'),
+            array('id' => '135','username' => 'Deray','cust_phone' => '0768830400','pass' => 'Nzaramba','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:40:18pm','trans_date' => '2020-12-21'),
+            array('id' => '136','username' => 'Querku bhad','cust_phone' => '0504155741','pass' => 'markforson123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:46:55pm','trans_date' => '2020-12-24'),
+            array('id' => '137','username' => 'chris_alpha','cust_phone' => '0540686677','pass' => 'Greatest1234','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:35:12pm','trans_date' => '2020-12-25'),
+            array('id' => '138','username' => 'Minister Assan','cust_phone' => '7852007224','pass' => 'Assanmusiq@1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:00:04pm','trans_date' => '2020-12-29'),
+            array('id' => '139','username' => 'brainbillz','cust_phone' => '0247793418','pass' => 'Shabrain12','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:30:54am','trans_date' => '2020-12-30'),
+            array('id' => '140','username' => '7ilaw','cust_phone' => '0244918618','pass' => 'tilaw1998','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:51:55pm','trans_date' => '2020-12-30'),
+            array('id' => '141','username' => 'Dennise','cust_phone' => '0543219515','pass' => 'nanny123456!','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:02:27pm','trans_date' => '2021-01-06'),
+            array('id' => '142','username' => 'Abisah','cust_phone' => '0541595600','pass' => 'Abisah3728','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:50:36pm','trans_date' => '2021-01-19'),
+            array('id' => '143','username' => 'yawtog','cust_phone' => '0262592051','pass' => 'yawtog','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:39:46am','trans_date' => '2021-06-11'),
+            array('id' => '144','username' => 'Anim','cust_phone' => '0550268472','pass' => 'music@123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:19:16pm','trans_date' => '2021-01-10'),
+            array('id' => '145','username' => 'Ramiforson','cust_phone' => '0541831111','pass' => 'rami1music','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:22:13am','trans_date' => '2021-01-15'),
+            array('id' => '146','username' => 'Roy deezy','cust_phone' => '0556041579','pass' => 'greatvission','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:16:54am','trans_date' => '2021-01-11'),
+            array('id' => '147','username' => 'Msanago','cust_phone' => '5153001854','pass' => '2551484a','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '06:31:12am','trans_date' => '2021-01-21'),
+            array('id' => '148','username' => 'Siredges','cust_phone' => '0246270655','pass' => 'jba21121986','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:45:45am','trans_date' => '2021-01-21'),
+            array('id' => '149','username' => 'Psyco','cust_phone' => '0543123375','pass' => 'psycowanrah60802002','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '19:27:55pm','trans_date' => '2021-01-24'),
+            array('id' => '150','username' => 'Lopezjnr','cust_phone' => '0573773040','pass' => 'lopez2020','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:46:31pm','trans_date' => '2021-01-26'),
+            array('id' => '151','username' => 'Nana akua Nyarko','cust_phone' => '0540364649','pass' => 'nyarko3030','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '23:00:51pm','trans_date' => '2021-01-25'),
+            array('id' => '152','username' => 'Larjez','cust_phone' => '0541019451','pass' => 'citesky@11','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:40:43am','trans_date' => '2021-01-27'),
+            array('id' => '153','username' => '2ace','cust_phone' => '0593598274','pass' => 'Donttrustthem','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:09:34pm','trans_date' => '2021-01-27'),
+            array('id' => '154','username' => '2ace','cust_phone' => '0593598274','pass' => 'Donttrustthem','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:09:34pm','trans_date' => '2021-01-27'),
+            array('id' => '155','username' => 'Shark Lyrix','cust_phone' => '0555514929','pass' => '21MegaStar','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '23:20:01pm','trans_date' => '2021-01-27'),
+            array('id' => '156','username' => 'jessygh','cust_phone' => '0541093703','pass' => 'jessykwamebn@1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:14:35am','trans_date' => '2021-01-30'),
+            array('id' => '157','username' => 'Bankye','cust_phone' => '0240154701','pass' => '0274006699','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:28:11am','trans_date' => '2021-01-29'),
+            array('id' => '158','username' => 'Mr 2five','cust_phone' => '0541483387','pass' => 'philip123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:15:03am','trans_date' => '2021-03-20'),
+            array('id' => '159','username' => 'Mercury','cust_phone' => '0555650458','pass' => 'Mercury123@','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:44:37pm','trans_date' => '2021-01-29'),
+            array('id' => '160','username' => 'Kay Pee','cust_phone' => '0505110276','pass' => 'Kaypee131','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:01:46am','trans_date' => '2021-02-09'),
+            array('id' => '161','username' => 'Joevin Merders','cust_phone' => '0248065391','pass' => 'Hvdcdigital1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '16:54:15pm','trans_date' => '2021-01-30'),
+            array('id' => '162','username' => 'I-Prinze','cust_phone' => '0541655350','pass' => 'iprinze98','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:54:56pm','trans_date' => '2021-01-31'),
+            array('id' => '163','username' => 'Joevin_Merders','cust_phone' => '0201000356','pass' => 'Hvdcdigital2','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:50:12am','trans_date' => '2021-02-05'),
+            array('id' => '164','username' => 'YawLeb','cust_phone' => '0592658150','pass' => 'lebboythis','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:08:20am','trans_date' => '2021-02-03'),
+            array('id' => '165','username' => 'SistaAfia','cust_phone' => '0260561723','pass' => 'sistaafia','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:25:50am','trans_date' => '2021-06-09'),
+            array('id' => '166','username' => 'Zigi Brown','cust_phone' => '0505391573','pass' => 'Samuel566','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:42:19pm','trans_date' => '2021-02-24'),
+            array('id' => '167','username' => 'Pressplaymusic','cust_phone' => '0561999218','pass' => 'Theangelep','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '04:26:20am','trans_date' => '2021-02-06'),
+            array('id' => '168','username' => 'LilWinKwadwo','cust_phone' => '0260261723','pass' => 'KWADWOLILWIN','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:23:52pm','trans_date' => '2021-06-09'),
+            array('id' => '169','username' => 'John Tucker Hayes','cust_phone' => '0541376367','pass' => 'jkj,1234567','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:24:15am','trans_date' => '2021-02-14'),
+            array('id' => '170','username' => 'Ohene Alakia','cust_phone' => '0543174166','pass' => 'alakia23','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:45:10am','trans_date' => '2021-02-18'),
+            array('id' => '171','username' => 'sekend king','cust_phone' => '0559034898','pass' => 'richasfuck','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:11:59pm','trans_date' => '2021-02-20'),
+            array('id' => '172','username' => 'KWEKU JAMEL','cust_phone' => '0548796020','pass' => '0548796020','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:50:35am','trans_date' => '2021-02-23'),
+            array('id' => '173','username' => 'Kobina Thaddeus','cust_phone' => '0271620584','pass' => 'Thaddeus03','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '20:06:27pm','trans_date' => '2021-05-17'),
+            array('id' => '174','username' => 'Peniel Velly','cust_phone' => '0554957682','pass' => 'ka2j35o!!','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:42:15pm','trans_date' => '2021-02-25'),
+            array('id' => '175','username' => 'JAHSALAMIL','cust_phone' => '0244663011','pass' => 'jizzanation1980','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:04:51am','trans_date' => '2021-02-26'),
+            array('id' => '176','username' => 'Kueku Benz','cust_phone' => '0264017604','pass' => 'KuekuBenz1633','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:00:29pm','trans_date' => '2021-04-06'),
+            array('id' => '177','username' => 'Cheri','cust_phone' => '0542731096','pass' => 'hiplingala1987','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:33:50pm','trans_date' => '2021-03-15'),
+            array('id' => '178','username' => 'Manuelwrld','cust_phone' => '0556196120','pass' => 'bornegas','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:29:20pm','trans_date' => '2021-02-27'),
+            array('id' => '179','username' => 'MENSAH','cust_phone' => '0574203707','pass' => 'dzeny1581','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:20:43am','trans_date' => '2021-03-01'),
+            array('id' => '180','username' => 'BOY TEE YORR','cust_phone' => '0543941674','pass' => '0543941674','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '21:57:18pm','trans_date' => '2021-03-23'),
+            array('id' => '181','username' => 'Hosfred1','cust_phone' => '0245338262','pass' => 'Godfred123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:02:21am','trans_date' => '2021-03-02'),
+            array('id' => '182','username' => 'Yang Tuu Entertainment','cust_phone' => '0545621035','pass' => 'yangtuugh4455','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:01:50pm','trans_date' => '2021-04-06'),
+            array('id' => '183','username' => 'Stwo','cust_phone' => '506628003','pass' => 'sarpei12','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:40:25am','trans_date' => '2021-03-04'),
+            array('id' => '184','username' => 'Manuelwrld1','cust_phone' => '0246679594','pass' => 'bornegas','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:55:01am','trans_date' => '2021-03-04'),
+            array('id' => '185','username' => 'TOXIDO','cust_phone' => '0553211466','pass' => 'Toomuchlife4real','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:32:15am','trans_date' => '2021-03-28'),
+            array('id' => '186','username' => 'Baatyme music','cust_phone' => '0591641461','pass' => 'baatyme','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:05:49pm','trans_date' => '2021-03-05'),
+            array('id' => '187','username' => 'Royal Productions','cust_phone' => '0248803279','pass' => '/RoyalCreative0261!$','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:33:57am','trans_date' => '2021-04-15'),
+            array('id' => '188','username' => 'Kofi South','cust_phone' => '0593123892','pass' => 'Kofisouthgh112','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:08:34am','trans_date' => '2021-03-15'),
+            array('id' => '189','username' => 'Ice Box','cust_phone' => '0202210800','pass' => 'nanakwadwookotoicebox8710','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:54:31am','trans_date' => '2021-03-15'),
+            array('id' => '190','username' => 'Ice Box','cust_phone' => '0202210800','pass' => 'nanakwadwookotoicebox8710','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:54:31am','trans_date' => '2021-03-15'),
+            array('id' => '191','username' => 'Blaq Bery Beats','cust_phone' => '0542552022','pass' => 'godfred1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '05:56:43am','trans_date' => '2021-03-17'),
+            array('id' => '192','username' => 'KayTwistMusic','cust_phone' => '0200400206','pass' => 'Musiconly1818','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:55:37am','trans_date' => '2021-03-19'),
+            array('id' => '193','username' => 'Diamond','cust_phone' => '0205142872','pass' => 'aboagye15','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:26:46am','trans_date' => '2021-03-24'),
+            array('id' => '194','username' => 'Sammydee','cust_phone' => '0506115671','pass' => 'UhaS3MbYaZBiQtc','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '05:05:24am','trans_date' => '2021-03-25'),
+            array('id' => '195','username' => 'Nii Gh','cust_phone' => '0557625268','pass' => 'yogengnation','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:32:06am','trans_date' => '2021-04-08'),
+            array('id' => '196','username' => 'Obibini Takyi Junior','cust_phone' => '0545717873','pass' => 'Obibini123','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:26:34pm','trans_date' => '2021-03-26'),
+            array('id' => '197','username' => 'Mr.X','cust_phone' => '0242959677','pass' => 'asanco4u','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:06:20pm','trans_date' => '2021-03-27'),
+            array('id' => '198','username' => 'Street Bwoys','cust_phone' => '0559029096','pass' => 'SBNS0000','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:17:22pm','trans_date' => '2021-03-29'),
+            array('id' => '199','username' => 'rinothesinger','cust_phone' => '0240941551','pass' => 'iscariot1991','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '16:21:50pm','trans_date' => '2021-03-30'),
+            array('id' => '200','username' => 'Iamyawkrrish','cust_phone' => '0554121198','pass' => 'Kidi2016','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:12:25pm','trans_date' => '2021-04-01'),
+            array('id' => '201','username' => 'brundai cue','cust_phone' => '7462169092','pass' => 'kwakuduah1210','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:49:51am','trans_date' => '2021-04-03'),
+            array('id' => '202','username' => 'osei','cust_phone' => '7440019953','pass' => 'Kukrudu1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:30:39pm','trans_date' => '2021-04-03'),
+            array('id' => '203','username' => 'GenewGuy_','cust_phone' => '0559131649','pass' => 'YAWgreen2','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:42:27am','trans_date' => '2021-05-16'),
+            array('id' => '204','username' => 'Shooelacce','cust_phone' => '0591003389','pass' => 'coFFie@princeGYE:99','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:10:55pm','trans_date' => '2021-04-14'),
+            array('id' => '205','username' => 'Saintgilbert1','cust_phone' => '0542691183','pass' => 'Looknice1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:16:47am','trans_date' => '2021-04-15'),
+            array('id' => '206','username' => 'SongOnGH','cust_phone' => '0240388485','pass' => 'BBone100','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:32:13pm','trans_date' => '2021-04-15'),
+            array('id' => '207','username' => 'Dee Qelvin','cust_phone' => '0202350677','pass' => 'myyvedigital#1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:47:38pm','trans_date' => '2021-05-25'),
+            array('id' => '208','username' => 'Silla Boss','cust_phone' => '0247261377','pass' => 'AMGnova18@','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:01:25am','trans_date' => '2021-04-16'),
+            array('id' => '209','username' => 'Kleinmusic','cust_phone' => '0596054063','pass' => '12345Givenklein','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:50:51pm','trans_date' => '2021-04-18'),
+            array('id' => '210','username' => 'HAPPI FREEMAN','cust_phone' => '0706441863','pass' => 'Mathias2021','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '10:06:25am','trans_date' => '2021-04-20'),
+            array('id' => '211','username' => 'BraJudeGh','cust_phone' => '0554814263','pass' => 'Ame11dey..boy','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '07:10:08am','trans_date' => '2021-04-20'),
+            array('id' => '212','username' => '21kelly','cust_phone' => '0246252202','pass' => '1Princess','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '16:07:14pm','trans_date' => '2021-04-24'),
+            array('id' => '213','username' => '7folksbox','cust_phone' => '0547598820','pass' => 'Monday241990','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:52:36pm','trans_date' => '2021-06-17'),
+            array('id' => '214','username' => 'Lucky Biggese','cust_phone' => '0552282504','pass' => 'Daa992000@','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:08:02pm','trans_date' => '2021-05-04'),
+            array('id' => '215','username' => 'Lyrikin','cust_phone' => '0579923739','pass' => 'lyrikinmusic1234567','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:23:38pm','trans_date' => '2021-05-26'),
+            array('id' => '216','username' => 'Young Cray SA','cust_phone' => '0637496723','pass' => '12carlos&','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:37:21pm','trans_date' => '2021-05-07'),
+            array('id' => '217','username' => 'Untouchable Pablo','cust_phone' => '0547112666','pass' => 'Pab$&@44','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:35:25am','trans_date' => '2021-05-09'),
+            array('id' => '218','username' => 'KirkAfric','cust_phone' => '0545970822','pass' => 'freshboy12','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:39:41pm','trans_date' => '2021-06-17'),
+            array('id' => '219','username' => 'Halfdolla','cust_phone' => '0248141311','pass' => 'NanaAkuaHalfdola21','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:28:13am','trans_date' => '2021-05-14'),
+            array('id' => '220','username' => 'Superboy Mercury','cust_phone' => '0554477873','pass' => 'Mercury123@','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:16:15pm','trans_date' => '2021-05-11'),
+            array('id' => '221','username' => 'Rhanskid','cust_phone' => '0549410408','pass' => 'AsDf*#!?4828','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:46:14pm','trans_date' => '2021-06-07'),
+            array('id' => '222','username' => 'tasante541@gmail.com','cust_phone' => '0542222419','pass' => 'Guccimane541.com','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '09:30:11am','trans_date' => '2021-05-19'),
+            array('id' => '223','username' => 'genewguy','cust_phone' => '0593696642','pass' => 'YAWGreen','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '00:23:07am','trans_date' => '2021-05-13'),
+            array('id' => '224','username' => 'MICKY','cust_phone' => '0547109600','pass' => 'addaney1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:16:37pm','trans_date' => '2021-05-16'),
+            array('id' => '225','username' => 'Showtym','cust_phone' => '0541404079','pass' => '4.f.e.b.@95','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:37:59am','trans_date' => '2021-05-22'),
+            array('id' => '226','username' => 'Mymurale','cust_phone' => '0231902262','pass' => 'Muralelove','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '13:29:36pm','trans_date' => '2021-05-19'),
+            array('id' => '227','username' => 'OfficialPressplay','cust_phone' => '0242607282','pass' => 'Theangelep2','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:35:54am','trans_date' => '2021-05-24'),
+            array('id' => '228','username' => 'Genewguy','cust_phone' => '0241163680','pass' => 'Yhaw@12','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:09:23pm','trans_date' => '2021-05-30'),
+            array('id' => '229','username' => 'Ik Ansong','cust_phone' => '545373435','pass' => '906270156a','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '18:11:44pm','trans_date' => '2021-05-30'),
+            array('id' => '230','username' => 'pee ronny','cust_phone' => '0240748118','pass' => 'iamp.ronnY','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:53:55am','trans_date' => '2021-06-11'),
+            array('id' => '231','username' => 'MADOVA MUSIC','cust_phone' => '0240672384','pass' => 'Ambassador143','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '04:21:36am','trans_date' => '2021-06-01'),
+            array('id' => '236','username' => 'ZackGH','cust_phone' => '0246844499','pass' => 'Zackghmusic911','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:26:26am','trans_date' => '2021-06-09'),
+            array('id' => '232','username' => 'Smokez1414','cust_phone' => '0240176297','pass' => 'Humble200','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:17:47pm','trans_date' => '2021-06-04'),
+            array('id' => '233','username' => 'intldjx','cust_phone' => '0241299762','pass' => 'asanco4u.com','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:34:29am','trans_date' => '2021-06-11'),
+            array('id' => '234','username' => 'Otopey??','cust_phone' => '0500174602','pass' => 'Morevimoto1988','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:45:33pm','trans_date' => '2021-06-06'),
+            array('id' => '235','username' => 'bestTapeEnt','cust_phone' => '0502732798','pass' => 'Asanco4u.com','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '01:29:55am','trans_date' => '2021-06-07'),
+            array('id' => '237','username' => 'Dhemaboy','cust_phone' => '0209502937','pass' => 'Dhemaboy22','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '22:44:25pm','trans_date' => '2021-06-15'),
+            array('id' => '238','username' => 'MADOVA_MUSIC','cust_phone' => '0503737255','pass' => 'Ambassador143','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '02:37:36am','trans_date' => '2021-06-15'),
+            array('id' => '239','username' => 'Yaw Blvck','cust_phone' => '0554420535','pass' => 'blvckBLVCK1234','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:10:53am','trans_date' => '2021-06-15'),
+            array('id' => '240','username' => 'YawBlvck','cust_phone' => '0507222802','pass' => 'blvckBLVCK1234','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:17:45am','trans_date' => '2021-06-17'),
+            array('id' => '241','username' => 'OHENEBAKUMI','cust_phone' => '0593964777','pass' => '0552870892','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:42:48pm','trans_date' => '2021-06-15'),
+            array('id' => '242','username' => 'Kuami Lhord','cust_phone' => '0208440620','pass' => 'Kuami.0245','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '14:01:03pm','trans_date' => '2021-06-16'),
+            array('id' => '243','username' => 'Kwadanso','cust_phone' => '0245429192','pass' => 'malinda563','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '15:28:36pm','trans_date' => '2021-06-17'),
+            array('id' => '244','username' => 'Kuarme Alma','cust_phone' => '0548094531','pass' => 'Kuarme97','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:26:39am','trans_date' => '2021-06-18'),
+            array('id' => '245','username' => 'Real Pop Toddler','cust_phone' => '0246653189','pass' => 'Prosper1$','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '12:57:24pm','trans_date' => '2021-06-18'),
+            array('id' => '246','username' => 'MickeyOS','cust_phone' => '0532122321','pass' => 'FEVvDmBBD4tV3RW','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:03:18am','trans_date' => '2021-06-19'),
+            array('id' => '247','username' => 'MICKEYOS','cust_phone' => '053432234','pass' => 'XJnvh5qTwzY3wYF','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '11:07:27am','trans_date' => '2021-06-19'),
+            array('id' => '248','username' => 'Pop','cust_phone' => '0245775432','pass' => 'Ghana321','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '17:50:58pm','trans_date' => '2021-06-19'),
+            array('id' => '249','username' => 'Bantama','cust_phone' => '0555790771','pass' => 'bantama1','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '08:55:00am','trans_date' => '2021-06-21'),
+            array('id' => '250','username' => 'Adamx Bi 1','cust_phone' => '0240688963','pass' => 'africans','privilege' => 'user','online_stat' => '','active_stat' => '','trans_time' => '03:30:37am','trans_date' => '2021-06-23')
+          );
+          
+
+          $tempusers=json_decode(json_encode($tempusers));
+
+          foreach ($tempusers as $user)
+
+          {
+              DB::table('users')->insertOrignore(
                 [
-
-                    'name' => 'java',
-                    'username' => 'java',
-                    'password' => Hash::make('a'), 
+                    'name' => $user->username,
+                    'username' => $user->username,
+                    'password' => Hash::make($user->pass), 
                     'account_status'=>'old', 
-                    'user_role'=>'admin', 
-                    'email'=> 'java@replacemail.com',
-                    
-                ], 
+                    'user_role'=>$user->privilege, 
+                    'email'=> $user->username.'@replacemail.com',
+                ]       
 
-                [
-                    'name' => 'kwamebaah',
-                    'username' => 'kwamebaah',
-                    'password' => Hash::make('adjoaattaa'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'kwamebaah@replacemail.com',
-                ], 
+              );
+          }
 
-                [
-                    'name' => 'myAdmin', 
-                    'username' => 'myAdmin',
-                    'password' => Hash::make('my@123'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'admin', 
-                    'email' => 'myadmin@replacemail.com',
-                ], 
-
-                [
-                    'name' => 'George Bows', 
-                    'username' => 'GeorgeBows',
-                    'password' => Hash::make('0240337887'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'georgebows@replacemail.com'
-                    
-                ],
-
-                [
-                    'name' => 'Dhamie', 
-                    'username' => 'Dhamie',
-                    'password' => Hash::make('teamrydinsolo'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'dhamie@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'hypegh', 
-                    'username' => 'hypegh',
-                    'password' => Hash::make('zulugh'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'hypegh@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'TuffourFrank', 
-                    'username' => 'TuffourFrank',
-                    'password' => Hash::make('tf5775jc'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'tuffourfrank@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'KuamiUfresh', 
-                    'username' => 'KuamiUfresh',
-                    'password' => Hash::make('newmanteyeo6'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user',
-                    'email' => 'kuamiufresh@replacemail.com' 
-                    
-                ], 
-
-                [
-                    'name' => '@Kuamiufresh', 
-                    'username' => '@kuamiufresh',
-                    'password' => Hash::make('0249952019teye'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => '@kuamiufresh@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'ADONIY', 
-                    'username' => 'ADONIY',
-                    'password' => Hash::make('Ozymandiah@1'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' =>'adoniy@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'DBlack', 
-                    'username' => 'DBlack',
-                    'password' => Hash::make('blackavenuemuzik'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'dblack@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'Stepper', 
-                    'username' => 'Stepper',
-                    'password' => Hash::make('lion1995'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'stepper@replacemail.com'
-                    
-                ],
-
-                [
-                    'name' => 'SCRATCHMUSIC', 
-                    'username' => 'SCRATCHMUSIC',
-                    'password' => Hash::make('Stephen1'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'scratchmusic@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'Phrimpong', 
-                    'username' => 'Phrimpong',
-                    'password' => Hash::make('wanyaLN'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'phrimpong@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'Adiruler', 
-                    'username' => 'Adiruler',
-                    'password' => Hash::make('Rulenationz'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'adiruler@replacemail.com'  
-                ], 
-
-                [
-                    'name' => 'BURZY', 
-                    'username' => 'BURZY',
-                    'password' => Hash::make('VIMCITYMUSICG1'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'burzy@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'RichmondBoateng', 
-                    'username' => 'RichmondBoateng',
-                    'password' => Hash::make('hosbbic'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'richmondboateng@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'KOBBYSILENCE', 
-                    'username' => 'KOBBYSILENCE',
-                    'password' => Hash::make('200GHana'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'kobbysilence@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'deep5623', 
-                    'username' => 'deep5623',
-                    'password' => Hash::make('Long0987'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'deep5623@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'TYMA', 
-                    'username' => 'TYMA',
-                    'password' => Hash::make('tymamusic1'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'tyma@replacemail.coms'
-                    
-                ], 
-
-                [
-                    'name' => 'FaliFinest', 
-                    'username' => 'FaliFinest',
-                    'password' => Hash::make('1Falifinest'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'falifinest@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'Loaded47', 
-                    'username' => 'Loaded47',
-                    'password' => Hash::make('kingsley47'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'loaded47@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'FRIMPONG', 
-                    'username' => 'FRIMPONG',
-                    'password' => Hash::make('amekugee'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'frimpong@replacemail.com'
-                    
-                ], 
-
-                [
-                    'name' => 'KwameBaahGH', 
-                    'username' => 'KwameBaahGH',
-                    'password' => Hash::make('adjoaataa'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'kwamebaahgh@replacemail.com'
-                ], 
-
-                [
-                    'name' => 'chilmore', 
-                    'username' => 'chilmore',
-                    'password' => Hash::make('Ruvarashe3'), 
-                    'account_status'=>'old', 
-                    'user_role'=>'user', 
-                    'email' => 'chilmore@replacemail.com'
-                ]
     
-    
-            ]
-            
-            
-
-
-
-            );
     }
 }

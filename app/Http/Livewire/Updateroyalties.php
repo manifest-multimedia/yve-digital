@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\Royalties;
+use App\Models\Platform;
 
 /*  *   Written by Johnson Sebire
 
@@ -43,110 +44,15 @@ class Updateroyalties extends Component
 
     public function mount() {
 
-        $platformsArray=array(
-
-            [
-                'name' => 'YouTube',
-                'icon'  =>  asset('images/youtube.png'), 
-            ],
-
-            [
-                'name' => 'Spotify',
-                'icon' => asset('images/spotify.png'), 
-            ], 
-           
-            [
-                'name' => 'Vimeo',
-                'icon' => asset('images/vimeo.png'),
-            ], 
-           
-            [
-                'name' => 'Deezer',
-                'icon' => asset('images/deezer.png'),
-            ],
-           
-            [
-                'name' => 'Tidal', 
-                'icon' => asset('images/tidal.png'),
-            ],
-           
-            [
-                'name' => 'Apple Music',
-                'icon' => asset('images/apple_music.png'),
-            ],
-
-           
-            [
-                'name' => 'Vevo', 
-                'icon' => asset('images/vevo.png'),
-            ],
-           
-            [
-                'name' => 'Amazon', 
-                'icon' => asset('images/amazon.png'),
-            ],
-
-        ); 
-
-       $platformsArray=json_decode(json_encode($platformsArray, FALSE)); 
-
-
         $this->users=User::all(); 
         $this->releases=collect(); 
-        $this->platforms=$platformsArray; 
+        $this->platforms=Platform::all();
+      
     }
     
     public function render()
     {
-        $platformsArray=array(
-
-            [
-                'name' => 'YouTube',
-                'icon'  =>  asset('images/youtube.png'), 
-            ],
-
-            [
-                'name' => 'Spotify',
-                'icon' => asset('images/spotify.png'), 
-            ], 
-           
-            [
-                'name' => 'Vimeo',
-                'icon' => asset('images/vimeo.png'),
-            ], 
-           
-            [
-                'name' => 'Deezer',
-                'icon' => asset('images/deezer.png'),
-            ],
-           
-            [
-                'name' => 'Tidal', 
-                'icon' => asset('images/tidal.png'),
-            ],
-           
-            [
-                'name' => 'Apple Music',
-                'icon' => asset('images/apple_music.png'),
-            ],
-
-           
-            [
-                'name' => 'Vevo', 
-                'icon' => asset('images/vevo.png'),
-            ],
-           
-            [
-                'name' => 'Amazon', 
-                'icon' => asset('images/amazon.png'),
-            ],
-
-        ); 
-
-       $platformsArray=json_decode(json_encode($platformsArray, FALSE)); 
-       $platforms=$this->platforms=$platformsArray;
-
-        return view('livewire.updateroyalties', compact($platforms));
+        return view('livewire.updateroyalties');
     }
 
     public function updatedSelectedUser($value){
@@ -158,8 +64,6 @@ class Updateroyalties extends Component
     }
 
     public function updatedSelectedPlatform($value){
-        
-        
 
     }
   

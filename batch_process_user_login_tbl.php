@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db="yvedigital"; 
+$db="yveusers"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
@@ -59,7 +59,7 @@ function batchprocess(
 	$host = "localhost";
 	$dbuser = "root";
 	$dbpassword = "";
-	$dbname="yvedigital"; 
+	$dbname="yveusers"; 
 
 	// Create connection
 	$mysqli = new mysqli($host, $dbuser, $dbpassword, $dbname);

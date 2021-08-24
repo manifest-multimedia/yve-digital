@@ -1,6 +1,7 @@
 <div>
 
         <form action=""> 
+           
             @csrf
         
             <div class="row"> 
@@ -70,14 +71,11 @@
                     @if(!is_null($platforms))
                         
                             @foreach ($platforms as $platform)
-                                <option value="{{$platform->name}}">{{$platform->name}}</option>                        
+                                <option value="{{$platform->platform}}">{{$platform->platform}}</option>                        
                             @endforeach
-                    
                             
                     @endif
                 </select>
-
-                {{-- Selected: {{$selectedPlatform}} --}}
                 
             </div> 
 
