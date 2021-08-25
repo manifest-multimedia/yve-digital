@@ -28,7 +28,7 @@ class CheckRole
         * 
         */
         
-//$account_type=Auth::user()->account_type; 
+
 
     try {
         
@@ -65,8 +65,6 @@ class CheckRole
             };
 
             return redirect()->route($dashboard);
-            
-       
              
         }
     }
@@ -78,6 +76,6 @@ class CheckRole
 
         return $next($request); 
 
-        //return $next($request, compact('account_type'));
+        
     }
 }
