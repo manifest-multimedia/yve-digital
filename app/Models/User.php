@@ -37,6 +37,7 @@ class User extends Authenticatable
         'twitter_id',
         'user_role', 
         'account_type', 
+        'account_status', 
 
 
     ];

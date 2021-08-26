@@ -120,6 +120,7 @@ User Profile - {{Auth::user()->name}}
                             Dear {{ $user->name; }}, thanks for working with YVE Digital. We're delighted to bring you a more improved user experience. 
                             Kindly take a moment to update your new account credentials with a valid email and secure password to keep your account secure.
                             NB: You'll not be able to access your dashboard until you have completed this verification step. Thank you. 
+                            
                             @endif 
                             <!-- Row --> 
                     

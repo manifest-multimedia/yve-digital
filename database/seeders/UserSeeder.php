@@ -279,6 +279,7 @@ class UserSeeder extends Seeder
 
           {
               DB::table('users')->insertOrignore(
+                  
                 [
                     'name' => $user->username,
                     'username' => $user->username,

@@ -18,10 +18,26 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
+
+        /*  -- Account Status --
+
+            On Update set account_status to verified if already verified or 
+            previously verified user from old records.
+            
+        */
+        $account_status ='unverified';
+
+        if($user->account_status=='old' || $user->account_status=='verified')
+        {
+            $account_status='verified';
+        }
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+           
+
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -32,10 +48,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
+
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'account_status'=>$account_status, 
             ])->save();
+
         }
     }
 
@@ -48,9 +67,18 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     protected function updateVerifiedUser($user, array $input)
     {
+
+        $account_status ='unverified';
+
+        if($user->account_status=='old' || $user->account_status=='verified')
+        {
+            $account_status='verified';
+        }
+
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+            'account_status' => $input['account_status'],
             'email_verified_at' => null,
         ])->save();
 
