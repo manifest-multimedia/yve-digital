@@ -14,7 +14,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __invoke()
     {
         $user=Auth::user();
         return view('profile', compact('user'));

@@ -46,7 +46,7 @@ Route::get('/account-verification', AccountVerificationController::class)->middl
 Route::get('/analyitcs', AnalyticsController::class)->middleware(['auth:sanctum', 'verified'])->name('analytics');
 
 
-Route::resource('profile', ProfileController::class)->middleware(['auth:sanctum', 'verified']);
+Route::get('profile', ProfileController::class)->middleware(['auth:sanctum', 'verified'])->name('profile');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/royalties', function () {
     return view('royalties');
