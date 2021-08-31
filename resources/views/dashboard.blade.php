@@ -16,8 +16,8 @@ Dashboard - {{Auth::user()->name}}
         </div>
         <ul class="nav menu">
             <li class="active"><a href="/dashboard">MUSIC</a></li>
-            {{-- <li><a href="/analytics">ANALYTICS</a></li>
-            <li><a href="/royalties">ROYALTIES</a></li> --}}
+            {{-- <li><a href="/analytics">ANALYTICS</a></li> --}}
+            <li><a href="/royalties">ROYALTIES</a></li>
         </ul>
     </div>
 

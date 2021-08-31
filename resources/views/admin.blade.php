@@ -16,8 +16,8 @@ Dashboard - {{Auth::user()->name}}
         </div>
         <ul class="nav menu">
             <li class="active"><a href="/dashboard">MUSIC</a></li>
-            {{-- <li><a href="/analytics">ANALYTICS</a></li>
-            <li><a href="/royalties">ROYALTIES</a></li> --}}
+            {{-- <li><a href="/analytics">ANALYTICS</a></li> --}}
+            <li><a href="/royalties">ROYALTIES</a></li>
             <li><a href="/manage">MANAGE</a></li>
         </ul>
     </div>
@@ -132,18 +132,18 @@ Dashboard - {{Auth::user()->name}}
                         <div class="panel panel-default">
                             <div class="panel-body tabs">
                                 <ul class="nav nav-pills custom-pills">
-                                    <li class="active"><a href="#pilltab1" data-toggle="tab" aria-expanded="true">ALL(0)</a></li>
-                                    <li class=""><a href="#pilltab2" data-toggle="tab" aria-expanded="false">SPOTIFY(0)</a></li>
-                                    <li class=""><a href="#pilltab3" data-toggle="tab" aria-expanded="true">APPLE(0)</a></li>
-                                    <li class=""><a href="#pilltab4" data-toggle="tab" aria-expanded="true">TIDAL(0)</a></li>
-                                    <li class=""><a href="#pilltab5" data-toggle="tab" aria-expanded="true">YOUTUBE(0)</a></li>
+                                    <li class="active"><a href="#pilltab1" data-toggle="tab" aria-expanded="true">ALL({{$totalStreams}})</a></li>
+                                    <li class=""><a href="#pilltab2" data-toggle="tab" aria-expanded="false">SPOTIFY({{$spotifyStreams}})</a></li>
+                                    <li class=""><a href="#pilltab3" data-toggle="tab" aria-expanded="true">APPLE({{$appleStreams}})</a></li>
+                                    <li class=""><a href="#pilltab4" data-toggle="tab" aria-expanded="true">YOUTUBE({{$youtubeStreams}})</a></li>
+                                    <li class=""><a href="#pilltab5" data-toggle="tab" aria-expanded="true">OTHERS({{$otherStreams}})</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="pilltab1">
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <h4 class="slider-top-text">Here's how your music is performing on all our distribution channels!</h4>
+                                                <h4 class="slider-top-text">Here's how your music is performing on all our distribution channels! </h4>
                                             </div>
                                         </div>
                                         <div class="row mt-5">
@@ -311,22 +311,28 @@ Dashboard - {{Auth::user()->name}}
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
+                                    
+                                    
+
                                     <div class="tab-pane fade" id="pilltab2">
                                         <h4>SPOTIFY(0)</h4>
                                         <p> Here's how your music is performing on Spotify</p>
+
+
                                     </div>
                                     <div class="tab-pane fade  in" id="pilltab3">
                                         <h4>APPLE(0)</h4>
                                         <p>Here's how your music is performing on Apple Music</p>
                                     </div>
                                     <div class="tab-pane fade  in" id="pilltab4">
-                                        <h4>TIDAL(0)</h4>
-                                        <p>Here's how your music is performing on Tidal</p>
-                                    </div>
-                                    <div class="tab-pane fade" id="pilltab5">
                                         <h4>YOUTUBE(0)</h4>
                                         <p>Here's how your music is performing on YouTube</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="pilltab5">
+                                        <h4>OTHERS(0)</h4>
+                                        <p>Here's how your music is performing on Other Stores</p>
 
                                     </div>
                                 </div>
@@ -335,154 +341,13 @@ Dashboard - {{Auth::user()->name}}
                     </div>
                 </div>
             </div>
-    </div><!--/.row-->
-
-    {{-- <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default bo-radius">
-                <div class="panel-heading_">
-                    <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
-                    <div class="panel-body custom-body" style="margin-top: 0px !important;">
-                        <div class="panel panel-default ">
-                            <div class="panel-body tabs">
-                                <ul class="nav nav-pills custom-pills">
-                                    <li class="active"><a href="#pilltab1-a" data-toggle="tab" aria-expanded="true">ALL(5,000,000)</a></li>
-                                    <li class=""><a href="#pilltab2-a" data-toggle="tab" aria-expanded="false">SPOTIFY(1,000,000)</a></li>
-                                    <li class=""><a href="#pilltab3-a" data-toggle="tab" aria-expanded="true">APPLE(1,000,000)</a></li>
-                                    <li class=""><a href="#pilltab4-a" data-toggle="tab" aria-expanded="true">TIDAL(1,000,000)</a></li>
-                                    <li class=""><a href="#pilltab5-a" data-toggle="tab" aria-expanded="true">YOUTUBE(1,000,000)</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade active in" id="pilltab1-a">
-
-                                        
-                                        <div class="row mt-5">
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
-                                                    <div class="track-info">
-                                                        <div class="track-img">
-                                                            <img src="../images/tr1.png" class="img-responsive">
-                                                        </div>
-
-                                                        <div class="track-info-container">
-                                                            <h2 class="track-info-title">Destiny</h2>
-                                                            <p class="track-info-time">2021-1 song, 2 min 41sec</p>
-                                                            <p class="track-info-singer">By Fameye</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="col-md-12 shadow-box">
-                                                        <div>
-                                                            
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading_">
-                                                                <span class="hideme pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-                                                                <div class="panel-body">
-                                                                    <div class="canvas-wrapper">
-                                                                        <canvas class="main-chart" id="line-chart" height="354" width="1064" style="width: 1064px; height: 354px;"></canvas>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-8 col-md-offset-2 shadow-box just-bottom">
-                                                        <div class="report-tab">
-                                                          <div>
-                                                             <h3>Monthly report</h3>
-                                                              <p>Last reporting months total earnings</p>
-                                                          </div>
-                                                          <div>
-                                                              <h3>$ 100.27</h3>
-                                                              <h3><span class="red-drop">-17.6% <i class="glyphicon glyphicon-triangle-bottom "></i></span></h3>
-                                                              <p>vs previous month</p>
-                                                          </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
-                                                    <div class="track-info">
-                                                    <div class="track-img">
-                                                        <img src="../images/tr2.png" class="img-responsive">
-                                                    </div>
-
-                                                    <div class="">
-                                                        <h2 class="track-info-title">Rap Kasa</h2>
-                                                        <p class="track-info-time">2021-1 song, 2 min 41sec</p>
-                                                        <p class="track-info-singer">By Fameye</p>
-                                                    </div>
-                                                </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="col-md-12 shadow-box">
-                                                        <div>
-                                                            
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading_">
-                                                                <span class="hideme pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-                                                                <div class="panel-body">
-                                                                    <div class="canvas-wrapper">
-                                                                        <canvas class="main-chart" id="line-chart_1" height="354" width="1064" style="width: 1064px; height: 354px;"></canvas>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-8 col-md-offset-2 shadow-box just-bottom">
-                                                        <div class="report-tab">
-                                                          <div>
-                                                             <h3>Monthly report</h3>
-                                                              <p>Last reporting months total earnings</p>
-                                                          </div>
-                                                          <div>
-                                                              <h3>$ 100.27</h3>
-                                                              <h3><span class="red-drop">-17.6% <i class="glyphicon glyphicon-triangle-bottom "></i></span></h3>
-                                                              <p>vs previous month</p>
-                                                          </div>
-                                                        </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="pilltab2-a">
-                                        <h4>SPOTIFY(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
-                                    </div>
-                                    <div class="tab-pane fade  in" id="pilltab3-a">
-                                        <h4>APPLE(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
-                                    </div>
-                                    <div class="tab-pane fade  in" id="pilltab4-a">
-                                        <h4>TIDAL(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
-                                    </div>
-                                    <div class="tab-pane fade" id="pilltab5-a">
-                                        <h4>YOUTUBE(1,000,000)</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div><!--/.row--> --}}
+    
+    
+    
+    
+    
+        </div><!--/.row-->
 
     
-</div><!--/.row-->
 
 @endsection

@@ -16,7 +16,7 @@ Dashboard - {{Auth::user()->name}}
         </div>
         <ul class="nav menu">
             <li><a href="/dashboard">MUSIC</a></li>
-            <li><a href="/analytics">ANALYTICS</a></li>
+            {{-- <li><a href="/analytics">ANALYTICS</a></li> --}}
             <li class="active"><a href="/royalties">ROYALTIES</a></li>
         
         </ul>
@@ -81,7 +81,7 @@ Dashboard - {{Auth::user()->name}}
                                 
                                 @endif 
                                     
-                                <a href="{{route('profile')}}" class="btn btn-rounded-img">
+                                <a href="/profile" class="btn btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
                                 </a>
 
@@ -111,7 +111,9 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                     <div class="panel-body custom-body">
                         
-
+                        <div class="row custom-padding">
+                            @livewire('royaltiestable')
+                        </div>
                         
 
 
@@ -121,7 +123,6 @@ Dashboard - {{Auth::user()->name}}
     </div><!--/.row-->
 
    
-
     
 </div><!--/.row-->
 

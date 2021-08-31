@@ -998,26 +998,32 @@ class RoyaltiesSeeder extends Seeder
 
           foreach ($temp_royalties as $royalty) {
 
-            DB::table('royalties')->insertOrignore(
+            // DB::table('royalties')->insertOrignore(
 
-                    [ 
-                            'username' => $royalty->username,
-                            'release_name' => $royalty->release_name, 
-                            'song_name' => $royalty->song_name, 
-                            'spotify_streams'=>'0',
-                            'applemusic_streams' =>'0',
-                            'deezer_streams' => '0', 
-                            'youtube_streams' => '0', 
-                            'tidal_streams' => '0', 
-                            'amazonmusic_streams' => '0', 
-                            'total_streams' => $royalty->stream, 
-                            'downloads' => $royalty->download, 
-                            'revenue' => $royalty->revenue, 
-                            'period_gained'=> $royalty->period_gained, 
-                            'image_file' => $royalty->image_file,
-                        ]
+            //         [ 
+            //                 'username' => $royalty->username,
+            //                 'release_name' => $royalty->release_name, 
+            //                 'song_name' => $royalty->song_name, 
+            //                 'spotify_streams'=>'0',
+            //                 'applemusic_streams' =>'0',
+            //                 'deezer_streams' => '0', 
+            //                 'youtube_streams' => '0', 
+            //                 'tidal_streams' => '0', 
+            //                 'amazonmusic_streams' => '0', 
+            //                 'total_streams' => $royalty->stream, 
+            //                 'downloads' => $royalty->download, 
+            //                 'revenue' => $royalty->revenue, 
+            //                 'period_gained'=> $royalty->period_gained, 
+            //                 'image_file' => $royalty->image_file,
+            //             ]
 
-                ); 
+            //     ); 
+
+            DB::table('royalties')->updateOrInsert([
+                'username' => $royalty->username, 'song_name' => $royalty->song_name
+            ], ['total_streams'=>$royalty->stream]
+            
+        );
 
           }
 
