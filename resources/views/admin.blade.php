@@ -317,21 +317,21 @@ Dashboard - {{Auth::user()->name}}
                                     
 
                                     <div class="tab-pane fade" id="pilltab2">
-                                        <h4>SPOTIFY(0)</h4>
+                                        <h4>SPOTIFY({{$spotifyStreams}})</h4>
                                         <p> Here's how your music is performing on Spotify</p>
 
 
                                     </div>
                                     <div class="tab-pane fade  in" id="pilltab3">
-                                        <h4>APPLE(0)</h4>
+                                        <h4>APPLE({{$appleStreams}})</h4>
                                         <p>Here's how your music is performing on Apple Music</p>
                                     </div>
                                     <div class="tab-pane fade  in" id="pilltab4">
-                                        <h4>YOUTUBE(0)</h4>
+                                        <h4>YOUTUBE({{$youtubeStreams}})</h4>
                                         <p>Here's how your music is performing on YouTube</p>
                                     </div>
                                     <div class="tab-pane fade" id="pilltab5">
-                                        <h4>OTHERS(0)</h4>
+                                        <h4>OTHERS({{$otherStreams}})</h4>
                                         <p>Here's how your music is performing on Other Stores</p>
 
                                     </div>
