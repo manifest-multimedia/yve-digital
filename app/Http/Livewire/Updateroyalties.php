@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Royalties;
 use App\Models\Platform;
+use Auth; 
 
 /*  *   Written by Johnson Sebire
 
@@ -42,6 +43,16 @@ class Updateroyalties extends Component
     public $platforms=[]; 
     public $selectedPlatform;
 
+    //public $entryDate; 
+
+    public $enteredBy=null;
+    public $downloads=null; 
+    public $streams=null; 
+    public $earnings=null; 
+    public $periodStart=null; 
+    public $periodEnd=null; 
+    public $periodGained=null; 
+
     public function mount() {
 
         $this->users=User::all(); 
@@ -65,6 +76,65 @@ class Updateroyalties extends Component
 
     public function updatedSelectedPlatform($value){
 
+    }
+
+    public function resetInput() {
+        $this->selectedPlatform=null; 
+        $this->selectedSong=null; 
+        $this->downloads=null; 
+        $this->earnings=null; 
+        $this->streams=null; 
+        $this->periodGained=null; 
+        
+    }
+
+    public function insertRecord(){
+        
+       
+
+        $this->validate([
+           'selectedUser' => 'required', 
+            'selectedSong' => 'required', 
+            'periodStart' => 'required', 
+            'periodEnd' => 'required', 
+            // 'periodGained'=> 'required', 
+            'selectedPlatform' => 'required', 
+            'downloads' => 'required', 
+            'streams' => 'required', 
+            'earnings' => 'required'
+        ], [
+            'selectedUser.required' => 'You must Select a User to Record Entry',
+            'selectedSong.required' => 'Please select a Song to Continue', 
+            'periodStart.required' => 'You have not selected the Period Start Date for this entry', 
+            'periodEnd.required' => 'The period end date is is required', 
+            'selectedPlatform.required' => 'You are required to select a Platform for Entry', 
+            'downloads.required' => "You are required to enter a valid input for downloads. Type 0 if null",
+            'streams.required' => "You are required to enter a valid input for streams. Type 0 if null", 
+            'earnings.required' => "You are required to enter a valid input for earnings. Type 0 if null"
+
+        ]); 
+
+        //  dd($this->earnings); 
+        
+        Royalties::create([
+
+            'username' => $this->selectedUser, 
+            'song_name' => $this->selectedSong, 
+            'downloads' => $this->downloads, 
+            'revenue' => $this->earnings, 
+
+            'period_gained' => $this->periodStart.' - '.$this->periodEnd, 
+
+            'platform' => $this->selectedPlatform, 
+            'total_streams' =>$this->streams, 
+            ''
+        ]); 
+
+        session()->flash('message', "Record Saved Successfully for $this->selectedPlatform");
+        $this->resetinput(); 
+
+
+        
     }
   
 }

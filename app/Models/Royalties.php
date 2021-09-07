@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Royalties extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'username', 
+        'song_name', 
+        'downloads',
+        'revenue', 
+        'period_gained', 
+        'platform',
+        'total_streams', 
+        
+
+
+    ];
 }

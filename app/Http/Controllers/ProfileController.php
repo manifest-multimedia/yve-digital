@@ -14,10 +14,19 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function __invoke()
+
+    
     {
+
+        $title=null; 
+        $description=null;
+
         $user=Auth::user();
-        return view('profile', compact('user'));
+        return view('profile', compact('user', 'title', 'description'));
     }
 
     // public function create();
