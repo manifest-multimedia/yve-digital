@@ -29,7 +29,7 @@ class Royaltiestable extends Component
         
         $username=$this->user->username;
 
-        $period=$royalties=Royalties::where('username',$username)->latest()->get();
+        $period=$royalties=Royalties::where('username',$username)->latest()->get()->unique('period_gained');
     
         if(!is_null($this->sort_period) || !empty($sort_period)){
             $royalties=Royalties::where('username', $username)

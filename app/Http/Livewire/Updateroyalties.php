@@ -89,15 +89,14 @@ class Updateroyalties extends Component
     }
 
     public function insertRecord(){
-        
-       
+
+        dd($this->selectedUser);
 
         $this->validate([
-           'selectedUser' => 'required', 
+            'selectedUser' => 'required', 
             'selectedSong' => 'required', 
             'periodStart' => 'required', 
             'periodEnd' => 'required', 
-            // 'periodGained'=> 'required', 
             'selectedPlatform' => 'required', 
             'downloads' => 'required', 
             'streams' => 'required', 
