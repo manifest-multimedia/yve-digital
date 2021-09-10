@@ -26,7 +26,7 @@
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <strong>Sorry!</strong> invalid input.<br><br>
+                        <strong>Sorry!</strong> There are errors with your request.<br><br>
                         <ul style="list-style-type:none;">
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -74,14 +74,14 @@
             
             <div class="col-md-6" style="padding-top:20px"> 
                 
-                <label for="Entry-Date"> Period Start </label> 
+                <label for="Period-Start"> Period Start </label> 
                 <input wire:model="periodStart" type="date" class="form-control"/> 
                 
             </div>
 
             <div class="col-md-6" style="padding-top:20px"> 
                 
-                <label for="Entry-Date"> Period End </label> 
+                <label for="Period-End"> Period End </label> 
                 <input wire:model="periodEnd" type="date" class="form-control"/> 
                 
             </div>

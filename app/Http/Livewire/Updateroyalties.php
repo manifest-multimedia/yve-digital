@@ -90,8 +90,6 @@ class Updateroyalties extends Component
 
     public function insertRecord(){
 
-        dd($this->selectedUser);
-
         $this->validate([
             'selectedUser' => 'required', 
             'selectedSong' => 'required', 
@@ -113,8 +111,6 @@ class Updateroyalties extends Component
 
         ]); 
 
-        //  dd($this->earnings); 
-
         $period_gained = $this->periodStart.' - '.$this->periodEnd; 
 
         $period_gained=retrieveMonths($period_gained);
@@ -135,8 +131,6 @@ class Updateroyalties extends Component
 
         session()->flash('message', "Record Saved Successfully for $this->selectedPlatform");
         $this->resetinput(); 
-
-
         
     }
   
