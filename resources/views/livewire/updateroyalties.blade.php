@@ -57,7 +57,7 @@
                 <select wire:model="selectedSong" class="form-control" style="height:46px"> 
                     
                         <option value=""> Select A Song </option>
-                        <option value="demo"> Demo </option> 
+                        {{-- <option value="demo"> Demo </option>  --}}
 
                         @if(!is_null($selectedUser))
                             @foreach ($releases as $release)

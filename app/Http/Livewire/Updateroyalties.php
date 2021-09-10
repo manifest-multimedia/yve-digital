@@ -55,7 +55,7 @@ class Updateroyalties extends Component
 
     public function mount() {
 
-        $this->users=User::all(); 
+        $this->users=User::orderBy('name','asc')->get(); 
         $this->releases=collect(); 
         $this->platforms=Platform::all();
       
