@@ -18,22 +18,33 @@
 
                 <div class="table-box">
                     <div id="transtable_wrapper" class="dataTables_wrapper no-footer">
-                            {{-- <div class="dataTables_length" id="transtable_length">
-                                <label>Show <select name="transtable_length" aria-controls="transtable" class="">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select> entries</label>
-                                        </div>
-                                         --}}
-                            <div id="transtable_filter" class="dataTables_filter">
-                                <label>Search:<input type="search" class="" placeholder="" aria-controls="transtable"></label></div>
+                            <div class="col-md-6" id="">
+                                <label>Display Royalties for:  
+                                    <select name="transtable_length" aria-controls="transtable" class="form-control" wire:model="sort_period" style="height:46px">
+                                       
+                                        <option value=""> Select Period </option>
+                                        <option value=""> All</option>  
+
+                                        @foreach($period as $item)
+
+                                                <option value="{{$item->period_gained}}">{{$item->period_gained}}</option>
+                                                
+                                                @endforeach
+                                    </select> </label>
+                            </div>
+
+                            <div class="col-md-6"><strong> Total Earnings for Period: <input type="text" class="form-control" value= '$ {{$earnings}}' /> </strong>
+                            </div>
+                                        
+                            {{-- <div class="col-md-12">
+                                    <label>Search:</label>
+                                    <input type="text" class="form-control" placeholder="Search" wire:model="sort_period">
+                            </div> --}}
                              
                                 <table id="transtable" class="table dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="transtable_info"> 
                         <thead>
                             <tr role="row">
-                                <th class="sorting sorting_asc" tabindex="0" aria-controls="transtable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 50px;">Date</th>
+                                <th class="sorting sorting_asc" tabindex="0" aria-controls="transtable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">Period</th>
                                 <th class="sorting" tabindex="0" aria-controls="transtable" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 150px;">Release Name</th>
                                 <th class="sorting" tabindex="0" aria-controls="transtable" rowspan="1" colspan="1" aria-label="Withdraws: activate to sort column ascending" style="width: 250px;">Song Name</th>
                                 <th class="sorting" tabindex="0" aria-controls="transtable" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 50px;">Streams</th>

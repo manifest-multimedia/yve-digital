@@ -104,92 +104,11 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                   
                     <div class="panel-body custom-body">
-                        <form style="padding-top:20px" > 
-                            @csrf
 
-                            <div class="release col-md-6">
+                    
 
-                                
-                                    <label> Release Name *</label>
-                                    <input class="form-control" type="text" placeholder="Release Name"/> 
-            
-                            
-        
-                            </div>
-
-                            <div class="release col-md-6">
-
-                                
-                                    <label> Genre *</label>
-                                    <input class="form-control" type="text" placeholder="Genre"/> 
-            
-        
-                            </div>
-
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                            
-                                    <label> Name of Artist *</label>
-                                    <input class="form-control" type="text" placeholder="Name of Artist"/> 
-            
-                            </div>
-
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                            
-                                <label> Record Label *</label>
-                                <input class="form-control" type="text" placeholder="Record Label"/> 
-
-                            </div>
-
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                            
-                                <label> No. of Songs *</label>
-                                <input class="form-control" type="text" placeholder="Record Label"/> 
-
-                            </div>
-
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                            
-                                <label> Territory *</label>
-
-                                <select class="form-control" style="height:46px"> 
-                                    <option> -- SELECT -- </option>
-                                    <option> Worldwide </option>
-                                    <option> Ghana </option>
-                                    <option> South Africa </option>
-                                    <option> Kenya </option>
-                                    <option> Other? </option>
-
-                                </select>
-
-                            </div>
-
-                            
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                                <label> Release Date *</label>
-                                <input class="form-control" type="date" placeholder="Release Date"/> 
-
-                            </div>
-                            
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                                <label> Upload Cover Art (2000px x 2000px) *</label>
-                                <input class="form-control" type="file" placeholder="Release Date"/> 
-
-                            </div>
-                            <div class="release col-md-6" style="padding-top:20px">
-
-                                <button type="submit" class="btn btn-primary">
-                                Submit Release
-                                </button>
-                            
-                            </div>
-                        
-                        </form> 
+                        {{-- Form --}}
+						@livewire('createrelease')
                        
       
                     </div>

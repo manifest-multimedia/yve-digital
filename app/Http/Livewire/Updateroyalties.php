@@ -115,6 +115,10 @@ class Updateroyalties extends Component
         ]); 
 
         //  dd($this->earnings); 
+
+        $period_gained = $this->periodStart.' - '.$this->periodEnd; 
+
+        $period_gained=retrieveMonths($period_gained);
         
         Royalties::create([
 
@@ -123,7 +127,7 @@ class Updateroyalties extends Component
             'downloads' => $this->downloads, 
             'revenue' => $this->earnings, 
 
-            'period_gained' => $this->periodStart.' - '.$this->periodEnd, 
+            'period_gained' => $period_gained, 
 
             'platform' => $this->selectedPlatform, 
             'total_streams' =>$this->streams, 
