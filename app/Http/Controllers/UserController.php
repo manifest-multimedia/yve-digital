@@ -24,7 +24,34 @@ class UserController extends Controller
 
     {
         $user=Auth::user(); 
+
+        $this->user=Auth::user(); 
         
-        return view('dashboard', compact('user'));
+        $username=$user->username;
+       
+        $royalties =""; 
+
+        $totalStreams=Royalties::where('username', '=', $username)->sum('total_streams');
+        
+        $youtubeStreams=getTotalStreams($username, 'YouTube');
+        
+        $spotifyStreams=getTotalStreams($username, 'Spotify'); 
+
+        $appleStreams=getTotalStreams($username, 'Apple Music'); 
+        
+        $otherStreams=  getTotalStreams($username, 'Deezer') + 
+                        getTotalStreams($username, 'Vimeo') +
+                        getTotalStreams($username, 'Vevo') +
+                        getTotalStreams($username, 'Tidal');
+
+        return view('dashboard', compact('user', 
+        'royalties', 
+        'totalStreams', 
+        'youtubeStreams',
+        'spotifyStreams', 
+        'appleStreams', 
+        'otherStreams'
+    ));
+
     }
 }

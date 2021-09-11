@@ -12,10 +12,7 @@ Use App\Http\Controllers\AccountVerificationController;
 Use App\Http\Controllers\AnalyticsController; 
 Use App\Http\Controllers\ProfileController;
 
-
 Use App\Http\Middleware\CheckRole; 
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -32,32 +29,22 @@ Route::view('/', 'auth.login');
 Route::view('/privacy', 'privacy');
 Route::view('/legal', 'legal');
 
-
 Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']); 
 Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']); 
 Route::get('auth/google/callback', [GoogleAuthController::class, 'hanldeGoogleCallback']); 
 Route::get('auth/twitter/callback', [TwitterAuthController::class, 'handleTwitterCallback']); 
 
+Route::middleware(['auth:sanctum', 'verified'])->group(
+    function(){
 
-Route::get('/dashboard', DashboardController::class)->middleware(['auth:sanctum', 'verified', 'CheckRole'])->name('dashboard');
-Route::get('/admin', AdminController::class)->middleware(['auth:sanctum', 'verified'])->name('admin'); 
-Route::get('/user', UserController::class)->middleware(['auth:sanctum', 'verified'])->name('user');
-Route::get('/account-verification', AccountVerificationController::class)->middleware(['auth:santum', 'verified'])->name('account-verification');
-Route::get('/analyitcs', AnalyticsController::class)->middleware(['auth:sanctum', 'verified'])->name('analytics');
+        Route::get('/dashboard', DashboardController::class)->middleware(['CheckRole'])->name('dashboard');
+        Route::get('/admin', AdminController::class)->name('admin'); 
+        Route::get('/user', UserController::class)->name('user');
+        Route::get('/account-verification', AccountVerificationController::class)->name('account-verification');
+        Route::get('/analyitcs', AnalyticsController::class)->name('analytics');
+        Route::get('profile', ProfileController::class)->name('profile');
+        Route::get('/royalties', function () { return view('royalties'); })->name('royalties');
+        Route::get('/manage', function () { return view('manage'); })->name('manage');
+        Route::get('/new-release', function () { return view('new-release');})->name('new-release');
 
-
-Route::get('profile', ProfileController::class)->middleware(['auth:sanctum', 'verified'])->name('profile');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/royalties', function () {
-    return view('royalties');
-})->name('royalties');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/manage', function () {
-    return view('manage');
-})->name('manage');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/new-release', function () {
-    return view('new-release');
-})->name('new-release');
-
-
+    });

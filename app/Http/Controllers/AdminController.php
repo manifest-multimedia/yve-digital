@@ -36,13 +36,12 @@ class AdminController extends Controller
         
         $spotifyStreams=getTotalStreams($username, 'Spotify'); 
 
-        $appleStreams=getTotalStreams($username, 'Apple'); 
+        $appleStreams=getTotalStreams($username, 'Apple Music'); 
         
         $otherStreams=  getTotalStreams($username, 'Deezer') + 
                         getTotalStreams($username, 'Vimeo') +
                         getTotalStreams($username, 'Vevo') +
                         getTotalStreams($username, 'Tidal');
-
         
         return view('admin', compact(
         'user', 
@@ -53,5 +52,6 @@ class AdminController extends Controller
         'appleStreams', 
         'otherStreams'
     ));
+
     }
 }

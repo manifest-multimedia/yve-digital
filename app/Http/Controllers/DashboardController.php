@@ -24,6 +24,32 @@ class DashboardController extends Controller
     {
         $this->user=Auth::user(); 
 
-        return view('dashboard')->compact('user');
+        
+        $username=$this->user->username;
+       
+        $royalties =""; 
+
+        $totalStreams=Royalties::where('username', '=', $username)->sum('total_streams');
+        
+        $youtubeStreams=getTotalStreams($username, 'YouTube');
+        
+        $spotifyStreams=getTotalStreams($username, 'Spotify'); 
+
+        $appleStreams=getTotalStreams($username, 'Apple'); 
+        
+        $otherStreams=  getTotalStreams($username, 'Deezer') + 
+                        getTotalStreams($username, 'Vimeo') +
+                        getTotalStreams($username, 'Vevo') +
+                        getTotalStreams($username, 'Tidal');
+
+        return view('dashboard', compact('user', 
+        'royalties', 
+        'totalStreams', 
+        'youtubeStreams',
+        'spotifyStreams', 
+        'appleStreams', 
+        'otherStreams'
+    ));
+
     }
 }
