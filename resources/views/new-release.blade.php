@@ -11,15 +11,14 @@ Dashboard - {{Auth::user()->name}}
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
     <div>
+
         <div class="mt-5">
             <p class="innerpage-site-title">YVE</p>
         </div>
-        <ul class="nav menu">
-            <li><a href="/dashboard">MUSIC</a></li>
-            {{-- <li><a href="/analytics">ANALYTICS</a></li>
-            <li class=""><a href="/royalties">ROYALTIES</a></li> --}}
-            
-        </ul>
+
+        {{-- Load Menu --}}
+        @includeIf('components.menu')
+
     </div>
 
     <div class="line-divider">

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Royalties;
 use App\Models\Platform;
+use App\Models\Song;
 use Auth; 
 
 /*  *   Written by Johnson Sebire
@@ -69,7 +70,9 @@ class Updateroyalties extends Component
     public function updatedSelectedUser($value){
        
         if(!is_null($value)) {
-            $this->releases=Royalties::where('username', $value)->get()->unique('song_name');
+            // $this->releases=Royalties::where('username', $value)->get()->unique('song_name');
+            $this->releases=Song::where('username', $value)->get()->unique('song');
+
         }
    
     }

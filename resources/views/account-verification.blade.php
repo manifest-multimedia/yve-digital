@@ -14,15 +14,15 @@ Dashboard - {{Auth::user()->name}}
         <div class="mt-5">
             <p class="innerpage-site-title">YVE</p>
         </div>
-        <ul class="nav menu">
-            {{-- <li><a href="/dashboard">MUSIC</a></li>
+        {{-- <ul class="nav menu">
+            <li><a href="/dashboard">MUSIC</a></li>
             <li><a href="/analytics">ANALYTICS</a></li>
             <li><a href="/royalties">ROYALTIES</a></li>
-            <li  class="active"><a href="/promotion">PROMOTION</a></li> --}}
-        </ul>
+            <li  class="active"><a href="/promotion">PROMOTION</a></li>
+        </ul> --}}
     </div>
 
-    <div class="line-divider">
+    {{-- <div class="line-divider"> --}}
         
     </div>
 

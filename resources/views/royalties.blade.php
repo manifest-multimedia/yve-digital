@@ -14,12 +14,8 @@ Dashboard - {{Auth::user()->name}}
         <div class="mt-5">
             <p class="innerpage-site-title">YVE</p>
         </div>
-        <ul class="nav menu">
-            <li><a href="/dashboard">MUSIC</a></li>
-            {{-- <li><a href="/analytics">ANALYTICS</a></li> --}}
-            <li class="active"><a href="/royalties">ROYALTIES</a></li>
-        
-        </ul>
+        {{-- Load Menu --}}
+        @includeIf('components.menu')
     </div>
 
     <div class="line-divider">

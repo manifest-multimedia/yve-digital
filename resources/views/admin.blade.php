@@ -11,15 +11,16 @@ Dashboard - {{Auth::user()->name}}
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
     <div>
+
         <div class="mt-5">
             <p class="innerpage-site-title">YVE</p>
         </div>
 
-            {{-- Load Menu --}}
-
+        {{-- Load Menu --}}
         @includeIf('components.menu')
-        
+
     </div>
+    
     <div class="line-divider">
         
     </div>
@@ -287,7 +288,13 @@ Dashboard - {{Auth::user()->name}}
                                                                 </div>
                                                             </div>
                                                             <div>
-                                                                <a href="{{route('analytics')}}">See all countries</a>
+
+                                                                <a href="
+                                                                @if (Route::has('analytics'))
+                                                                {{route('analytics')}}
+                                                                @endif 
+                                                                ">See all Countries</a>
+
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 col-ls-6 col-sm-6 col-xs-6">

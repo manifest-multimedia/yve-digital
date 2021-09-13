@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AnalyticsController extends Controller
+class UploadSongsController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -14,6 +14,6 @@ class AnalyticsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('analytics');
+        return view('upload-songs'); 
     }
 }

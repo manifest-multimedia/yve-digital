@@ -9,7 +9,7 @@ Use App\Http\Controllers\AdminController;
 Use App\Http\Controllers\UserController;
 Use App\Http\Controllers\DashboardController;
 Use App\Http\Controllers\AccountVerificationController; 
-Use App\Http\Controllers\AnalyticsController; 
+Use App\Http\Controllers\UploadSongsController; 
 Use App\Http\Controllers\ProfileController;
 
 Use App\Http\Middleware\CheckRole; 
@@ -41,7 +41,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::get('/admin', AdminController::class)->name('admin'); 
         Route::get('/user', UserController::class)->name('user');
         Route::get('/account-verification', AccountVerificationController::class)->name('account-verification');
-        Route::get('/analyitcs', AnalyticsController::class)->name('analytics');
+        Route::get('/upload-songs', UploadSongsController::class)->name('upload-songs');
         Route::get('profile', ProfileController::class)->name('profile');
         Route::get('/royalties', function () { return view('royalties'); })->name('royalties');
         Route::get('/manage', function () { return view('manage'); })->name('manage');

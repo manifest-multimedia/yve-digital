@@ -11,14 +11,14 @@ Dashboard - {{Auth::user()->name}}
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
     <div>
+
         <div class="mt-5">
             <p class="innerpage-site-title">YVE</p>
         </div>
-        <ul class="nav menu">
-            <li><a href="/dashboard">MUSIC</a></li>
-            <li class="active"><a href="/analytics">ANALYTICS</a></li>
-            <li><a href="/royalties">ROYALTIES</a></li>
-        </ul>
+
+        {{-- Load Menu --}}
+        @includeIf('components.menu')
+
     </div>
 
     <div class="line-divider">
@@ -68,7 +68,7 @@ Dashboard - {{Auth::user()->name}}
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Analytics</h1>
+                            <h1 class="greet">Upload Songs</h1>
                             <small>Details of how your music is performing! </small>
                         </div>
 
@@ -111,6 +111,11 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                     <div class="panel-body custom-body">
                         
+
+                        @livewire('uploadsongs')
+
+
+
                     </div>
                 </div>
             </div>

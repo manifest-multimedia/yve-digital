@@ -23,8 +23,6 @@ class AdminController extends Controller
     {
 
         $user=Auth::user(); 
-        
-        //$username='DBlack';
 
         $username=$user->username;
        
@@ -41,7 +39,8 @@ class AdminController extends Controller
         $otherStreams=  getTotalStreams($username, 'Deezer') + 
                         getTotalStreams($username, 'Vimeo') +
                         getTotalStreams($username, 'Vevo') +
-                        getTotalStreams($username, 'Tidal');
+                        getTotalStreams($username, 'Tidal')+
+                        getTotalStreams($username, 'Amazon');
         
         return view('admin', compact(
         'user', 

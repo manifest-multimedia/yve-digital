@@ -29,7 +29,10 @@ class Royaltiestable extends Component
         
         $username=$this->user->username;
 
-        $period=$royalties=Royalties::where('username',$username)->latest()->get()->unique('period_gained');
+        $period=$royalties=Royalties::where('username',$username)->get()->unique('period_gained');
+            //->unique('period_gained'))};
+
+           // $period=$this->orderByMonth($period);
     
         if(!is_null($this->sort_period) || !empty($sort_period)){
             $royalties=Royalties::where('username', $username)
@@ -55,7 +58,22 @@ class Royaltiestable extends Component
             $this->sort_period=null; 
         }
 
-        
-
     }
+    public function orderByMonth($data) {
+
+        $data=$data;
+
+
+        $data=$data->groupBy(function($data){
+            return Carbon::parse($data->period_gained)->format('Month');
+        });
+
+    
+      //  $data=$data->groupby('Month');
+        // $data=$data->toBase(); 
+        // dd($data);
+
+        return $data;
+
+    }   
 }

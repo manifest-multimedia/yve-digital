@@ -60,8 +60,8 @@
                         {{-- <option value="demo"> Demo </option>  --}}
 
                         @if(!is_null($selectedUser))
-                            @foreach ($releases as $release)
-                                <option value="{{$release->song_name}}"> {{$release->song_name}} </option>
+                            @foreach ($releases as $item)
+                                <option value="{{$item->song}}"> {{$item->song}} </option>
                             @endforeach
                         @endif
                         
