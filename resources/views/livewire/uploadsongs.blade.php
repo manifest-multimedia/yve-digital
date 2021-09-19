@@ -40,24 +40,38 @@
                     @endforeach
     
                 </select>
+        
                     
             </div>
+
+            <div class="col-md-6" style="padding-top:20px">
+                
+               <label for="select-artist">Name of Artist</label>
+               <input type="text" name="artist" value="{{$artist}}" class="form-control" placeholder="Name of Artist" 
+               wire:model="artist"/>
+        
+                    
+            </div>
+
             <div class="col-md-6" style="padding-top:20px">
                 <label for="number-of-songs">No. of Songs</label>
-                <input type="text" name="number_of_songs" value="{{$no_of_songs}}" class="form-control" />
+                <input type="text" name="number_of_songs" value="{{$number_of_songs}}" class="form-control" />
             </div>        
             <div class="col-md-6" style="padding-top:20px">
                 
                 <label for="song-title">Song</label>
-                <input type="text" name='song' placeholder="Enter the Name of the Song here" class="form-control" />
+                <input type="text" name='song' placeholder="Enter the Name of the Song here" class="form-control"
+                wire:model="song" />
                 
             </div>
             <div class="col-md-6" style="padding-top:20px">
-
+                
                 <label for="upload">Upload Song</label>
-                <input type="file" name="upload" class="form-control" />
-
+                <input type="file" name="upload" class="form-control" 
+                wire:model="upload" />
+                
             </div>
+            <div class="col-md-6" style="padding-top:20px"></div>
             <div class="col-md-6" style="padding-top:20px">
                 
                 <button class="btn btn-primary"> Add Song to Release </button>

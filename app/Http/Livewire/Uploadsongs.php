@@ -4,30 +4,57 @@ namespace App\Http\Livewire;
 
 use App\Models\Release; 
 use App\Models\Song; 
+use Livewire\WithFileUploads;
 
 use Livewire\Component;
 
 class Uploadsongs extends Component
 {
+    use WithFileUploads;
+
     public $release_name;
-    public $no_of_songs; 
+    public $number_of_songs; 
     public $song; 
     public $upload; 
+    public $artist;
+    public $songs_count; 
 
     public function render()
     {
         $releases = Release::all()->unique('release_name'); 
-        $no_of_songs=""; 
-        return view('livewire.uploadsongs', compact('releases', 'no_of_songs'));
+
+        // Load No of Songs & Names of Artists...
+        $artist=''; 
+
+        return view('livewire.uploadsongs', compact('releases'));
     }
 
 
     public function resetInputs() {
 
         $this->release_name=null; 
-        $this->no_of_songs=null; 
+        $this->number_of_songs=null; 
         $this->song=null; 
         $this->upload; 
+
+    }
+
+    public function updatedReleaseName(){
+
+        if(!is_null($this->release_name)){
+            
+            $name_of_artist=collect(Release::where('release_name', $this->release_name)->get()->unique('artist_name'));
+                     
+            $name_of_artist=$name_of_artist[0]['artist_name']; 
+           
+            $number_of_songs=Release::where('release_name', $this->release_name)->get();
+            $count=$number_of_songs->count();
+            $number_of_songs=$number_of_songs[0]['number_of_songs'];
+            $this->songs_count=$count;
+            $this->artist=$name_of_artist;
+            $this->number_of_songs=$number_of_songs; 
+        
+        }
 
     }
 
@@ -37,27 +64,45 @@ class Uploadsongs extends Component
 
         $this->validate([
             'release_name' => 'required', 
-            'no_of_songs' => 'required', 
             'song' => 'required',
-            'upload' =>'required', 
+         //   'upload' =>'required|max:20024', 
+            'artist' => 'required'
         ],
         [
             'release_name.required' => 'No valid release selected', 
+            'artist.required' => 'Invalid Artist',
         ]);
         
         /* Count Numberof Songs added to Release and Compare with Number of Songs for Release.
             If the number of songs are equal to the count then send error notification.
 
         */
+        if($this->number_of_songs<$this->songs_count)
+        {
+            $uploadname=time().'_'.$this->upload->getClientOriginalName(); 
+            $uploadpath=$this->upload->storeAs('songs', $uploadname, 'public'); 
+            
+            Song::create(
+                [
+                    'release' =>$this->release_name, 
+                    'song' => $this->song, 
+                    'song_url' => $uploadpath,
+                    'artist' => $this->artist, 
+                ]
+            );
+            
+            // Return Success Message 
+            session()->flash('message', "Record Saved Successfully for $this->release_name");
+            
+            // Reset Inputs
+            $this->resetInputs(); 
+        }
+        else {
+            session()->flash('message', "You have exceeded the number of songs for this release.");
+            
+        }
+    
 
-        //Upload Song (Store in Public/Songs)
-
-
-        // Reset Inputs
-
-        $this->resetInputs(); 
-
-        // Return Success Message 
     }
 
 
