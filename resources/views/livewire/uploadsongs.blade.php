@@ -43,9 +43,10 @@
                     
             </div>
 
-            
-            <div class="col-md-6" style="padding-top:20px">
-                
+           @if (!is_null($selectedArtist))
+
+                <div class="col-md-6" style="padding-top:20px">
+                    
                 <label for="select-release">Select Release</label>
                 <select name="release" id="release" class="form-control" style="height:46px" wire:model="release_name">
                     
@@ -54,17 +55,19 @@
                     @foreach ($releases as $item); 
                         <option value="{{$item->release_name}}">{{$item->release_name}}</option>
                     @endforeach
-    
-                </select>
-        
-                    
-            </div>
 
-            <div class="col-md-6" style="padding-top:20px">
-                <label for="number-of-songs">No. of Songs</label>
-                <input type="text" name="number_of_songs" value="{{$number_of_songs}}" class="form-control" />
-            </div>   
-            
+                </select>
+                    
+                </div>
+    
+                <div class="col-md-6" style="padding-top:20px">
+                    <label for="number-of-songs">No. of Songs</label>
+                    <input type="text" name="number_of_songs" value="{{$number_of_songs}}" class="form-control" />
+                </div>
+
+                
+                @endif 
+                
             <div class="release col-md-6" style="padding-top:20px">
                 <label> Genre *</label>
                 <input class="form-control" type="text" placeholder="Genre" wire:model="genre"/> 

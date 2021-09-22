@@ -31,11 +31,8 @@ class Uploadsongs extends Component
 
     public function render()
     {
-        
-
         return view('livewire.uploadsongs');
     }
-
 
     public function resetInputs() {
 
@@ -91,8 +88,8 @@ class Uploadsongs extends Component
         
         /* Count Numberof Songs added to Release and Compare with Number of Songs for Release.
             If the number of songs are equal to the count then send error notification.
-
         */
+
         if($this->number_of_songs<$this->songs_count)
         {
             $uploadname=time().'_'.$this->upload->getClientOriginalName(); 
