@@ -30,6 +30,22 @@
             
             <div class="col-md-6" style="padding-top:20px">
                 
+               <label for="select-artist">Choose Artist</label>
+
+               <select name="artist" id="artist" class="form-control" style="height:46px" wire:model="selectedArtist">
+                   <option value=""> Select Artist </option>
+                   @foreach ($artists as $item)
+
+                   <option value="{{$item->name}}">{{$item->name}}</option>
+                       
+                   @endforeach
+               </select>
+                    
+            </div>
+
+            
+            <div class="col-md-6" style="padding-top:20px">
+                
                 <label for="select-release">Select Release</label>
                 <select name="release" id="release" class="form-control" style="height:46px" wire:model="release_name">
                     
@@ -45,20 +61,11 @@
             </div>
 
             <div class="col-md-6" style="padding-top:20px">
-                
-               <label for="select-artist">Name of Artist</label>
-               <input type="text" name="artist" value="{{$artist}}" class="form-control" placeholder="Name of Artist" 
-               wire:model="artist"/>
-        
-                    
-            </div>
-
-            <div class="col-md-6" style="padding-top:20px">
                 <label for="number-of-songs">No. of Songs</label>
                 <input type="text" name="number_of_songs" value="{{$number_of_songs}}" class="form-control" />
             </div>   
             
-            <div class="release col-md-6">
+            <div class="release col-md-6" style="padding-top:20px">
                 <label> Genre *</label>
                 <input class="form-control" type="text" placeholder="Genre" wire:model="genre"/> 
             </div>
