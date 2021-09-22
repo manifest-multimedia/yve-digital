@@ -81,11 +81,11 @@ class Uploadsongs extends Component
             'release_name' => 'required', 
             'song' => 'required',
             'genre' =>'required', 
-            'artist' => 'required'
+            'selectedArtist' => 'required'
         ],
         [
             'release_name.required' => 'No valid release selected', 
-            'artist.required' => 'Invalid Artist',
+            'selectedArtist.required' => 'Invalid Artist',
             'genre.required' => 'Provide a Valid Genre for this Song'
         ]);
         
