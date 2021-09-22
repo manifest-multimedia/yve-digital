@@ -4,20 +4,28 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+
 use App\Models\Release; 
+use App\Models\User;
 
 class Createrelease extends Component
 {
     use WithFileUploads;
 
     public $release_name; 
-    public $genre; 
     public $artist_name; 
     public $no_of_songs; 
     public $record_label; 
     public $territory; 
     public $release_date; 
     public $cover_art; 
+    public $artist=[]; 
+
+    public function mount(){
+        
+        $this->artist=User::orderBy('name','asc')->get(); 
+
+    }
 
     public function render()
     {
@@ -26,8 +34,7 @@ class Createrelease extends Component
 
     public function resetInput(){
 
-    $this->release_name=null; 
-    $this->genre=null; 
+    $this->release_name=null;  
     $this->artist_name=null; 
     $this->no_of_songs=null;
     $this->record_label=null;
@@ -42,7 +49,6 @@ class Createrelease extends Component
     $this->validate([
 
         'release_name'=>'required',
-        'genre'=>'required',
         'artist_name'=>'required',
         'no_of_songs'=>'required',
         'record_label'=>'required',
@@ -53,7 +59,6 @@ class Createrelease extends Component
     ], [
 
         'release_name.required' => 'Please provide a name for this release.', 
-        'genre.required' => 'You must provide a valid genre for the release',
         'artiste_name.required' => 'Provide a vadlid Artist for this release',
         'no_of_songs.required' => 'You have not entered the number of songs for the release', 
         'record_label.required' => 'What is the Record Label for this release?', 
@@ -68,8 +73,8 @@ class Createrelease extends Component
     Release::create(
         [
             'release_name' =>$this->release_name, 
-            'genre' => $this->genre, 
             'cover_art' => $filepath, 
+            'genre' => 'N/A',
             'artist_name' =>$this->artist_name, 
             'territory' =>$this->territory, 
             'releasedate' =>$this->release_date, 

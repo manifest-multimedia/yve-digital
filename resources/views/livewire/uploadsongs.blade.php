@@ -56,7 +56,13 @@
             <div class="col-md-6" style="padding-top:20px">
                 <label for="number-of-songs">No. of Songs</label>
                 <input type="text" name="number_of_songs" value="{{$number_of_songs}}" class="form-control" />
-            </div>        
+            </div>   
+            
+            <div class="release col-md-6">
+                <label> Genre *</label>
+                <input class="form-control" type="text" placeholder="Genre" wire:model="genre"/> 
+            </div>
+            
             <div class="col-md-6" style="padding-top:20px">
                 
                 <label for="song-title">Song</label>

@@ -27,20 +27,25 @@
 <form style="padding-top:20px" wire:submit.prevent="insertRecord"> 
         @csrf
 
-        <div class="release col-md-6">
+        <div class="release col-md-6" style="padding-top:20px">
+            <label> Name of Artist *</label>
+            <select class="form-control" style="height:46px" wire:model="artist_name"> 
+                <option> Select Artist </option> 
+
+                @foreach ($artist as $item)
+                    <option value="{{$item->name}}">{{$item->name}}</option>
+                @endforeach
+
+            </select>
+            
+        </div>
+
+        <div class="release col-md-6" style="padding-top:20px">
             <label> Release Name *</label>
             <input class="form-control" type="text" placeholder="Release Name" wire:model="release_name"/>         
         </div>
 
-        <div class="release col-md-6">
-            <label> Genre *</label>
-            <input class="form-control" type="text" placeholder="Genre" wire:model="genre"/> 
-        </div>
-
-        <div class="release col-md-6" style="padding-top:20px">
-            <label> Name of Artist *</label>
-            <input class="form-control" type="text" placeholder="Name of Artist" wire:model="artist_name"/> 
-        </div>
+        
 
         <div class="release col-md-6" style="padding-top:20px">
             <label> Record Label *</label>
@@ -74,7 +79,8 @@
             <label> Upload Cover Art (2000px x 2000px) *</label>
             <input class="form-control" type="file" placeholder="cover_art" wire:model="cover_art" /> 
         </div>
-        <div class="release col-md-6" style="padding-top:20px">
+
+        <div class="release col-md-6" style="padding-top:50px">
 
             <button type="submit" class="btn btn-primary">
             Submit Release
