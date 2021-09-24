@@ -63,7 +63,7 @@ class Uploadsongs extends Component
             $count=$number_of_songs->count();
             $number_of_songs=$number_of_songs[0]['number_of_songs'];
             $this->songs_count=$count;
-            $this->artist=$name_of_artist;
+           // $this->artist=$name_of_artist;
             $this->number_of_songs=$number_of_songs; 
         
         }
@@ -92,17 +92,29 @@ class Uploadsongs extends Component
 
         if($this->number_of_songs<$this->songs_count)
         {
-            $uploadname=time().'_'.$this->upload->getClientOriginalName(); 
-            $uploadpath=$this->upload->storeAs('songs', $uploadname, 'public'); 
-            
+            if (!is_null($this->upload)){
+
+                $uploadname=time().'_'.$this->upload->getClientOriginalName(); 
+                $uploadpath=$this->upload->storeAs('songs', $uploadname, 'public'); 
+                
+            } 
+
+            else {
+
+                $uploadpath=""; 
+
+            }
+
             Song::create(
+
                 [
                     'release' =>$this->release_name, 
                     'song' => $this->song, 
                     'song_url' => $uploadpath,
-                    'artist' => $this->artist, 
+                    'artist' => $this->selectedArtist, 
                     'genre' => $this->genre
                 ]
+
             );
             
             // Return Success Message 

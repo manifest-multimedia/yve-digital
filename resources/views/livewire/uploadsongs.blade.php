@@ -43,7 +43,7 @@
                     
             </div>
 
-           @if (!is_null($selectedArtist))
+            <div>  @if (!is_null($selectedArtist))
 
                 <div class="col-md-6" style="padding-top:20px">
                     
@@ -67,7 +67,7 @@
 
                 
                 @endif 
-                
+            </div> 
             <div class="release col-md-6" style="padding-top:20px">
                 <label> Genre *</label>
                 <input class="form-control" type="text" placeholder="Genre" wire:model="genre"/> 
