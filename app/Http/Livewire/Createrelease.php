@@ -51,10 +51,16 @@ class Createrelease extends Component
 
         if(!is_null($this->artist_name)) {
 
-            $artist=User::where('username', $this->artist_name)->get();
-            //dd($artist);
-            $this->display_name=$artist[0]['name'];
-            $this->username=$this->artist_name;
+            $artist=User::where('username', $this->artist_name)->first();
+           
+           
+            if(!is_null($artist->name))
+            {
+                $this->display_name=$artist->name;
+
+                $this->username=$this->artist_name;
+            }
+
 
         }
 
