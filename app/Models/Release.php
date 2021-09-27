@@ -18,6 +18,7 @@ class Release extends Model
         'releasedate', 
         'record_label',
         'number_of_songs',
+        'username',
     ];
 
 }

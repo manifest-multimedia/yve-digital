@@ -13,6 +13,11 @@ class Song extends Model
         'release',
         'genre',
         'song', 
-        'song_url' 
+        'song_url', 
+        'username',
+        'record_lable',
+        'artist',
+        'status',
+        'release_date'
     ]; 
 }

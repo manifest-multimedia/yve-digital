@@ -28,12 +28,12 @@
         @csrf
 
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Name of Artist *</label>
+            <label> Name of Artist * </label>
             <select class="form-control" style="height:46px" wire:model="artist_name"> 
                 <option> Select Artist </option> 
 
                 @foreach ($artist as $item)
-                    <option value="{{$item->name}}">{{$item->name}}</option>
+                    <option value="{{$item->username}}">{{$item->name}}</option>
                 @endforeach
 
             </select>

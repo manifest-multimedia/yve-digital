@@ -20,6 +20,8 @@ class Createrelease extends Component
     public $release_date; 
     public $cover_art; 
     public $artist=[]; 
+    public $display_name;
+    public $username;
 
     public function mount(){
         
@@ -41,6 +43,21 @@ class Createrelease extends Component
     $this->territory=null;
     $this->release_date=null; 
     $this->cover_art=null;
+    $this->username=null;
+
+    }
+
+    public function updatedArtistName(){
+
+        if(!is_null($this->artist_name)) {
+
+            $artist=User::where('username', $this->artist_name)->get();
+            //dd($artist);
+            $this->display_name=$artist[0]['name'];
+            $this->username=$this->artist_name;
+
+        }
+
 
     }
 
@@ -75,7 +92,8 @@ class Createrelease extends Component
             'release_name' =>$this->release_name, 
             'cover_art' => $filepath, 
             'genre' => 'N/A',
-            'artist_name' =>$this->artist_name, 
+            'artist_name'=>$this->display_name,
+            'username' =>$this->username, 
             'territory' =>$this->territory, 
             'releasedate' =>$this->release_date, 
             'record_label' =>$this->record_label, 

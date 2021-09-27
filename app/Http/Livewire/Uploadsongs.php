@@ -23,6 +23,7 @@ class Uploadsongs extends Component
     public $songs_count; 
     public $releases=[]; 
     public $genre;
+    public $username;
 
     public function mount(){
 
@@ -47,7 +48,14 @@ class Uploadsongs extends Component
 
         if(!is_null($this->selectedArtist)){
 
-            $this->releases = Release::where('artist_name', $this->selectedArtist)->get()->unique('release_name'); 
+            $releases= Release::where('artist_name', $this->selectedArtist)->get()->unique('release_name'); 
+            $this->releases =$releases;
+            
+            $this->username=null; 
+
+            foreach ($releases as $item) {
+             $this->username=$item->username;
+            }
             
         }
     }
@@ -55,14 +63,18 @@ class Uploadsongs extends Component
 
         if(!is_null($this->release_name)){
             
+
             $name_of_artist=collect(Release::where('release_name', $this->release_name)->get()->unique('artist_name'));
                      
             $name_of_artist=$name_of_artist[0]['artist_name']; 
            
             $number_of_songs=Release::where('release_name', $this->release_name)->get();
+           
             $count=$number_of_songs->count();
-            $number_of_songs=$number_of_songs[0]['number_of_songs'];
             $this->songs_count=$count;
+
+
+            $number_of_songs=$number_of_songs[0]['number_of_songs'];
            // $this->artist=$name_of_artist;
             $this->number_of_songs=$number_of_songs; 
         
@@ -90,7 +102,7 @@ class Uploadsongs extends Component
             If the number of songs are equal to the count then send error notification.
         */
 
-        if($this->number_of_songs<$this->songs_count)
+        if($this->songs_count <= $this->number_of_songs)
         {
             if (!is_null($this->upload)){
 
@@ -112,7 +124,8 @@ class Uploadsongs extends Component
                     'song' => $this->song, 
                     'song_url' => $uploadpath,
                     'artist' => $this->selectedArtist, 
-                    'genre' => $this->genre
+                    'genre' => $this->genre, 
+                    'username'=>$this->username,
                 ]
 
             );

@@ -65,11 +65,15 @@
                     <input type="text" name="number_of_songs" value="{{$number_of_songs}}" class="form-control" />
                 </div>
 
+                <div class="col-md-6" style="padding-top:20px">
+                    {{-- {{$songs_count}} || {{$username}} --}}
+                </div>
+
                 
                 @endif 
             </div> 
             <div class="release col-md-6" style="padding-top:20px">
-                <label> Genre *</label>
+                <label> Genre * </label>
                 <input class="form-control" type="text" placeholder="Genre" wire:model="genre"/> 
             </div>
             
