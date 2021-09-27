@@ -395,28 +395,29 @@ class ReleasesSeeder extends Seeder
           foreach ($data as $item)
 
           {
-            //   DB::table('releases')->insertOrignore(
+              DB::table('releases')->insertOrignore(
                   
-            //     [
-            //         'artist_name' => $item->username,
-            //         'release_name' => $item->release_name,
-            //         'cover_art' => $item->cover_art,
-            //         'genre' => $item->genre, 
-            //         'territory' => $item->territory, 
-            //         'releasedate' =>$item->release_date, 
+                [
+                    'artist_name' => $item->username,
+                    'release_name' => $item->release_name,
+                    'cover_art' => $item->cover_art,
+                    'genre' => $item->genre, 
+                    'territory' => $item->territory, 
+                    'releasedate' =>$item->release_date, 
+                    'username' =>$item->username, 
                     
-            //     ]       
+                ]       
 
-            //   );
+              );
 
 
-            db::table('releases')->updateOrinsert([
-                'artist_name' => $item->username, 
-                'release_name' => $item->release_name,
+            // db::table('releases')->updateOrinsert([
+            //     'artist_name' => $item->username, 
+            //     'release_name' => $item->release_name,
 
-            ],
+            // ],
             
-            ['username' => $item->username]);
+            // ['username' => $item->username]);
 
 
           }
