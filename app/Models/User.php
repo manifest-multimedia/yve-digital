@@ -39,7 +39,6 @@ class User extends Authenticatable
         'account_type', 
         'account_status', 
 
-
     ];
 
     /**

@@ -11,6 +11,7 @@ Use App\Http\Controllers\DashboardController;
 Use App\Http\Controllers\AccountVerificationController; 
 Use App\Http\Controllers\UploadSongsController; 
 Use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserManagementController; 
 
 Use App\Http\Middleware\CheckRole; 
 
@@ -45,6 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::get('profile', ProfileController::class)->name('profile');
         Route::get('/royalties', function () { return view('royalties'); })->name('royalties');
         Route::get('/manage', function () { return view('manage'); })->name('manage');
+        Route::resource('users', UserManagementController::class); 
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
 
     });

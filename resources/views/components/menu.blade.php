@@ -8,6 +8,7 @@
             <li><a href="/upload-songs">UPLOADS</a></li>
             <li><a href="/royalties">ROYALTIES</a></li>
             <li><a href="/manage">MANAGE</a></li>
+            <li> <a href="/users">USERS</a></li>
         </ul>
     
         @break
