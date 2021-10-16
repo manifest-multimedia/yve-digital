@@ -4,25 +4,39 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use Livewire\WithPagination;
+
 
 class Usermanagement extends Component
 {
+    use WithPagination; 
+    protected $paginationTheme = 'bootstrap';
 
     public $users=[]; 
     public $searchTerm; 
-    public $results=[]; 
+    protected $results=null; 
 
     public function mount(){
 
-        $this->results=User::all();
 
     }
 
     public function render()
     {
-        $results=$this->results; 
+        $results=$this->results;
+        
+        if(is_null($results)) {
+            return view('livewire.usermanagement', [
+                'results'=> $this->results=User::paginate(20)
+            ]);
 
-        return view('livewire.usermanagement', compact('results'));
+        } else{
+           
+            return view('livewire.usermanagement', [
+                'results' => $results
+            ]);
+        }
+
     }
 
     public function updatedsearchTerm(){
@@ -31,27 +45,13 @@ class Usermanagement extends Component
             $this->results=User::where('username', $this->searchTerm)
             ->orWhere('name', $this->searchTerm)
             ->orWhere('email', $this->searchTerm)
-            ->get();
+            ->paginate(20);
         }
 
         else {
-            $this->results=User::all(); 
+            $this->results=User::paginate(20); 
         }
-
-        
-
-        // if(!is_null($this->searchTerm)){
-            
-        //     $this->results=User::where('username', '==' , $this->searchTerm )->get(); 
-        // }
-
-        // else {
-        //     $this->results=User::all(); 
-        // }
        
-        // // $this->results=['jay','joe']; 
-
-        // dd($this->results); 
     }
 
 }

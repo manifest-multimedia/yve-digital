@@ -29,7 +29,7 @@
 
     <input type="Text" placeholder="Enter Search Terms" class="form-control" wire:model="searchTerm"/>
 
-<table class="table dataTable no-footer">
+<table class="table dataTable no-footer" style="margin-top:20px">
     
 
 
@@ -68,8 +68,10 @@
             </td>
          </tr>
     @endforeach
-
+   
+    
 </table>
-        
+{{ $results->links() }}
+
     
 </div>
