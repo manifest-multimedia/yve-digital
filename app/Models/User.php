@@ -38,6 +38,7 @@ class User extends Authenticatable
         'user_role', 
         'account_type', 
         'account_status', 
+        'username'
 
     ];
 

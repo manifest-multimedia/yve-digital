@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User; 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
+
+
 
 class UserManagementController extends Controller
 {
@@ -13,7 +18,12 @@ class UserManagementController extends Controller
     }
 
     public function edit($id){
-        return 'Edited ' . $id; 
+
+        $user=User::where('id', $id)->firstOrfail(); 
+
+        return view('users.edit', compact('user')); 
+
+
     }
 
     public function update(Request $request, $id){
@@ -49,8 +59,6 @@ class UserManagementController extends Controller
                 break;
         }
         
-        
-        
         User::where('id', $user_id)
         ->update([
             'account_status' => $update_status,
@@ -67,8 +75,73 @@ class UserManagementController extends Controller
         return 'Showing ' . $id; 
     }
 
-    public function store($id) {
-        return 'Yeppy, I\'m stored up'; 
+    public function store(Request $request) {
+        $message="Record Stored Successfully!"; 
+        
+        $request_type=$request->request_type; 
+
+        if($request_type=='Update') {
+            
+            $message='Changes Successfully Saved.';
+        }
+
+        $rules=array(
+            'name'  => 'required', 
+            'email' => 'required | email', 
+            'account_status' => 'required', 
+        ); 
+
+
+        $validator=Validator::make([
+            'name' => $request->name,
+            'email' => $request->email, 
+            'account_status'=>$request->account_status,
+        ]  
+        
+        , $rules);
+
+        if($validator->fails()) {
+            return redirect()->route('users.index')
+            ->withErrors($validator);  
+        }
+
+        else{
+
+            switch ($request->password) {
+                case null:
+                    User::where('id', $request->id)
+                    ->update([
+                    'account_status' => $request->account_status, 
+                    'username'=>$request->username,  
+                    'name'=>$request->name, 
+                    'email' =>$request->email, 
+                    'user_role'=>$request->user_role, 
+                    ]);
+        
+                    return redirect()->route('users.index')
+                    ->with('success', $message);
+                    break;
+                
+                default:
+                User::where('id', $request->id)
+                ->update([
+                'account_status' => $request->account_status, 
+                'username'=>$request->username, 
+                'password'=>Hash::make($request->password), 
+                'name'=>$request->name, 
+                'email' =>$request->email, 
+                'user_role'=>$request->user_role, 
+                ]);
+    
+                return redirect()->route('users.index')
+                ->with('success', $message);
+                    break;
+            }
+
+           
+        }
+        
+   
     }
 
     public function destroy($id) {
