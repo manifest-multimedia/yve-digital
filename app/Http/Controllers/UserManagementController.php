@@ -137,15 +137,43 @@ class UserManagementController extends Controller
                 ->with('success', $message);
                     break;
             }
-
            
         }
-        
    
     }
 
-    public function destroy($id) {
-        return 'Brrrrrr... I\'m a gonna'; 
+    public function destroy(Request $request, $id) {
+    
+        $user=User::where('id', $id)->firstOrFail(); 
+        $request_type=null; 
+        if(!is_null($request->request_type))
+        {
+            $request_type=$request->request_type; 
+        }
+
+        switch ($request_type) {
+            case 'delete':
+                
+                //Delete 
+
+                User::where('id', $id)
+                ->delete(); 
+
+
+
+                return 'Deleted Successfully'; 
+
+                break;
+                
+                
+                default:
+                    return view('users.delete', compact('user')); 
+                break;
+        }
+    
+
+
+
     }
 
 }

@@ -174,8 +174,9 @@ User Management - {{Auth::user()->name}}
                                 </div>
 
                                 <div class="col-md-6" style="padding-top:20px">
-                                    
-                                    <button class="btn btn-danger form-control" type="submit"> Update</button>
+                                         
+                                       <button class="btn btn-danger form-control" type="submit"> Update</button>
+                                
                                     
                                 </div>
                                 <div class="col-md-6" style="padding-top:20px">
