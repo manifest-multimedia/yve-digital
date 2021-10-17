@@ -38,9 +38,17 @@ task('build', function () {
     run('cd {{release_path}} && npm run build');
 });
 
+task('notify', function(){
+
+
+    print_r('SMS Sent'); 
+
+}); 
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
+after('deploy:success', 'deploy:notify');
