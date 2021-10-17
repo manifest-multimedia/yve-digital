@@ -49,7 +49,7 @@
 					</div>
 					<div class="col-md-6 ml-auto">
 
-						<div class="side-area">
+						<div class="side-area" >
 
 							<div class=" side-area-heading pr-5 pl-5 pb-4">
 								<h2>Release

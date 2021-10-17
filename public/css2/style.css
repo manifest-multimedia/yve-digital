@@ -47,7 +47,7 @@ a:hover{
 	font-family: 'Nunito', sans-serif;
 	font-weight: 700;
 	font-size: 22px;
-	line-height: 30.01px
+	line-height: 30.01px;
 	letter-spacing: 7%;
 	color: #fff !important;
 	padding: 0px 21px !important;
@@ -380,21 +380,15 @@ small.orsignin:before {
 
 
 .side-area{
-	margin:0; 
-	position:absolute; 
-	top:50%;
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+
 	border-radius: 45px;
 	background-position: center center;
-	height: 100%;
-	/* min-height:97vh; */
+	height: 97vh;
 	background-image: url(../images/sidebg.png);
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-
 
 }
 
@@ -450,3 +444,22 @@ small.orsignin:before {
     margin-bottom: 30px;
 }
 
+.footer {
+	border-top: 1px solid #c4c4c4;
+	height:100px;	 
+	vertical-align: 50%;
+	background: #353950; 
+	color:white;
+	width:100%
+}
+
+.developer {
+	float:left; 
+	padding:35px; 
+	height:100%
+}
+
+.credits {
+float:right;
+padding:35px;
+height:100%}
