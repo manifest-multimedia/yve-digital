@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@yield('page-title')</title>
 	<link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
-	<link href="{{asset('css/font-awesome.min.css" rel="stylesheet')}}">
-	<link href="{{asset('css/datepicker3.css')}}" rel="stylesheet">
+	<link href="{{asset('backend/css/font-awesome.min.css')}}" rel="stylesheet">
+	<link href="{{asset('backend/css/datepicker3.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/styles.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -29,6 +29,10 @@
 
 	@yield('sidebar')
 
+	<div class="mobile-menu">
+		<i class="fa fa-bars mobilebars" aria-hidden="true"></i>
+	</div>
+
 	@yield('content')
 
 	</div>	<!--/.main-->
@@ -41,7 +45,7 @@
 	<script src="{{asset('js/easypiechart.js')}}" defer></script>
 	<script src="{{asset('js/easypiechart-data.js')}}" defer></script>
 	<script src="{{asset('js/bootstrap-datepicker.js')}}" defer></script>
-	<script src="{{asset('js/custom.js')}}" defer></script>
+	<script src="{{asset('backend/js/custom.js')}}" defer></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.js" defer></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 	<script src="{{ mix('js/app.js') }}" defer></script>

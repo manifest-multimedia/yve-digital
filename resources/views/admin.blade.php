@@ -56,6 +56,7 @@ Dashboard - {{Auth::user()->name}}
     </div>
 
 </div>
+
 <!--/.sidebar-->
 @endsection
 
