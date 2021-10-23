@@ -161,6 +161,7 @@ User Management - {{Auth::user()->name}}
                                             <option value="user">User</option>    
                                         @else 
                                             <option value="{{$user->user_role}}" selected> {{ucfirst($user->user_role) }} </option> 
+                                            <option value="user">User</option>
                                             <option value="admin">Admin</option>
                                         @endif 
                                     </select> 

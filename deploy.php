@@ -40,8 +40,7 @@ task('build', function () {
 
 task('notify', function(){
 
-
-    print_r('SMS Sent'); 
+   //SEND SMS & EMAIL Notification Upon Successfully Deployment 
 
 }); 
 
@@ -51,4 +50,5 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
-after('deploy:success', 'deploy:notify');
+
+after('success', 'notify');
