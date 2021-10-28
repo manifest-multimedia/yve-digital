@@ -92,28 +92,16 @@ Dashboard - {{Auth::user()->name}}
 
                             </div>
                         </div>
-                    </div>
-                    
-                    {{-- <div class="round-tabs">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><small>1HR</small></a></li>
-                                <li><a href=""><small>1D</small></a></li>
-                                <li class="active"><a href=""><small>1W</small></a></li>
-                                <li><a href=""><small>1M</small></a></li>
-                                <li><a href=""><small>1Y</small></a></li>
-                            </ul>										
-                    </div> --}}
+                    </div>  
 
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
-                    <div class="panel-body custom-body">
+                        @livewire('royaltiestable')
                         
-                        <div class="row custom-padding">
-                            @livewire('royaltiestable')
-                        </div>
+                        
                         
 
 
-                    </div>
+                    
                 </div>
             </div>
     </div><!--/.row-->

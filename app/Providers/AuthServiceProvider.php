@@ -6,6 +6,9 @@ use App\Models\ConnectedAccount;
 use App\Policies\ConnectedAccountPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
+use Illuminate\Support\Facades\Gate;
+
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +29,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Admin 
+        Gate::define('isAdmin', function($user) {
+            return $user->user_role=='admin'; 
+        });
+
+        //User
+        Gate::define('isUser', function($user){
+            return $user->user_role=="user"; 
+        });
     }
 }

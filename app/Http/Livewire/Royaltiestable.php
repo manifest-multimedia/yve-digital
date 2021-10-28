@@ -68,12 +68,13 @@ class Royaltiestable extends Component
             return Carbon::parse($data->period_gained)->format('Month');
         });
 
-    
-      //  $data=$data->groupby('Month');
-        // $data=$data->toBase(); 
-        // dd($data);
 
         return $data;
 
     }   
+
+    public function edit($record){
+
+        
+    }
 }
