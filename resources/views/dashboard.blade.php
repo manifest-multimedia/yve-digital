@@ -146,49 +146,9 @@ Dashboard - {{Auth::user()->name}}
                                             </div>
                                         </div>
                                         <div class="row mt-5">
-                                            <div class="col-md-7">
-                                                <div class="dashboard-green-slider shadow-box-wp">
-                                                    <!-- Swiper -->
-                                                    <div class="swiper-container slider-rounded">
-                                                        <div class="swiper-wrapper">
-                                                            <div class="swiper-slide">
+                                            
+                                            @livewire('featuredsong')
 
-                                                                <div class="release-bar">
-                                                                    <div>
-                                                                        <p class="tag-line">Latest release</p>
-                                                                    </div>
-                                                                    <div>
-                                                                        <img src="{{asset('images/spotify.png')}}" class="img-fluid">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tracks">
-                                                                    <div>
-                                                                        <p class="track_cat">SINGLE</p>
-                                                                        <h2 class="track_name">Self Help</h2>
-                                                                        <p class="singer"><span>By </span><span> Fameye</span></p>
-                                                                        <p class="track_time">2021-1 song, 2 min 41sec</p>
-                                                                    </div>
-                                                                    <div>
-                                                                        <img src="{{'images/mg.png'}}" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="time-line">
-                                                                    <div>
-                                                                        <p class="time-line-heading">Last Week <span class="red-drop"><i class="glyphicon glyphicon-triangle-bottom "></i> 0%</span></p>
-                                                                        <h3 class="time-line-subheading">0 plays</h3>
-                                                                    </div>
-                                                                    <div>
-                                                                        <p class="time-line-heading">Last Week <span class="white-top"><i class="glyphicon glyphicon-triangle-top "></i> 0%</span></p>
-                                                                        <h3 class="time-line-subheading">0 plays</h3>
-                                                                    </div>							
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Add Pagination -->
-                                                        <div class="swiper-pagination"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="col-md-5 shadow-box">
                                                 <div>
                                                     <h2 style="margin-top: 0px;" class="bps-text">Best Performing Stores</h2>
