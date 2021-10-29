@@ -40,9 +40,11 @@ task('build', function () {
 
 task('notify', function(){
 
+    //SMSnotify('233549539417', 'Application Successfully Deployed for YVE Digital'); 
+    SMSnotify('233549539417', 'Dear Johnson, App Updates for YVE Digital Have been Successfully Deployed. Contact support@manifestghana.com for further assistance/support'); 
    //SEND SMS & EMAIL Notification Upon Successfully Deployment 
 
-}); 
+})->local(); 
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');

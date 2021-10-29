@@ -50,6 +50,7 @@ class Usermanagement extends Component
 
         else {
             $this->results=User::paginate(20); 
+           
         }
        
     }

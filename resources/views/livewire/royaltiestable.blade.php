@@ -13,9 +13,98 @@
                     </div>
                     
                 </div>
-            
+
+          
             
                 @can('isAdmin')
+
+                @if ($status=="edit")
+
+
+                @if($errors->any())
+    <div class="alert alert-danger">
+        <p><strong>Opps Something went wrong</strong></p>
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+@endif
+
+                <h3> <strong>Edit Record</strong> </h3> 
+                <hr>
+               <div class="col-md-8">
+                
+                 </div>  
+                 <div class="col-md-4">
+                     <button class="btn btn-primary" wire:click="update({{$record}})">Update </button>
+                    <button class="btn btn-danger" wire:click="cancel">Cancel </button> 
+                    <hr/>
+                </div> 
+               
+                @foreach ($edit as $item)
+                <form action="">
+                    @csrf
+                    <div class="col-md-6">
+                        <label for="release_name">Release Name</label>
+                        <input type="text" class="form-control"
+                        value="{{$item->release_name}}" name="release" wire:model="release_name">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="song_name">Song Name</label>
+                        <input type="text" class="form-control"
+                        value="{{$item['song_name']}}" name="song_name" wire:model="song_name">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="platform">Platform</label>
+                        <input type="text" class="form-control"
+                        value="{{$item->platform}}" name="platform" wire:model="platform">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label for="period_gained">Period Gained</label>
+                        <input type="text" class="form-control"
+                        value="{{$item->period_gained}}" name="period_gained" wire:model="period_gained">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="downloads">Downloads</label>
+                        <input type="text" class="form-control"
+                        value="{{$item->downloads}}" name="downloads" wire:model="downloads">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="total_streams	">Streams</label>
+                        <input type="text" class="form-control"
+                        value="{{$item->total_streams}}" name="streams" wire:model="streams">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="revenue">Revenue</label>
+                        <input type="text" class="form-control"
+                        value="{{$item->revenue}}" name="revenue" wire:model="revenue">
+
+                    </div>
+
+                </form>
+
+                @endforeach
+                
+
+
+
+                @else
+
                     <div class="table-box">
                         <div id="transtable_wrapper" class="dataTables_wrapper no-footer">
                                 <div class="col-md-6" id="">
@@ -63,8 +152,8 @@
                                     <td>{{$item->downloads}}</td>
                                     <td><span class="tbprice">{{$item->revenue}}</td> 
                                     <td><span >
-                                        <a href="#" class="btn btn-primary" style="display:inline-block !important ; float:left !important; vertical-align:top !important; margin-right:5px" > Edit </a> 
-                                        <a href="#" class="btn btn-danger" style="display:inline-block !important ; float:left !important; vertical-align:top !important"> Delete</a> </td> 
+                                        <a class="btn btn-primary" style="display:inline-block !important ; float:left !important; vertical-align:top !important; margin-right:5px" wire:click="edit({{$item->id}})" > Edit </a> 
+                                        <a class="btn btn-danger" style="display:inline-block !important ; float:left !important; vertical-align:top !important" wire:click="delete({{$item->id}})"> Delete</a> </td> 
                                 </tr>
                             @endforeach
                     
@@ -76,6 +165,8 @@
                         
                         <div class="dataTables_info" id="transtable_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div><div class="dataTables_paginate paging_simple_numbers" id="transtable_paginate"><a class="paginate_button previous disabled" aria-controls="transtable" data-dt-idx="0" tabindex="-1" id="transtable_previous">Previous</a><span><a class="paginate_button current" aria-controls="transtable" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="transtable" data-dt-idx="2" tabindex="-1" id="transtable_next">Next</a></div></div>
                     </div>
+
+                    @endif
                 @endcan
 
 
@@ -146,6 +237,7 @@
     @endif 
 
 </div>
+
 
 
 
