@@ -234,16 +234,16 @@
                         
                         <div class="dataTables_info" id="transtable_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div><div class="dataTables_paginate paging_simple_numbers" id="transtable_paginate"><a class="paginate_button previous disabled" aria-controls="transtable" data-dt-idx="0" tabindex="-1" id="transtable_previous">Previous</a><span><a class="paginate_button current" aria-controls="transtable" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="transtable" data-dt-idx="2" tabindex="-1" id="transtable_next">Next</a></div></div>
                     </div>
-                @endcan
-
+                    
+                </div>
+                
             </div>
-      
-    </div>
-
-@else 
-
-    <div> Cannot populate royalties table. No Record Found. </div>
-@endif 
+            
+            @else 
+            
+            <div> Cannot populate royalties table. No Record Found. </div>
+            @endif 
+            @endcan
 
 
 
