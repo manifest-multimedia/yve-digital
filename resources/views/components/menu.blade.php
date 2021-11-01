@@ -21,8 +21,8 @@
     @case('user')
     
     <ul class="nav menu">
-        <li class="active"><a href="/dashboard">MUSIC</a></li>
-        <li><a href="/royalties">ROYALTIES</a></li>
+        <li class="{{ request()->is('user')? 'active' : ''}}"><a href="/dashboard">MUSIC</a></li>
+        <li class="{{ request()->is('royalties')? 'active' : ''}}"><a href="/royalties">ROYALTIES</a></li>
         
     </ul>
 

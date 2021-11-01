@@ -146,9 +146,9 @@ Dashboard - {{Auth::user()->name}}
                                             </div>
                                         </div>
                                         <div class="row mt-5">
-                                            
+                                            {{-- Featured Release --}}
                                             @livewire('featuredsong')
-
+                                            {{-- End Featured Release --}}
                                             <div class="col-md-5 shadow-box">
                                                 <div>
                                                     <h2 style="margin-top: 0px;" class="bps-text">Best Performing Stores</h2>
