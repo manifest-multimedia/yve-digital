@@ -10,6 +10,9 @@ use JoelButcher\Socialstream\SetsProfilePhotoFromUrl;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use TaylorNetwork\UsernameGenerator\FindSimilarUsernames;
+use TaylorNetwork\UsernameGenerator\GeneratesUsernames;
+
 
 class User extends Authenticatable
 {
@@ -22,6 +25,8 @@ class User extends Authenticatable
     use Notifiable;
     use SetsProfilePhotoFromUrl;
     use TwoFactorAuthenticatable;
+    use FindSimilarUsernames;
+	use GeneratesUsernames;
 
     /**
      * The attributes that are mass assignable.
