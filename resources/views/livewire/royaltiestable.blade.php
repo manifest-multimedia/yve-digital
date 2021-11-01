@@ -128,10 +128,11 @@
                                                     @endforeach
                                         </select> </label>
                                 </div>
-
-                                <div class="col-md-6"><strong> Total Earnings for Period: <input type="text" class="form-control" value= '$ {{$earnings}}' /> </strong>
-                                </div>
-                                            
+    {{-- Display Total Earnings Only for User --}}
+                            @can('isUser')    
+                                <div class="col-md-6"><strong> Total Earnings for Period: <input type="text" class="form-control" value= '$ {{$earnings}}' /> </strong> </div>
+                            @endcan
+                                                                    
                             
                                     <table id="transtable" class="table dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="transtable_info"> 
                             <thead>
