@@ -8,6 +8,8 @@ use App\Models\Royalties;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Gate;
+
 
 use Carbon\Carbon;
 
@@ -17,6 +19,7 @@ class Royaltiestable extends Component
     use WithPagination;
 
     public $user;  
+    public $selectedUser=null; 
     public $sort_period=null; 
     public $status=null;
     public $edit=[]; 
@@ -42,27 +45,67 @@ class Royaltiestable extends Component
     public function render()
     {
         
-        $username=$this->user->username;
-
-        $period=$royalties=Royalties::where('username',$username)->get()->unique('period_gained');
-            //->unique('period_gained'))};
-
-           // $period=$this->orderByMonth($period);
-    
-        if(!is_null($this->sort_period) || !empty($sort_period)){
-            $royalties=Royalties::where('username', $username)
-            ->where('period_gained', $this->sort_period)
-            ->latest()->paginate(15);
-
-            $earnings=$royalties->sum('revenue'); 
-        }
-
-        else{
+        if (Gate::allows('isUser')){
 
             $username=$this->user->username;
-            $royalties=Royalties::where('username',$username)->latest()->paginate(15); 
-            $earnings=$royalties->sum('revenue'); 
+
+            $period=$royalties=Royalties::where('username',$username)->get()->unique('period_gained');
+                //->unique('period_gained'))};
+    
+               // $period=$this->orderByMonth($period);
+        
+            if(!is_null($this->sort_period) || !empty($sort_period)){
+                $royalties=Royalties::where('username', $username)
+                ->where('period_gained', $this->sort_period)
+                ->latest()->paginate(15);
+    
+                $earnings=$royalties->sum('revenue'); 
+            }
+    
+            else{
+    
+                $username=$this->user->username;
+                $royalties=Royalties::where('username',$username)->latest()->paginate(15); 
+                $earnings=$royalties->sum('revenue'); 
+            }
         }
+
+        if(Gate::allows('isAdmin'))
+
+        {
+            $username=''; 
+            $earnings='';
+            if (!is_null($this->selectedUser)){
+
+                $username=$this->selectedUser;
+
+            } else{
+
+
+                 $period=$royalties=Royalties::all()->unique('period_gained');
+                 
+                $royalties=Royalties::latest()->paginate(15);
+
+                
+                if(!is_null($this->sort_period) || !empty($sort_period)){
+
+                    $royalties=Royalties::where('period_gained', $this->sort_period)
+                    ->latest()->paginate(15);
+
+                }
+                
+                
+            }
+            
+           
+        }
+
+        
+
+
+
+
+
         return view('livewire.royaltiestable', compact('royalties', 'earnings', 'period'));
 
     }
@@ -114,8 +157,8 @@ class Royaltiestable extends Component
         #Delete Record 
 
         Royalties::where('id', $record)->delete(); 
-
-       return view('livewire.royaltiestable')->with("success", "record deleted Successfully");
+        request()->session()->flash('success', "record deleted Successfully"); 
+        return redirect('royalties');
         
     }
 

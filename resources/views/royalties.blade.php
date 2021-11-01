@@ -97,11 +97,6 @@ Dashboard - {{Auth::user()->name}}
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                         @livewire('royaltiestable')
                         
-                        
-                        
-
-
-                    
                 </div>
             </div>
     </div><!--/.row-->
