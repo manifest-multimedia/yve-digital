@@ -22,7 +22,7 @@ Dashboard - {{Auth::user()->name}}
         </ul> --}}
     </div>
 
-    {{-- <div class="line-divider"> --}}
+    <div class="line-divider">
         
     </div>
 

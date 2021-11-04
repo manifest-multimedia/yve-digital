@@ -150,61 +150,62 @@ Dashboard - {{Auth::user()->name}}
                                             {{-- Featured Release --}}
                                             @livewire('featuredsong')
                                             {{-- End Featured Release --}}
+                                            {{-- Best Performning Stores --}}
                                             <div class="col-md-5 shadow-box">
                                                 <div>
                                                     <h2 style="margin-top: 0px;" class="bps-text">Best Performing Stores</h2>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Itunes</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>YouTube</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'youtube')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'youtube')}}%" style="width: {{storePerformance(Auth::user()->username, 'youtube')}}%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Spotify</small>
-                                                            <p><b>0%</b></p>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'spotify')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'spotify')}}%" style="width: {{storePerformance(Auth::user()->username, 'spotify')}}%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Tidal</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>Apple</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'applemusic')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'applemusic')}}%" style="width: {{storePerformance(Auth::user()->username, 'applemusic')}}%;" class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Amazon Music</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>Vimeo</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'vimeo')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'vimeo')}}%" style="width: {{storePerformance(Auth::user()->username, 'vimeo')}}%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Boomplay</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>Deezer</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'deezer')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'deezer')}}%" style="width: {{storePerformance(Auth::user()->username, 'deezer')}}%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -212,6 +213,7 @@ Dashboard - {{Auth::user()->name}}
                                                 </div>
                                             </div>
                                         </div>
+                                        {{-- End Best Performing Stores --}}
                                         <br>
                                         <div class="row">
                                             <div class="col-md-7">
@@ -222,7 +224,7 @@ Dashboard - {{Auth::user()->name}}
                                                             <div class="country-tab">
                                                                 <div class="country-tabs">
                                                                     <div>
-                                                                        <img src="../images/flag1.png" class="img-responsive">
+                                                                        <img src="{{asset('images/flag1.png')}}" class="img-responsive">
                                                                         <span class="country-name">GHA</span>
                                                                     </div>
                                                                     <div>
@@ -231,7 +233,7 @@ Dashboard - {{Auth::user()->name}}
                                                                 </div>
                                                                 <div class="country-tabs">
                                                                     <div>
-                                                                        <img src="../images/flag2.png" class="img-responsive">
+                                                                        <img src="{{asset('images/flag2.png')}}" class="img-responsive">
                                                                         <span class="country-name">GBR</span>
                                                                     </div>
                                                                     <div>
@@ -240,7 +242,7 @@ Dashboard - {{Auth::user()->name}}
                                                                 </div>
                                                                 <div class="country-tabs">
                                                                     <div>
-                                                                        <img src="../images/flag3.png" class="img-responsive">
+                                                                        <img src="{{asset('images/flag3.png')}}" class="img-responsive">
                                                                         <span class="country-name">USA</span>
                                                                     </div>
                                                                     <div>
@@ -281,26 +283,251 @@ Dashboard - {{Auth::user()->name}}
                                     </div>
                                     
                                     
+                                    {{-- Spotify --}}
+                                        <div class="tab-pane fade" id="pilltab2">
 
-                                    <div class="tab-pane fade" id="pilltab2">
-                                        <h4>SPOTIFY({{$spotifyStreams}})</h4>
-                                        <p> Here's how your music is performing on Spotify</p>
+                                            {!! $chart1->renderHtml() !!}
+                                            {{-- Chart --}}
+                                            {{-- <div class="row mt-5">
+                                                <div class="col-md-12 chart-box">
+                                                    <div>
 
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading_">
+                                                            <span class="hideme pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+                                                            <div class="panel-body">
+                                                                <div class="canvas-wrapper">
+                                                                    <canvas class="main-chart" id="line-chart_2" height="132" width="397" style="width: 397px; height: 132px;"></canvas>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> --}}
+                                           
+                                            {{-- End Chart --}}
 
-                                    </div>
+                                            {{-- Total Streams --}}
+                                            <div class="row" style="padding-bottom:50px">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="shadow-box strm">
+                                                                <div class="stream-boxes">
+                                                                    <div class="stream-icon">
+                                                                        <img src="../images/Group13.png" alt="">
+                                                                    </div>
+                                                                    <div class="stream-txt">
+                                                                        <h3>{{$spotifyStreams}}</h3>
+                                                                        <small>Total Streams</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{-- Total Downloads --}}
+                                                        <div class="col-md-4">
+                                                            <div class="shadow-box strm">
+                                                                <div class="stream-boxes">
+                                                                    <div class="stream-icon">
+                                                                        <img src="../images/Group14.png" alt="">
+                                                                    </div>
+                                                                    <div class="stream-txt">
+                                                                        <h3>{{storePerformance(Auth::user()->username, 'spotify')}}</h3>
+                                                                        <small>Total Downloads</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="shadow-box strm">
+                                                                <div class="stream-boxes">
+                                                                    <div class="stream-icon">
+                                                                        <img src="../images/Group15.png" alt="">
+                                                                    </div>
+                                                                    <div class="stream-txt">
+                                                                        <h3>$ <span class="green-drop"></span></h3>
+                                                                        <small>Total Songs</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+
+                                          
+                                            
+                                            
+                                            @livewire('topdownloaded')
+
+                                        </div>
+                                    {{-- End Spotify --}}
+                                    {{-- Apple --}}
                                     <div class="tab-pane fade  in" id="pilltab3">
-                                        <h4>APPLE({{$appleStreams}})</h4>
-                                        <p>Here's how your music is performing on Apple Music</p>
-                                    </div>
-                                    <div class="tab-pane fade  in" id="pilltab4">
-                                        <h4>YOUTUBE({{$youtubeStreams}})</h4>
-                                        <p>Here's how your music is performing on YouTube</p>
-                                    </div>
-                                    <div class="tab-pane fade" id="pilltab5">
-                                        <h4>OTHERS({{$otherStreams}})</h4>
-                                        <p>Here's how your music is performing on Other Stores</p>
+                                        {{-- Total Streams --}}
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group13.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>{{$appleStreams}}</h3>
+                                                                    <small>TOTAL STREAMS</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- Total Downloads --}}
+                                                    <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group14.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>{{storePerformance(Auth::user()->username, 'spotify')}}</h3>
+                                                                    <small>Total Downloads</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
 
+                                                    {{-- <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group15.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>$ <span class="green-drop"></span></h3>
+                                                                    <small>Total Revenue</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
                                     </div>
+                                    {{-- End Apple --}}
+
+                                    {{-- YouTube --}}
+                                    <div class="tab-pane fade  in" id="pilltab4">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group13.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>{{$youtubeStreams}}</h3>
+                                                                    <small>TOTAL STREAMS</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- Total Downloads --}}
+                                                    <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group14.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>{{storePerformance(Auth::user()->username, 'youtube')}}</h3>
+                                                                    <small>Total Downloads</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    {{-- <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group15.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>$ <span class="green-drop"></span></h3>
+                                                                    <small>Total Revenue</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- End YouTube --}}
+                                    {{-- Others --}}
+                                    <div class="tab-pane fade" id="pilltab5">
+                                     
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group13.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>{{$otherStreams}}</h3>
+                                                                    <small>TOTAL STREAMS</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- Total Downloads --}}
+                                                    <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group14.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>{{storePerformance(Auth::user()->username, 'other')}}</h3>
+                                                                    <small>Total Downloads</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    {{-- <div class="col-md-4">
+                                                        <div class="shadow-box strm">
+                                                            <div class="stream-boxes">
+                                                                <div class="stream-icon">
+                                                                    <img src="../images/Group15.png" alt="">
+                                                                </div>
+                                                                <div class="stream-txt">
+                                                                    <h3>$ <span class="green-drop"></span></h3>
+                                                                    <small>Total Revenue</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- End Others --}}
                                 </div>
                             </div>
                         </div>
@@ -314,6 +541,7 @@ Dashboard - {{Auth::user()->name}}
     
         </div><!--/.row-->
 
-    
+        {!! $chart1->renderChartJsLibrary() !!}
+        {!! $chart1->renderJs() !!}
 
 @endsection

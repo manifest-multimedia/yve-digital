@@ -149,67 +149,70 @@ Dashboard - {{Auth::user()->name}}
                                             {{-- Featured Release --}}
                                             @livewire('featuredsong')
                                             {{-- End Featured Release --}}
+                                            {{-- Best Performning Stores --}}
                                             <div class="col-md-5 shadow-box">
                                                 <div>
                                                     <h2 style="margin-top: 0px;" class="bps-text">Best Performing Stores</h2>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Itunes</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>YouTube</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'youtube')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'youtube')}}%" style="width: {{storePerformance(Auth::user()->username, 'youtube')}}%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
                                                             <small>Spotify</small>
-                                                            <p><b>0%</b></p>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'spotify')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'spotify')}}%" style="width: {{storePerformance(Auth::user()->username, 'spotify')}}%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Tidal</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>Apple</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'applemusic')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'applemusic')}}%" style="width: {{storePerformance(Auth::user()->username, 'applemusic')}}%;" class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Amazon Music</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>Vimeo</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'vimeo')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'vimeo')}}%" style="width: {{storePerformance(Auth::user()->username, 'vimeo')}}%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="stores-lists">
                                                         <div class="store">
-                                                            <small>Boomplay</small>
-                                                            <p><b>0%</b></p>
+                                                            <small>Deezer</small>
+                                                            <p><b>{{storePerformance(Auth::user()->username, 'deezer')}}%</b></p>
                                                         </div>
                                                         <div class="bar">
                                                             <div class="progress">
-                                                                <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div data-percentage="{{storePerformance(Auth::user()->username, 'deezer')}}%" style="width: {{storePerformance(Auth::user()->username, 'deezer')}}%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                 </div>
                                             </div>
+                                        </div>
+                                        {{-- End Best Performing Stores --}}
                                         </div>
                                         <br>
                                         <div class="row">

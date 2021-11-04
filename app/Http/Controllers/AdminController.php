@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Royalties; 
 use DB;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+
 
 
 class AdminController extends Controller
@@ -17,10 +19,54 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
+    // use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
      public function __invoke(Request $request)
     {
+        
+
+        $chart_options=[
+            'chart_title' => 'Streams', 
+            'report_type' => 'group_by_date', 
+            'model' => 'App\Models\Royalties',
+            'group_by_field' => 'created_at',
+            'group_by_period'=> 'month',
+            'filter_field'   => 'created_at',
+
+            'conditions' => [
+                [
+                    'name'=>'user', 
+                    'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
+                    'color'=>'orange', 
+                    'fill' => true
+                ], 
+                
+            ], 
+            'chart_type' => 'line'
+        ]; 
+
+        $chart_options2=[
+            'chart_title' => 'Downloads', 
+            'report_type' => 'group_by_date', 
+            'model' => 'App\Models\Royalties',
+            'group_by_field' => 'created_at',
+            'group_by_period'=> 'month',
+            'filter_field'   => 'created_at',
+
+            'conditions' => [
+                [
+                    'name'=>'user', 
+                    'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
+                    'color'=>'blue', 
+                    'fill' => true
+                ], 
+                
+            ], 
+            'chart_type' => 'line'
+        ]; 
+
+        $chart1 = new LaravelChart($chart_options, $chart_options2); 
+
 
         $user=Auth::user(); 
 
@@ -49,7 +95,8 @@ class AdminController extends Controller
         'youtubeStreams',
         'spotifyStreams', 
         'appleStreams', 
-        'otherStreams'
+        'otherStreams', 
+        'chart1'
     ));
 
     }

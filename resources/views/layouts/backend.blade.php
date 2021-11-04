@@ -38,30 +38,51 @@
 	</div>	<!--/.main-->
 	
 	
-	<script src="{{asset('backend/js/jquery-1.11.1.min.js')}}" defer></script>
-	<script src="{{asset('backend/js/bootstrap.min.js')}}" defer></script>
-	<script src="{{asset('backend/js/chart.min.js')}}" defer></script>
-	<script src="{{asset('backend/js/chart-data.js')}}" defer></script>
-	<script src="{{asset('js/easypiechart.js')}}" defer></script>
-	<script src="{{asset('js/easypiechart-data.js')}}" defer></script>
-	<script src="{{asset('js/bootstrap-datepicker.js')}}" defer></script>
-	<script src="{{asset('backend/js/custom.js')}}" defer></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.js" defer></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+	<script src="{{asset('backend/js/jquery-1.11.1.min.js')}}"></script>
+	<script src="{{asset('backend/js/bootstrap.min.js')}}" ></script>
+	<script src="{{asset('js/easypiechart.js')}}" ></script>
+	<script src="{{asset('js/easypiechart-data.js')}}" ></script>
+	<script src="{{asset('js/bootstrap-datepicker.js')}}" ></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.js" ></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js" ></script>
+	<script src="{{asset('backend/js/custom.js')}}" ></script>
 	<script src="{{ mix('js/app.js') }}" defer></script>
+	
+	<script src="{{asset('backend/js/chart.min.js')}}"></script>
+	<script src="{{asset('backend/js/chart-data.js')}}"></script>
+	
+	<script>
 
-	<script defer>
+var lineChart_2Data = {
+		labels : ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"],
+		datasets : [
+			{
+				label: "My First dataset",
+				fillColor : "rgba(220,220,220,0.2)",
+				strokeColor : "rgba(220,220,220,1)",
+				pointColor : "rgba(220,220,220,1)",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(220,220,220,1)",
+				data : [randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2()]
+			},
+			{
+				label: "My Second dataset",
+				fillColor : "rgba(48, 164, 255, 0.2)",
+				strokeColor : "rgba(48, 164, 255, 1)",
+				pointColor : "rgba(48, 164, 255, 1)",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(48, 164, 255, 1)",
+				data : [randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2(),randomScalingFactor_2()]
+			}
+		]
+
+	}
+
 		window.onload = function () {
-			var chart1 = document.getElementById("line-chart").getContext("2d");
-			window.myLine = new Chart(chart1).Line(lineChartData, {
-				responsive: true,
-				scaleLineColor: "rgba(0,0,0,.2)",
-				scaleGridLineColor: "rgba(0,0,0,.05)",
-				scaleFontColor: "#c5c7cc"
-			});
-
-			var chart2 = document.getElementById("line-chart_1").getContext("2d");
-			window.myLine = new Chart(chart2).Line(lineChart_1Data, {
+			var chart2 = document.getElementById("line-chart_2").getContext("2d");
+			window.myLine = new Chart(chart2).Line(lineChart_2Data, {
 				responsive: true,
 				scaleLineColor: "rgba(0,0,0,.2)",
 				scaleGridLineColor: "rgba(0,0,0,.05)",
@@ -77,6 +98,55 @@
 			},
 		});
 	</script>
+	
+
+	{{-- <script>
+		document.addEventListener('DOMContentLoaded', () => {
+		  var chart2 = document.getElementById("line-chart_2").getContext("2d");
+		  window.myLine = new Chart(chart2).Line(lineChart_2Data, {
+			  responsive: true,
+			  scaleLineColor: "rgba(0,0,0,.2)",
+			  scaleGridLineColor: "rgba(0,0,0,.05)",
+			  scaleFontColor: "#c5c7cc"
+		  });
+	  });
+
+	  var dashboardgreenswiper = new Swiper('.dashboard-green-slider .swiper-container', {
+		  direction: 'vertical',
+		  pagination: {
+			  el: '.swiper-pagination',
+			  clickable: true,
+		  },
+	  });
+  </script> --}}
+
+	{{-- <script defer>
+		  document.addEventListener('DOMContentLoaded', () => {
+			var chart1 = document.getElementById("line-chart").getContext("2d");
+			window.myLine = new Chart(chart1).Line(lineChartData, {
+				responsive: true,
+				scaleLineColor: "rgba(0,0,0,.2)",
+				scaleGridLineColor: "rgba(0,0,0,.05)",
+				scaleFontColor: "#c5c7cc"
+			});
+
+			var chart2 = document.getElementById("line-chart_1").getContext("2d");
+			window.myLine = new Chart(chart2).Line(lineChart_1Data, {
+				responsive: true,
+				scaleLineColor: "rgba(0,0,0,.2)",
+				scaleGridLineColor: "rgba(0,0,0,.05)",
+				scaleFontColor: "#c5c7cc"
+			});
+		});
+
+		var dashboardgreenswiper = new Swiper('.dashboard-green-slider .swiper-container', {
+			direction: 'vertical',
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+		});
+	</script> --}}
 
 
 
