@@ -75,14 +75,34 @@ if (! function_exists('SMSnotify')){
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS =>'{"messages":[{"from":"ManifestGH",
-                "destinations":[{"to":'.$destination.'}],
-                "text":'.$message.'}]}',
+                "destinations":[{"to":"'.$destination.'"}],
+                "text":"'.$message.'"}]}',
             CURLOPT_HTTPHEADER => array(
                 'Authorization: App f584b3866283b93034ab857f1436cbe0-f281cf22-2662-4e2f-b6eb-56d94fbf99f0',
                 'Content-Type: application/json',
                 'Accept: application/json'
             ),
         ));
+
+        /*
+
+        #!/bin/bash
+
+curl -X POST https://l4rr2.api.infobip.com/sms/2/text/advanced -H "Authorization: App f584b3866283b93034ab857f1436cbe0-f281cf22-2662-4e2f-b6eb-56d94fbf99f0" -H "Content-Type: application/json" --data-binary @- <<DATA
+{"messages":
+ [{
+   "from":"ManifestGH",
+  "destinations":[{"to":"0549539417"}],
+  "text":"Test"
+  
+}
+]}
+
+
+DATA
+
+
+        */
         
         $response = curl_exec($curl);
         

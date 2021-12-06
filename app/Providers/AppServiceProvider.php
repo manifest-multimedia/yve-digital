@@ -21,8 +21,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
-    }
+    // public function boot(Charts $charts)
+    // {
+
+    //     // $charts->register([
+    //     //     \App\Charts\SampleChart::class
+    //     // ]);
+    //     //
+    // }
 }

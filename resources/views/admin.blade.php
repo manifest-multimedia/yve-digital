@@ -5,6 +5,8 @@
 
 Dashboard - {{Auth::user()->name}}
 
+
+
 @endsection
 
 @section('sidebar')
@@ -74,6 +76,14 @@ Dashboard - {{Auth::user()->name}}
                         </div>
 
                         <div>
+
+                            <script>
+                                const chart = new Chartisan({
+                                  el: '#chart',
+                                  url: "@chart('sample_chart')",
+                                });
+                              </script>
+
 
                             {{-- <form action="{{ route('logout') }}" method="POST" style="padding-bottom:40px">
                                 @csrf

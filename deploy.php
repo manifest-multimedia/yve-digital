@@ -2,6 +2,8 @@
 namespace Deployer;
 
 require 'recipe/laravel.php';
+use Deployer\Utility\Httpie;
+
 
 set('ssh_type', 'native'); 
 set('ssh_multiplexing', false); 
@@ -26,7 +28,6 @@ add('writable_dirs', []);
 // Hosts
 
 host('194.135.82.202')
-    //->set('deploy_path', '~/{{application}}')
     ->user('yvedigital')
     //->identityFile('id_rsa', 'id_rsa.pub')
     ->set('deploy_path', '/var/www/yvedigital.com/app');
@@ -38,13 +39,19 @@ task('build', function () {
     run('cd {{release_path}} && npm run build');
 });
 
+
 task('notify', function(){
+    
+// SEND SMS
+$destination="233549539417"; 
+$message="Application Successfully Deployed for YVE Digital"; 
+$response= SMSnotify($destination, $message); 
+write('Sending SMS Notification');
 
-    //SMSnotify('233549539417', 'Application Successfully Deployed for YVE Digital'); 
-    SMSnotify('233549539417', 'Dear Johnson, App Updates for YVE Digital Have been Successfully Deployed. Contact support@manifestghana.com for further assistance/support'); 
-   //SEND SMS & EMAIL Notification Upon Successfully Deployment 
 
-})->local(); 
+// print_r($response);
+
+}); 
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
