@@ -88,6 +88,34 @@ class AdminController extends Controller
                         getTotalStreams($username, 'Tidal')+
                         getTotalStreams($username, 'Amazon');
         
+        $data=[
+        [
+
+            "name"=>"New Release",
+            "icon"=>"library_add", 
+            "url"=>"new-release", 
+            "type"=>"primary"
+
+        ], [
+
+            "name"=>"New Release",
+            "icon"=>"library_add", 
+            "url"=>"new-release", 
+            "type"=>"primary"
+
+        ], [
+
+            "name"=>"New Release",
+            "icon"=>"library_add", 
+            "url"=>"new-release", 
+            "type"=>"success"
+
+        ], 
+       
+    
+    ]; 
+    $data=json_decode(json_encode($data));
+
         return view('admin', compact(
         'user', 
         'royalties', 
@@ -96,7 +124,8 @@ class AdminController extends Controller
         'spotifyStreams', 
         'appleStreams', 
         'otherStreams', 
-        'chart1'
+        'chart1', 
+        'data'
     ));
 
     }

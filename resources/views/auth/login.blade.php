@@ -1,4 +1,54 @@
-@extends('layouts.athentication')
+<x-auth-layout>
+
+    <x-slot name="title">
+    YVE - Music Distribution Platform Login    
+    </x-slot>
+    
+<p class="auth-description">Login to Your Account 
+    <br> Don't have an account? 
+    <a href="/register">Register</a>
+</p>
+
+<x-alert-error />
+
+<form method="POST" action="{{ route('login') }}">
+    @csrf
+<div class="auth-credentials m-b-xxl">
+    <label for="signInEmail" class="form-label">Email address</label>
+    <input type="email" class="form-control m-b-md" id="signInEmail" aria-describedby="signInEmail" 
+    placeholder="info@yvedigital.com" name="email" required autofocus>
+
+    <label for="signInPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="signInPassword" aria-describedby="signInPassword" 
+    placeholder="Password"  name="password" required autocomplete="current-password">
+</div>
+
+<div class="auth-submit">
+    <button type="submit" class="btn btn-primary">Login</button>
+    <a href="#" class="auth-forgot-password float-end">Forgot password?</a>
+</div>
+</form> 
+<div class="divider"></div>
+<div class="auth-alts">
+@if (JoelButcher\Socialstream\Socialstream::show())
+
+    
+        <a href="/oauth/facebook" class="auth-alts-facebook"></a>
+        <a href="/oauth/google" class="auth-alts-google"></a>
+       
+    
+
+
+@endif
+</div>
+{{-- <div class="auth-alts">
+    <a href="#" class="auth-alts-google"></a>
+    <a href="/oauth/facebook" class="auth-alts-facebook"> Facebook Login</a>
+    <a href="#" class="auth-alts-twitter"></a>
+</div> --}}
+
+</x-auth-layout>
+{{-- @extends('layouts.athentication')
 
 @section('page-title', 'Login')
 @section('form-title', 'Welcome')
@@ -66,4 +116,4 @@
 
    
 </div>
-@endsection
+@endsection --}}

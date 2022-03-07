@@ -50,9 +50,6 @@ class Royaltiestable extends Component
             $username=$this->user->username;
 
             $period=$royalties=Royalties::where('username',$username)->get()->unique('period_gained');
-                //->unique('period_gained'))};
-    
-               // $period=$this->orderByMonth($period);
         
             if(!is_null($this->sort_period) || !empty($sort_period)){
                 $royalties=Royalties::where('username', $username)
@@ -82,7 +79,7 @@ class Royaltiestable extends Component
             } else{
 
 
-                 $period=$royalties=Royalties::all()->unique('period_gained');
+                $period=$royalties=Royalties::all()->unique('period_gained');
                  
                 $royalties=Royalties::latest()->paginate(15);
 
@@ -101,11 +98,6 @@ class Royaltiestable extends Component
         }
 
         
-
-
-
-
-
         return view('livewire.royaltiestable', compact('royalties', 'earnings', 'period'));
 
     }
