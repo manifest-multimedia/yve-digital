@@ -87,33 +87,48 @@ class AdminController extends Controller
                         getTotalStreams($username, 'Vevo') +
                         getTotalStreams($username, 'Tidal')+
                         getTotalStreams($username, 'Amazon');
+
+        $report_items='hi';
         
         $data=[
         [
 
-            "name"=>"New Release",
-            "icon"=>"library_add", 
-            "url"=>"new-release", 
-            "type"=>"primary"
+            "name"=>"Manage",
+            "icon"=>"settings", 
+            "url"=>"manage", 
+            "type"=>"warning"
 
-        ], [
+        ], 
+        [
 
-            "name"=>"New Release",
-            "icon"=>"library_add", 
-            "url"=>"new-release", 
-            "type"=>"primary"
-
-        ], [
-
-            "name"=>"New Release",
+            "name"=>"Release",
             "icon"=>"library_add", 
             "url"=>"new-release", 
             "type"=>"success"
 
         ], 
+        
+        [
+
+            "name"=>"Upload",
+            "icon"=>"upload", 
+            "url"=>"upload-songs", 
+            "type"=>"success"
+
+        ], 
+        
+        [
+
+            "name"=>"Support",
+            "icon"=>"help", 
+            "url"=>"https://support.yvedigital.com", 
+            "type"=>"primary"
+
+        ], 
        
     
     ]; 
+
     $data=json_decode(json_encode($data));
 
         return view('admin', compact(
@@ -125,7 +140,8 @@ class AdminController extends Controller
         'appleStreams', 
         'otherStreams', 
         'chart1', 
-        'data'
+        'data', 
+        'report_items'
     ));
 
     }

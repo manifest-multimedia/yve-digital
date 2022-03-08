@@ -23,6 +23,7 @@
         <link href="{{asset('plugins/neptune/perfectscroll/perfect-scrollbar.css')}}" rel="stylesheet">
         <link href="{{asset('plugins/neptune/pace/pace.css')}}" rel="stylesheet">
     
+        <script src="//unpkg.com/alpinejs" defer></script>
         
         <!-- Theme Styles -->
         <link href="{{asset('css/neptune/main.min.css')}}" rel="stylesheet">
@@ -32,7 +33,6 @@
         
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/neptune/neptune.png')}}" />
         <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/neptune/neptune.png')}}" /> 
-        <script src="//unpkg.com/alpinejs" defer></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -11,6 +11,9 @@ class ModeSwitcher extends Component
      *
      * @return void
      */
+
+     protected $listners=['darkmode' =>'darkmode'];
+
     public function __construct()
     {
         //
@@ -24,5 +27,9 @@ class ModeSwitcher extends Component
     public function render()
     {
         return view('components.mode-switcher');
+    }
+
+    public function darkmode(){
+       dd('received darkmode'); 
     }
 }

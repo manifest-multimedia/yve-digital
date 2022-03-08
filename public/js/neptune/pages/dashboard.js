@@ -26,17 +26,17 @@ $(document).ready(function () {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        name: 'Streams',
+        data: [44, 55, 57, 56, 61, 15, 12, 58, 63, 60, 66, 11]
+    }, {
+        name: 'Downloads',
+        data: [76, 85, 101, 98, 48, 87, 105, 17, 91, 114, 94, 100]
     }, {
         name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-        name: 'Free Cash Flow',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+        data: [35, 41, 36, 23, 26, 45, 48, 52, 19, 53, 41, 50]
     }],
     xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: [ 'Jan','Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         labels: {
             style: {
                 colors: 'rgba(94, 96, 110, .5)'
@@ -45,7 +45,7 @@ $(document).ready(function () {
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: 'Units'
         }
     },
     fill: {
@@ -55,7 +55,7 @@ $(document).ready(function () {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val 
             }
         }
     },

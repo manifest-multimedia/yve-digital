@@ -117,7 +117,7 @@ $(document).ready(function () {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
+        name: 'Net Profits',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
     }, {
         name: 'Revenue',
