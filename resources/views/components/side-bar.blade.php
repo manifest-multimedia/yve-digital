@@ -55,10 +55,10 @@
     
     
         <li class="{{ request()->is('user')? 'active' : ''}}">
-            <a href="/dashboard"> <i class="material-icons-two-tone"> music_note </i>MUSIC</a>
+            <a href="/dashboard"> <i class="material-icons-two-tone"> dashboard </i>Overview</a>
         </li>
         <li class="{{ request()->is('royalties')? 'active' : ''}}"><a href="/royalties">
-            <i class="material-icons-two-tone"> paid </i>ROYALTIES</a></li>
+            <i class="material-icons-two-tone"> paid </i>Royalties</a></li>
         
             <x-logout-link />
 
