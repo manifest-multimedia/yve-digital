@@ -26,7 +26,10 @@
     
     <!-- Theme Styles -->
     <link href="{{asset('css/neptune/main.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/neptune/darktheme.css')}}" rel="stylesheet">
+    {{--
+        include auto mode switcher module
+         <link href="{{asset('css/neptune/darktheme.css')}}" rel="stylesheet"> 
+         --}}
     <link href="{{asset('css/neptune/custom.css')}}" rel="stylesheet">
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/neptune/neptune.png')}}" />
