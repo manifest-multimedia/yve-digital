@@ -8,8 +8,8 @@
             <div class="logo">
                 <a href="/" class="logo-icon"><span class="logo-text">YVE</span></a>
                 <div class="sidebar-user-switcher user-activity-online">
-                    <a href="#">
-                        <img src="{{Auth::user()->profile_photo_url}}">
+                    <a href="/profile">
+                        <img src="{{Auth::user()->profile_photo_url}}" style="object-fit:cover; height:45px; width:45px">
                         <span class="activity-indicator"></span>
                         <span class="user-info-text">{{Auth::user()->name}}<br><span class="user-state-info">Online</span></span>
                     </a>
