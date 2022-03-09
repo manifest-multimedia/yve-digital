@@ -51,31 +51,8 @@ class UserController extends Controller
         $releases=Release::where('username', $username)->get()->unique()->count();
         $songs=Song::where('username', $username)->get()->unique()->count(); 
         $data=[
-        [
-
-            "name"=>"Manage",
-            "icon"=>"settings", 
-            "url"=>"manage", 
-            "type"=>"warning"
-
-        ], 
-        [
-
-            "name"=>"Release",
-            "icon"=>"library_add", 
-            "url"=>"new-release", 
-            "type"=>"success"
-
-        ], 
+       
         
-        [
-
-            "name"=>"Upload",
-            "icon"=>"upload", 
-            "url"=>"upload-songs", 
-            "type"=>"success"
-
-        ], 
         
         [
 
@@ -88,6 +65,8 @@ class UserController extends Controller
        
     
     ]; 
+
+        $data=json_decode(json_encode($data));
 
         return view('dashboard', compact(
         'user', 
