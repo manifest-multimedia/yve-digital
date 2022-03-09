@@ -498,6 +498,9 @@
     <script src="{{asset('plugins/neptune/apexcharts/apexcharts.min.js')}}"></script>
     <script src="{{asset('js/neptune/main.min.js')}}"></script>
     <script src="{{asset('js/neptune/custom.js')}}"></script>
-    <script src="{{asset('js/neptune/pages/dashboard.js')}}"></script> 
+
+    @livewire('chart-data')
+
+    {{-- <script src="{{asset('js/neptune/pages/dashboard.js')}}"></script>  --}}
 </body>
 </html>

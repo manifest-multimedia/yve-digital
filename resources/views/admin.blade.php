@@ -3,10 +3,8 @@
     <x-slot name="title"> YVE Digital Music Distribution Platform </x-slot>
 
     <x-slot name="pagedescription">
-        Revenue <span style="float:right">${{$totalStreams}}USD</span>
+        Revenue <span style="float:right">${{$revenue}}USD</span>
     </x-slot>
-    
-    
 
     <div class="row">
 {{--                             

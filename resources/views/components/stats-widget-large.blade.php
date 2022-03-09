@@ -11,7 +11,7 @@
                             </span></h5>
                     </div>
                     <div class="card-body">
-                        <div id="apex-earnings"></div>
+                        <div id="performance-chart"></div>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="widget-stats-large-info-container">
                     <div class="card-header">
                         <h5 class="card-title">
-                            {{-- {{$report_title}} --}}
+                            Channels
                             <span class="badge badge-info badge-style-light">Updated 5 min ago</span></h5>
                     </div>
                     <div class="card-body">

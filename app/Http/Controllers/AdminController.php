@@ -77,6 +77,7 @@ class AdminController extends Controller
         $royalties =""; 
 
         $totalStreams=Royalties::where('username', $username)->sum('total_streams');
+        $revenue=Royalties::where('username', $username)->sum('revenue');
         $downloads=Royalties::where('username', $username)->sum('downloads');
         
         $youtubeStreams=getTotalStreams($username, 'YouTube');
@@ -146,7 +147,8 @@ class AdminController extends Controller
         'downloads', 
         'chart1', 
         'data', 
-        'songs'
+        'songs',
+        'revenue'
        
     ));
 
