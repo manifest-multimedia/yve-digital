@@ -53,7 +53,14 @@ class UserController extends Controller
         $data=[
        
         
-        
+            [
+
+                "name"=>"Royalties",
+                "icon"=>"paid", 
+                "url"=>"/royalties", 
+                "type"=>"success"
+    
+            ], 
         [
 
             "name"=>"Support",
