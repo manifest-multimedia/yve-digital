@@ -27,47 +27,47 @@ class AdminController extends Controller
     {
         
 
-        $chart_options=[
-            'chart_title' => 'Streams', 
-            'report_type' => 'group_by_date', 
-            'model' => 'App\Models\Royalties',
-            'group_by_field' => 'created_at',
-            'group_by_period'=> 'month',
-            'filter_field'   => 'created_at',
+        // $chart_options=[
+        //     'chart_title' => 'Streams', 
+        //     'report_type' => 'group_by_date', 
+        //     'model' => 'App\Models\Royalties',
+        //     'group_by_field' => 'created_at',
+        //     'group_by_period'=> 'month',
+        //     'filter_field'   => 'created_at',
 
-            'conditions' => [
-                [
-                    'name'=>'user', 
-                    'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
-                    'color'=>'orange', 
-                    'fill' => true
-                ], 
+        //     'conditions' => [
+        //         [
+        //             'name'=>'user', 
+        //             'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
+        //             'color'=>'orange', 
+        //             'fill' => true
+        //         ], 
                 
-            ], 
-            'chart_type' => 'line'
-        ]; 
+        //     ], 
+        //     'chart_type' => 'line'
+        // ]; 
 
-        $chart_options2=[
-            'chart_title' => 'Downloads', 
-            'report_type' => 'group_by_date', 
-            'model' => 'App\Models\Royalties',
-            'group_by_field' => 'created_at',
-            'group_by_period'=> 'month',
-            'filter_field'   => 'created_at',
+        // $chart_options2=[
+        //     'chart_title' => 'Downloads', 
+        //     'report_type' => 'group_by_date', 
+        //     'model' => 'App\Models\Royalties',
+        //     'group_by_field' => 'created_at',
+        //     'group_by_period'=> 'month',
+        //     'filter_field'   => 'created_at',
 
-            'conditions' => [
-                [
-                    'name'=>'user', 
-                    'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
-                    'color'=>'blue', 
-                    'fill' => true
-                ], 
+        //     'conditions' => [
+        //         [
+        //             'name'=>'user', 
+        //             'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
+        //             'color'=>'blue', 
+        //             'fill' => true
+        //         ], 
                 
-            ], 
-            'chart_type' => 'line'
-        ]; 
+        //     ], 
+        //     'chart_type' => 'line'
+        // ]; 
 
-        $chart1 = new LaravelChart($chart_options, $chart_options2); 
+        // $chart1 = new LaravelChart($chart_options, $chart_options2); 
 
 
         $user=Auth::user(); 
@@ -145,7 +145,6 @@ class AdminController extends Controller
         'appleStreams', 
         'otherStreams',
         'downloads', 
-        'chart1', 
         'data', 
         'songs',
         'revenue'

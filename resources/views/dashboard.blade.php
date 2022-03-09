@@ -8,17 +8,10 @@
     </x-slot>
     <div class="row">
                             
-        <x-card-widget> 
-            <x-slot name="icon">
-                paid
-            </x-slot>
-            <x-slot name="title">
-             Total Revenue
-            </x-slot>
-            <x-slot name="info"> Details </x-slot>
-            $100
-            <x-slot name="percentage">0</x-slot>
-        </x-card-widget>
+        <x-card-widget icon="library_music" color="primary" title="Releases" value="{{$releases}}" description="Total Releases" type="" percentage="4" /> 
+        <x-card-widget icon="music_note" color="warning" title="Songs" value="{{$songs}}" description="Total Users" type="" percentage="4" /> 
+        <x-card-widget icon="download" color="success" title="Downloads" value="{{$downloads}}" description="Total Downloads" type="" percentage="" /> 
+     
          
      </div>
 
