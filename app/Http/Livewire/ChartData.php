@@ -69,10 +69,50 @@ class ChartData extends Component
         $this->month=date('m');
         $this->month=$this->getMonth($this->month); 
         $this->period=$this->month.' '.$this->year;
-        $this->jan_streams=Royalties::where('username', $this->username)
-        ->where('period_gained', "JANUARY ".$this->year)->sum('total_streams');
+    
+        //Get Stream Data
+
+        $this->jan_streams=Royalties::where('username', $this->username)->where('period_gained', "JANUARY ".$this->year)->sum('total_streams');
+        $this->feb_streams=Royalties::where('username', $this->username)->where('period_gained', "FEBRUARY ".$this->year)->sum('total_streams');
+        $this->mar_streams=Royalties::where('username', $this->username)->where('period_gained', "MARCH ".$this->year)->sum('total_streams');
+        $this->apr_streams=Royalties::where('username', $this->username)->where('period_gained', "APRIL ".$this->year)->sum('total_streams');
+        $this->may_streams=Royalties::where('username', $this->username)->where('period_gained', "MAY ".$this->year)->sum('total_streams');
+        $this->jun_streams=Royalties::where('username', $this->username)->where('period_gained', "JUNE ".$this->year)->sum('total_streams');
+        $this->jul_streams=Royalties::where('username', $this->username)->where('period_gained', "JULY ".$this->year)->sum('total_streams');
+        $this->aug_streams=Royalties::where('username', $this->username)->where('period_gained', "AUGUST ".$this->year)->sum('total_streams');
+        $this->sep_streams=Royalties::where('username', $this->username)->where('period_gained', "SEPTEMBER ".$this->year)->sum('total_streams');
+        $this->oct_streams=Royalties::where('username', $this->username)->where('period_gained', "OCTOBER ".$this->year)->sum('total_streams');
+        $this->nov_streams=Royalties::where('username', $this->username)->where('period_gained', "NOVEMBER ".$this->year)->sum('total_streams');
+        $this->dec_streams=Royalties::where('username', $this->username)->where('period_gained', "DECEMBER ".$this->year)->sum('total_streams');
+
+        //Get Download Data
+        $this->jan_downloads=Royalties::where('username', $this->username)->where('period_gained', "JANUARY ".$this->year)->sum('downloads');
+        $this->feb_downloads=Royalties::where('username', $this->username)->where('period_gained', "FEBRUARY ".$this->year)->sum('downloads');
+        $this->mar_downloads=Royalties::where('username', $this->username)->where('period_gained', "MARCH ".$this->year)->sum('downloads');
+        $this->apr_downloads=Royalties::where('username', $this->username)->where('period_gained', "APRIL ".$this->year)->sum('downloads');
+        $this->may_downloads=Royalties::where('username', $this->username)->where('period_gained', "MAY ".$this->year)->sum('downloads');
+        $this->jun_downloads=Royalties::where('username', $this->username)->where('period_gained', "JUNE ".$this->year)->sum('downloads');
+        $this->jul_downloads=Royalties::where('username', $this->username)->where('period_gained', "JULY ".$this->year)->sum('downloads');
+        $this->aug_downloads=Royalties::where('username', $this->username)->where('period_gained', "AUGUST ".$this->year)->sum('downloads');
+        $this->sep_downloads=Royalties::where('username', $this->username)->where('period_gained', "SEPTEMBER ".$this->year)->sum('downloads');
+        $this->oct_downloads=Royalties::where('username', $this->username)->where('period_gained', "OCTOBER ".$this->year)->sum('downloads');
+        $this->nov_downloads=Royalties::where('username', $this->username)->where('period_gained', "NOVEMBER ".$this->year)->sum('downloads');
+        $this->dec_downloads=Royalties::where('username', $this->username)->where('period_gained', "DECEMBER ".$this->year)->sum('downloads');
 
 
+        //Get Revenue Data 
+        $this->jan_revenue=Royalties::where('username', $this->username)->where('period_gained', "JANUARY ".$this->year)->sum('revenue');
+        $this->feb_revenue=Royalties::where('username', $this->username)->where('period_gained', "FEBRUARY ".$this->year)->sum('revenue');
+        $this->mar_revenue=Royalties::where('username', $this->username)->where('period_gained', "MARCH ".$this->year)->sum('revenue');
+        $this->apr_revenue=Royalties::where('username', $this->username)->where('period_gained', "APRIL ".$this->year)->sum('revenue');
+        $this->may_revenue=Royalties::where('username', $this->username)->where('period_gained', "MAY ".$this->year)->sum('revenue');
+        $this->jun_revenue=Royalties::where('username', $this->username)->where('period_gained', "JUNE ".$this->year)->sum('revenue');
+        $this->jul_revenue=Royalties::where('username', $this->username)->where('period_gained', "JULY ".$this->year)->sum('revenue');
+        $this->aug_revenue=Royalties::where('username', $this->username)->where('period_gained', "AUGUST ".$this->year)->sum('revenue');
+        $this->sep_revenue=Royalties::where('username', $this->username)->where('period_gained', "SEPTEMBER ".$this->year)->sum('revenue');
+        $this->oct_revenue=Royalties::where('username', $this->username)->where('period_gained', "OCTOBER ".$this->year)->sum('revenue');
+        $this->nov_revenue=Royalties::where('username', $this->username)->where('period_gained', "NOVEMBER ".$this->year)->sum('revenue');
+        $this->dec_revenue=Royalties::where('username', $this->username)->where('period_gained', "DECEMBER ".$this->year)->sum('revenue');
 
 
     }

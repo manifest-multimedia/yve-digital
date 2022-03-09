@@ -3,7 +3,7 @@
     <script> 
 document.addEventListener('livewire:load', function(){
 
-    let year=@this.period
+    let year=@this.year
 
     let january_streams=@this.jan_streams
     let february_streams=@this.feb_streams
@@ -91,7 +91,7 @@ var options1 = {
   },
   yaxis: {
       title: {
-          text: 'Units'
+          text: 'Performance ' +'('+year+')'
       }
   },
   fill: {
