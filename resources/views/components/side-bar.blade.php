@@ -54,10 +54,13 @@
     @case('user')
     
     
-        <li class="{{ request()->is('user')? 'active' : ''}}"><a href="/dashboard">MUSIC</a></li>
-        <li class="{{ request()->is('royalties')? 'active' : ''}}"><a href="/royalties">ROYALTIES</a></li>
+        <li class="{{ request()->is('user')? 'active' : ''}}">
+            <a href="/dashboard"> <i class="material-icons-two-tone"> music_note </i>MUSIC</a>
+        </li>
+        <li class="{{ request()->is('royalties')? 'active' : ''}}"><a href="/royalties">
+            <i class="material-icons-two-tone"> paid </i>ROYALTIES</a></li>
         
-    
+            <x-logout-link />
 
         @break
 
