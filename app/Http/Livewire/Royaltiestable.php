@@ -18,6 +18,8 @@ class Royaltiestable extends Component
 {
     use WithPagination;
 
+    protected $paginationTheme = 'bootstrap';
+
     public $user;  
     public $selectedUser=null; 
     public $sort_period=null; 
@@ -33,13 +35,15 @@ class Royaltiestable extends Component
     public $platform=null; 
     public $period_gained=null; 
 
+    public $totalrevenue;
+
    
 
     public function mount(){
 
         $this->user=Auth::User();
         $this->status="show";
-                
+        $this->totalrevenue=Royalties::where('username', $this->user->username)->sum('revenue');
     }
    
     public function render()
@@ -81,13 +85,13 @@ class Royaltiestable extends Component
 
                 $period=$royalties=Royalties::all()->unique('period_gained');
                  
-                $royalties=Royalties::latest()->paginate(15);
+                $royalties=Royalties::latest()->paginate(5);
 
                 
                 if(!is_null($this->sort_period) || !empty($sort_period)){
 
                     $royalties=Royalties::where('period_gained', $this->sort_period)
-                    ->latest()->paginate(15);
+                    ->latest()->paginate(5);
 
                 }
                 
