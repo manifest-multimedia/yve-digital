@@ -24,9 +24,10 @@
         <link href="{{asset('plugins/neptune/pace/pace.css')}}" rel="stylesheet">
     
         <script src="//unpkg.com/alpinejs" defer></script>
-        
+        @livewireScripts
+	@livewireStyles
         <!-- Theme Styles -->
-        <link href="{{asset('css/neptune/main.min.css')}}" rel="stylesheet">
+        
         <!-- Mode Switcher --> 
         <x-mode-switcher />
         <link href="{{asset('css/neptune/custom.css')}}" rel="stylesheet">

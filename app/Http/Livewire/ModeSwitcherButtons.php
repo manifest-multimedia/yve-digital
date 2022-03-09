@@ -6,14 +6,19 @@ use Livewire\Component;
 
 class ModeSwitcherButtons extends Component
 {
-    protected $listiners=['darkmode' => 'darkmode'];
-
+    public $mode; 
+    
+    public function mount(){
+        $this->mode='Not Clicked';
+    }
+    
     public function render()
     {
         return view('livewire.mode-switcher-buttons');
     }
-
-    public function darkmode(){
-        dd('hmm ok');
+   
+    public function save(){
+        $this->mode='Clicked';
     }
+
 }

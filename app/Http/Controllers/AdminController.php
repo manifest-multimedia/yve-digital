@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Royalties; 
+use App\Models\Release; 
+use App\Models\Song; 
 use DB;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
@@ -74,7 +76,8 @@ class AdminController extends Controller
        
         $royalties =""; 
 
-        $totalStreams=Royalties::where('username', '=', $username)->sum('total_streams');
+        $totalStreams=Royalties::where('username', $username)->sum('total_streams');
+        $downloads=Royalties::where('username', $username)->sum('downloads');
         
         $youtubeStreams=getTotalStreams($username, 'YouTube');
         
@@ -88,8 +91,8 @@ class AdminController extends Controller
                         getTotalStreams($username, 'Tidal')+
                         getTotalStreams($username, 'Amazon');
 
-        $report_items='hi';
-        
+        $releases=Release::where('username', $username)->get()->unique()->count();
+        $songs=Song::where('username', $username)->get()->unique()->count(); 
         $data=[
         [
 
@@ -134,14 +137,17 @@ class AdminController extends Controller
         return view('admin', compact(
         'user', 
         'royalties', 
+        'releases',
         'totalStreams', 
         'youtubeStreams',
         'spotifyStreams', 
         'appleStreams', 
-        'otherStreams', 
+        'otherStreams',
+        'downloads', 
         'chart1', 
         'data', 
-        'report_items'
+        'songs'
+       
     ));
 
     }
