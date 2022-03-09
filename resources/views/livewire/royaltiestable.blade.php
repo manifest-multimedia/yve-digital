@@ -22,7 +22,7 @@
                     <div class="col-sm-12 col-md-6">
                         <div id="datatable1_filter" class="dataTables_filter">
                             <label>Total Earnings for Period:
-                                <input type="text" class="form-control form-control-sm" value="$ {{$earnings}}" aria-controls="datatable1" disabled>
+                                <input type="text" class="form-control form-control-sm" value="${{$earnings}} USD" aria-controls="datatable1" disabled>
                             </label>
                         </div>
                     </div>

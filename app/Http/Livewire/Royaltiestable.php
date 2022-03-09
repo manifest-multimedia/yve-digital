@@ -58,16 +58,17 @@ class Royaltiestable extends Component
             if(!is_null($this->sort_period) || !empty($sort_period)){
                 $royalties=Royalties::where('username', $username)
                 ->where('period_gained', $this->sort_period)
-                ->latest()->paginate(15);
+                ->latest()->paginate(10);
     
-                $earnings=$royalties->sum('revenue'); 
+                $earnings=Royalties::where('username', $username)
+                ->where('period_gained', $this->sort_period)->sum('revenue'); 
             }
     
             else{
     
                 $username=$this->user->username;
-                $royalties=Royalties::where('username',$username)->latest()->paginate(15); 
-                $earnings=$royalties->sum('revenue'); 
+                $royalties=Royalties::where('username',$username)->latest()->paginate(10); 
+                $earnings=Royalties::where('username', $this->user->username)->sum('revenue'); 
             }
         }
 

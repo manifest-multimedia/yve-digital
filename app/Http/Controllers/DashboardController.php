@@ -20,7 +20,7 @@ class DashboardController extends Controller
      */
 
     public $user;  
-
+    public $revenue;
     public function __invoke(Request $request)
 
     {
@@ -29,6 +29,7 @@ class DashboardController extends Controller
         $username=$user->username;
        
         $royalties =""; 
+        
 
         $totalStreams=Royalties::where('username', $username)->sum('total_streams');
         $revenue=Royalties::where('username', $username)->sum('revenue');
@@ -102,4 +103,14 @@ class DashboardController extends Controller
     ));
 
     }
+
+
+    public function Royalties(){
+        $user=Auth::user(); 
+
+        $username=$user->username;
+        $revenue=Royalties::where('username', $username)->sum('revenue');
+        return view('royalties',compact('revenue')); 
+    }
+
 }
