@@ -49,7 +49,7 @@
         </div>
         <div class="app-auth-container">
             <div class="logo">
-                <a href="{{url('login')}}">YVE</a>
+                <a href="{{url('login')}}"></a>
             </div>
            {{$slot}}
         </div>

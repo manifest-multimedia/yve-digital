@@ -67,7 +67,8 @@ class Royaltiestable extends Component
             else{
     
                 $username=$this->user->username;
-                $royalties=Royalties::where('username',$username)->latest()->paginate(10); 
+                $royalties=Royalties::where('username',$username)->get()->paginate(10); 
+                // $royalties=Royalties::where('username',$username)->latest()->paginate(10); 
                 $earnings=Royalties::where('username', $this->user->username)->sum('revenue'); 
             }
         }

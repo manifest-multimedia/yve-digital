@@ -3,6 +3,12 @@
     <script> 
 document.addEventListener('livewire:load', function(){
 
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        console.log("Device is Mobile");
+ 
+}
+
+
     let year=@this.year
 
     let january_streams=@this.jan_streams
@@ -120,9 +126,6 @@ chart1.render();
 })
 
 // $(document).ready(function () {
-    
-   
-
 
 // });
     </script> 
