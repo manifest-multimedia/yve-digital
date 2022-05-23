@@ -1,11 +1,11 @@
-@extends('layouts.backend')
 
 
-@section('page-title')
+<x-backend-layout>
+    <x-slot name="title"> Dashboard - {{Auth::user()->name}} </x-slot>
+    <x-slot name="pagedescription">
+        Releases
+    </x-slot>
 
-Dashboard - {{Auth::user()->name}}
-
-@endsection
 
 @section('sidebar')
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
@@ -124,4 +124,4 @@ Dashboard - {{Auth::user()->name}}
 
     
 </div><!--/.row-->
-@endsection
+</x-backend-layout>
