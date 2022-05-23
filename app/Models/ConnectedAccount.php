@@ -8,6 +8,7 @@ use JoelButcher\Socialstream\ConnectedAccount as SocialstreamConnectedAccount;
 use JoelButcher\Socialstream\Events\ConnectedAccountCreated;
 use JoelButcher\Socialstream\Events\ConnectedAccountDeleted;
 use JoelButcher\Socialstream\Events\ConnectedAccountUpdated;
+use App\Scopes\UserScope;
 
 class ConnectedAccount extends SocialstreamConnectedAccount
 {
@@ -42,4 +43,9 @@ class ConnectedAccount extends SocialstreamConnectedAccount
         'updated' => ConnectedAccountUpdated::class,
         'deleted' => ConnectedAccountDeleted::class,
     ];
+    
+    protected static function booted()
+    {
+        static::addGlobalScope(new UserScope);
+    }
 }

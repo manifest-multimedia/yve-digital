@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+Use App\Scopes\UserScope;
 
 class Song extends Model
 {
@@ -21,4 +22,9 @@ class Song extends Model
         'release_date',
         'user_id',
     ]; 
+    
+    protected static function booted()
+    {
+        static::addGlobalScope(new UserScope);
+    }
 }
