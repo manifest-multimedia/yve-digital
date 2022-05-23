@@ -19,6 +19,7 @@ class Release extends Model
         'record_label',
         'number_of_songs',
         'username',
+        'user_id',
     ];
 
 }

@@ -26,7 +26,9 @@ Use App\Http\Middleware\CheckRole;
 |
 */
 
-Route::view('/', 'auth.login');
+Route::get('/', function(){
+return view('auth.login');
+} );
 Route::view('/privacy', 'privacy');
 Route::view('/legal', 'legal');
 
@@ -48,5 +50,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::get('/manage', function () { return view('manage'); })->name('manage');
         Route::resource('users', UserManagementController::class); 
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
-
+        Route::get('/account-setup', [AccountVerificationController::class, 'CompleteSetup'])->name('account-setup');
     });

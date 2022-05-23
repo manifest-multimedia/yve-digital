@@ -14,7 +14,11 @@ class AccountVerificationController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('account-verification');
+        return view('account.account-verification');
 
+    }
+
+    public function CompleteSetup(){
+        return view('account.complete-setup');
     }
 }

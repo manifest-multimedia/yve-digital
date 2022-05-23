@@ -2,6 +2,14 @@
 
 use Carbon\Carbon;
 
+if(!function_exists("getFirstName")){
+    function getFirstName($name){
+        $firstname=explode(' ', trim($name))[0];
+        return $firstname; 
+    }
+}
+
+
 if (! function_exists('releases')) {
     
     function releases($user) {

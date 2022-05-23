@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\UserScope;
 
 class Royalties extends Model
 {
@@ -17,8 +18,14 @@ class Royalties extends Model
         'period_gained', 
         'platform',
         'total_streams', 
+        'user_id',
         
 
 
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new UserScope);
+    }
 }

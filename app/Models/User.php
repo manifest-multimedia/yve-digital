@@ -12,6 +12,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use TaylorNetwork\UsernameGenerator\FindSimilarUsernames;
 use TaylorNetwork\UsernameGenerator\GeneratesUsernames;
+use App\Scopes\UserScope;
 
 
 class User extends Authenticatable
@@ -43,7 +44,8 @@ class User extends Authenticatable
         'user_role', 
         'account_type', 
         'account_status', 
-        'username'
+        'username',
+        'user_id',
 
     ];
 
@@ -67,6 +69,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new UserScope);
+    }
 
     /**
      * The accessors to append to the model's array form.

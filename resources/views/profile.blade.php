@@ -1,11 +1,14 @@
-@extends('layouts.backend')
+<x-backend-layout>
+
+    <x-slot name="title"> 
+    
+        User Profile - {{Auth::user()->name}}
+    
+    </x-slot>
+    <x-slot name="pagedescription"> User Profile </x-slot>
 
 
-@section('page-title')
 
-User Profile - {{Auth::user()->name}}
-
-@endsection
 
 @section('sidebar')
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
@@ -68,6 +71,17 @@ User Profile - {{Auth::user()->name}}
                             <h1 class="greet">Profile Information!</h1>
                             <small>Take Control of Your Account! </small>
                         </div>
+<hr />
+                        <div class="col-md-12 pt-2">
+
+                            @if($user->account_status=='old')
+                            Dear {{ $user->name; }}, thanks for working with YVE Digital. We're delighted to bring you a more improved user experience. 
+                            Kindly take a moment to update your new account credentials with a valid email and secure password to keep your account secure.
+                            NB: You'll not be able to access your dashboard until you have completed this verification step. Thank you. 
+                            
+                            @endif 
+                        </div>
+                        <hr /> 
                         <div>
 
                            
@@ -92,15 +106,7 @@ User Profile - {{Auth::user()->name}}
                         </div>
                     </div>
                     
-                    {{-- <div class="round-tabs">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><small>1HR</small></a></li>
-                                <li><a href=""><small>1D</small></a></li>
-                                <li class="active"><a href=""><small>1W</small></a></li>
-                                <li><a href=""><small>1M</small></a></li>
-                                <li><a href=""><small>1Y</small></a></li>
-                            </ul>										
-                    </div> --}}
+              
 
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                     <div class="panel-body custom-body">
@@ -112,24 +118,19 @@ User Profile - {{Auth::user()->name}}
                     <div class="content-body"> 
                         <div class="container-fluid"> 
 
-                            @if($user->account_status=='old')
-                            Dear {{ $user->name; }}, thanks for working with YVE Digital. We're delighted to bring you a more improved user experience. 
-                            Kindly take a moment to update your new account credentials with a valid email and secure password to keep your account secure.
-                            NB: You'll not be able to access your dashboard until you have completed this verification step. Thank you. 
-                            
-                            @endif 
+                           
                             <!-- Row --> 
                     
                             <div class="row">
                                 
                     
                     
-                                <div class="col-xl-8">
+                                <div class="col-md-12">
                                    
                                 
                             
                                 <div>
-                                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                                    <div class="">
                                         @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                                             @livewire('profile.update-profile-information-form')
                             
@@ -230,7 +231,4 @@ User Profile - {{Auth::user()->name}}
     
 </div><!--/.row-->
 
-@endsection
-
-
-
+</x-backend-layout>

@@ -18,6 +18,7 @@ class Song extends Model
         'record_lable',
         'artist',
         'status',
-        'release_date'
+        'release_date',
+        'user_id',
     ]; 
 }

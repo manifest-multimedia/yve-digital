@@ -29,6 +29,7 @@ class ConnectedAccount extends SocialstreamConnectedAccount
         'token',
         'refresh_token',
         'expires_at',
+        'user_id',
     ];
 
     /**

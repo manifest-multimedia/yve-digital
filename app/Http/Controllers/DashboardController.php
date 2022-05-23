@@ -106,10 +106,8 @@ class DashboardController extends Controller
 
 
     public function Royalties(){
-        $user=Auth::user(); 
-
-        $username=$user->username;
-        $revenue=Royalties::where('username', $username)->sum('revenue');
+       
+        $revenue=Royalties::sum('revenue');
         return view('royalties',compact('revenue')); 
     }
 

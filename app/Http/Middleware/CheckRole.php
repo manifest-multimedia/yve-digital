@@ -55,13 +55,13 @@ class CheckRole
                         $dashboard="profile";
                     } 
                     else {
-                        $dashboard="account-verification";
+                        $dashboard="account-setup";
                     }
                     break;
 
 
                     default: 
-                    $dashboard ="account-verification";
+                    $dashboard ="account-setup";
             };
 
             return redirect()->route($dashboard);

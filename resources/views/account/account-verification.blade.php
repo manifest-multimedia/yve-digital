@@ -1,66 +1,12 @@
-@extends('layouts.backend')
+<x-backend-layout>
 
-
-@section('page-title')
+<x-slot name="title"> 
 
 Dashboard - {{Auth::user()->name}}
 
-@endsection
+</x-slot>
 
-@section('sidebar')
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-
-    <div>
-        <div class="mt-5">
-            <p class="innerpage-site-title">YVE</p>
-        </div>
-        {{-- <ul class="nav menu">
-            <li><a href="/dashboard">MUSIC</a></li>
-            <li><a href="/analytics">ANALYTICS</a></li>
-            <li><a href="/royalties">ROYALTIES</a></li>
-            <li  class="active"><a href="/promotion">PROMOTION</a></li>
-        </ul> --}}
-    </div>
-
-    <div class="line-divider">
-        
-    </div>
-
-    <div class="side-bar-bottom-text">
-        <h3>We are here to help</h3>
-        <p>Ask a question or file a 
-            suppoort ticket, manage 
-            request, report on issues. 
-            Our support team will get 
-        back to you in no time</p>
-    </div>
-
-    <div class="btn-area">
-        <a href="https://support.yvedigital.com" class="btn btn-circle btn-primary">Get Support Now</a>
-    </div>
-
-    <div>
-        <div class="terms">
-
-            <ul>
-                <li><a href="/legal">Terms</a></li>
-                <li><a href="/privacy">Privacy</a></li>
-                <li><a href="https://support.yvedigital.com">Help</a></li>
-            </ul>
-
-
-
-            <div class="developer-mention mt-4">
-                <small>Created by Manifest Multimedia</small>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!--/.sidebar-->
-@endsection
-
-@section('content')
+<x-slot name="pagedescription"> Verification Checkpoint </x-slot>
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main menu-sidearea custom-main-box">
     <div class="row">
@@ -76,11 +22,6 @@ Dashboard - {{Auth::user()->name}}
                         <div>
                             
                             <div class="btn-div">
-                                {{-- @if (Route::has('new-release'))
-                                
-                                <a href="{{route('new-release')}}" class="btn btn-default btn-circle create-new"><span></span> + Create Release</a>
-                                
-                                @endif  --}}
                                     
                                 <a href="/profile" class="btn btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
@@ -99,15 +40,7 @@ Dashboard - {{Auth::user()->name}}
                         </div>
                     </div>
                     
-                    {{-- <div class="round-tabs">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><small>1HR</small></a></li>
-                                <li><a href=""><small>1D</small></a></li>
-                                <li class="active"><a href=""><small>1W</small></a></li>
-                                <li><a href=""><small>1M</small></a></li>
-                                <li><a href=""><small>1Y</small></a></li>
-                            </ul>										
-                    </div> --}}
+                   
 
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                     <div class="panel-body custom-body">
@@ -121,10 +54,7 @@ Dashboard - {{Auth::user()->name}}
                 </div>
             </div>
     </div><!--/.row-->
-
-   
-
     
 </div><!--/.row-->
 
-@endsection
+</x-backend-layout>

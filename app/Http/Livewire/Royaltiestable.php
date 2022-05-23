@@ -43,7 +43,7 @@ class Royaltiestable extends Component
 
         $this->user=Auth::User();
         $this->status="show";
-        $this->totalrevenue=Royalties::where('username', $this->user->username)->sum('revenue');
+        $this->totalrevenue=Royalties::sum('revenue');
     }
    
     public function render()
@@ -53,23 +53,19 @@ class Royaltiestable extends Component
 
             $username=$this->user->username;
 
-            $period=$royalties=Royalties::where('username',$username)->get()->unique('period_gained');
+            $period=$royalties=Royalties::get()->unique('period_gained');
         
             if(!is_null($this->sort_period) || !empty($sort_period)){
-                $royalties=Royalties::where('username', $username)
-                ->where('period_gained', $this->sort_period)
-                ->latest()->paginate(10);
+                $royalties=Royalties::where('period_gained', $this->sort_period)->latest()->paginate(10);
     
-                $earnings=Royalties::where('username', $username)
-                ->where('period_gained', $this->sort_period)->sum('revenue'); 
+                $earnings=Royalties::where('period_gained', $this->sort_period)->sum('revenue'); 
             }
     
             else{
     
                 $username=$this->user->username;
-                $royalties=Royalties::where('username',$username)->get()->paginate(10); 
-                // $royalties=Royalties::where('username',$username)->latest()->paginate(10); 
-                $earnings=Royalties::where('username', $this->user->username)->sum('revenue'); 
+                $royalties=Royalties::paginate(10); 
+                $earnings=Royalties::sum('revenue'); 
             }
         }
 
