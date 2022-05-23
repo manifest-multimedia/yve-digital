@@ -22,62 +22,75 @@
         @endif
 
 </div>
-
-
 <form style="padding-top:20px" wire:submit.prevent="insertRecord"> 
-        @csrf
+    @csrf
+<div class="row">
 
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Name of Artist * </label>
-            <select class="form-control" style="height:46px" wire:model="artist_name"> 
-                <option> Select Artist </option> 
+            <div class="form-group">
+                <label> Name of Artist * </label>
+                <select class="form-control" style="height:46px" wire:model="artist_name"> 
+                    <option> Select Artist </option> 
 
-                @foreach ($artist as $item)
-                    <option value="{{$item->username}}">{{$item->name}}</option>
-                @endforeach
+                    @foreach ($artist as $item)
+                        <option value="{{$item->username}}">{{$item->name}}</option>
+                    @endforeach
 
-            </select>
+                </select>
+            </div>
             
         </div>
 
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Release Name *</label>
-            <input class="form-control" type="text" placeholder="Release Name" wire:model="release_name"/>         
+            <div class="form-group"> 
+                <label> Release Name *</label>
+                <input class="form-control" type="text" placeholder="Release Name" wire:model="release_name"/>         
+            </div>   
         </div>
 
         
 
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Record Label *</label>
-            <input class="form-control" type="text" placeholder="Record Label" wire:model="record_label"/> 
+            <div class="form-group">
+                <label> Record Label *</label>
+                <input class="form-control" type="text" placeholder="Record Label" wire:model="record_label"/> 
+            </div>   
         </div>
 
         <div class="release col-md-6" style="padding-top:20px">
-            <label> No. of Songs *</label>
-            <input class="form-control" type="text" placeholder="No. Of Songs" wire:model="no_of_songs" /> 
+            <div class="form-group">
+                <label> No. of Songs *</label>
+                <input class="form-control" type="text" placeholder="No. Of Songs" wire:model="no_of_songs" /> 
+            </div>    
         </div>
 
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Territory *</label>
-            <select class="form-control" style="height:46px" wire:model="territory"> 
-                <option> -- SELECT -- </option>
-                <option> Worldwide </option>
-                <option> Ghana </option>
-                <option> South Africa </option>
-                <option> Kenya </option>
-                <option> Other? </option>
-            </select>
+            <div class="form-group">
+                <label> Territory *</label>
+                <select class="form-control" style="height:46px" wire:model="territory"> 
+                    <option> -- SELECT -- </option>
+                    <option> Worldwide </option>
+                    <option> Ghana </option>
+                    <option> South Africa </option>
+                    <option> Kenya </option>
+                    <option> Other? </option>
+                </select>
+            </div>
         </div>
 
         
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Release Date *</label>
-            <input class="form-control" type="date" placeholder="Release Date" wire:model="release_date" /> 
+            <div class="form-group">
+                <label> Release Date *</label>
+                <input class="form-control" type="date" placeholder="Release Date" wire:model="release_date" /> 
+            </div>    
         </div>
         
         <div class="release col-md-6" style="padding-top:20px">
-            <label> Upload Cover Art (2000px x 2000px) *</label>
-            <input class="form-control" type="file" placeholder="cover_art" wire:model="cover_art" /> 
+            <div class="form-group">
+                <label> Upload Cover Art (2000px x 2000px) *</label>
+                <input class="form-control" type="file" placeholder="cover_art" wire:model="cover_art" />     
+            </div>
         </div>
 
         <div class="release col-md-6" style="padding-top:50px">
@@ -88,7 +101,11 @@
         
         </div>
     
-    </form> 
+   
+
+
+</div>
+</form> 
 
 
 </div>

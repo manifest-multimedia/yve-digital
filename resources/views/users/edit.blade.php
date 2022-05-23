@@ -1,62 +1,11 @@
-@extends('layouts.backend')
+<x-backend-layout> 
 
-@section('page-title')
+    <x-slot name="title"> 
+        User Management - {{Auth::user()->name}}
+    </x-slot>
 
-User Management - {{Auth::user()->name}}
+    <x-slot name="pagedescription"> </x-slot>
 
-@endsection
-
-@section('sidebar')
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-
-    <div>
-
-        <div class="mt-5">
-            <p class="innerpage-site-title">YVE</p>
-        </div>
-
-        {{-- Load Menu --}}
-        @includeIf('components.menu')
-
-    </div>
-
-    <div class="line-divider">
-        
-    </div>
-
-    <div class="side-bar-bottom-text">
-        <h3>We are here to help</h3>
-        <p>Ask a question or file a 
-            suppoort ticket, manage 
-            request, report on issues. 
-            Our support team will get 
-        back to you in no time</p>
-    </div>
-
-    <div class="btn-area">
-        <a href="https://support.yvedigital.com" class="btn btn-circle btn-primary">Get Support Now</a>
-    </div>
-
-    <div>
-        <div class="terms">
-
-            <ul>
-                <li><a href="/legal">Terms</a></li>
-                <li><a href="/privacy">Privacy</a></li>
-                <li><a href="https://support.yvedigital.com">Help</a></li>
-            </ul>
-
-
-
-            <div class="developer-mention mt-4">
-                <small>Created by Manifest Multimedia</small>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!--/.sidebar-->
-@endsection
 
 @section('content')
 
@@ -190,5 +139,4 @@ User Management - {{Auth::user()->name}}
                         </form>
 
 
-
-@endsection
+                    </x-backend-layout>

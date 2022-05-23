@@ -3,61 +3,11 @@
 <x-backend-layout>
     <x-slot name="title"> Dashboard - {{Auth::user()->name}} </x-slot>
     <x-slot name="pagedescription">
-        Releases
+        Create Release
     </x-slot>
 
 
-@section('sidebar')
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
-    <div>
-
-        <div class="mt-5">
-            <p class="innerpage-site-title">YVE</p>
-        </div>
-
-        {{-- Load Menu --}}
-        @includeIf('components.menu')
-
-    </div>
-
-    <div class="line-divider">
-        
-    </div>
-
-    <div class="side-bar-bottom-text">
-        <h3>We are here to help</h3>
-        <p>Ask a question or file a 
-            suppoort ticket, manage 
-            request, report on issues. 
-            Our support team will get 
-        back to you in no time</p>
-    </div>
-
-    <div class="btn-area">
-        <a href="#" class="btn btn-circle btn-primary">Get Support Now</a>
-    </div>
-
-    <div>
-        <div class="terms">
-
-            <ul>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-
-
-
-            <div class="developer-mention mt-4">
-                <small>Created by Manifest Multimedia</small>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!--/.sidebar-->
-@endsection
 
 @section('content')
 
@@ -69,8 +19,8 @@
                 <div class="panel-heading">
                     <div class="heading-bar">
                         <div class="greetings">
-                            <h1 class="greet">Create Release</h1>
-                            <small>Take your music to the World! </small>
+                            <h1 class="greet">Take your music to the World!</h1>
+                           
                         </div>
 
                      
@@ -78,7 +28,7 @@
                         <div>
                         
 
-                            <div class="btn-div">
+                            {{-- <div class="btn-div">
                                 @if (Route::has('profile'))
                                 <a href="{{route('profile')}}" class="btn btn-rounded-img">
                                     <img src="{{ Auth::user()->profile_photo_url }}" class="btn-rounded-img img-responsive" alt="" style="object-fit: cover;">
@@ -94,21 +44,17 @@
                                     </button>
                                 </form>
 
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     
                     
-
                     <span class="pull-right clickable panel-toggle panel-button-tab-left hideme"><em class="fa fa-toggle-up"></em></span></div>
                   
                     <div class="panel-body custom-body">
 
-                    
-
                         {{-- Form --}}
-						@livewire('createrelease')
-                       
+						@livewire('createrelease')                       
       
                     </div>
                         
