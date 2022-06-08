@@ -26,9 +26,7 @@ Use App\Http\Middleware\CheckRole;
 |
 */
 
-Route::get('/', function(){
-return view('auth.login');
-} );
+Route::get('/', function(){ return view('auth.login');} );
 Route::view('/privacy', 'privacy');
 Route::view('/legal', 'legal');
 

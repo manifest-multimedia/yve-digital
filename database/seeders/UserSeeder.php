@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; 
 use Illuminate\Support\Str; 
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class UserSeeder extends Seeder
 {
@@ -278,8 +279,11 @@ class UserSeeder extends Seeder
           foreach ($tempusers as $user)
 
           {
+              $user_id=IdGenerator::generate(['table' => 'users', 'field'=>'user_id', 'length' => 15, 'prefix' => 'usr_'.date('y').'_']);
+              
               DB::table('users')->insertOrignore(
                   
+
                 [
                     'name' => $user->username,
                     'username' => $user->username,
@@ -287,6 +291,7 @@ class UserSeeder extends Seeder
                     'account_status'=>'old', 
                     'user_role'=>$user->privilege, 
                     'email'=> $user->username.'@replacemail.com',
+                    'user_id' => $user_id, 
                 ]       
 
               );
