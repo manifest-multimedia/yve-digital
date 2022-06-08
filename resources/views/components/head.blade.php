@@ -24,7 +24,11 @@
         <link href="{{asset('plugins/neptune/perfectscroll/perfect-scrollbar.css')}}" rel="stylesheet">
         <link href="{{asset('plugins/neptune/pace/pace.css')}}" rel="stylesheet">
     
+        <script src="{{asset('js/mirrorfly/index.js')}}"></script>
+        <script src="{{asset('js/mirrorfly/chat.js')}}"> </script>
+
         <script src="//unpkg.com/alpinejs" defer></script>
+
         @livewireScripts
 	@livewireStyles
         <!-- Theme Styles -->

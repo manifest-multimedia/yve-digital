@@ -34,7 +34,11 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/neptune/neptune.png')}}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/neptune/neptune.png')}}" />
+   
+    <script src="//unpkg.com/alpinejs" defer></script>
 
+    @livewireScripts
+    @livewireStyles
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

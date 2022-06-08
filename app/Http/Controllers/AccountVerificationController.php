@@ -21,4 +21,8 @@ class AccountVerificationController extends Controller
     public function CompleteSetup(){
         return view('account.complete-setup');
     }
+
+    public function UpdateAccount(){
+        return view('account.account-update'); 
+    }
 }
