@@ -13,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use TaylorNetwork\UsernameGenerator\FindSimilarUsernames;
 use TaylorNetwork\UsernameGenerator\GeneratesUsernames;
 use App\Scopes\UserScope;
+use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 
 class User extends Authenticatable
@@ -28,6 +29,7 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use FindSimilarUsernames;
 	use GeneratesUsernames;
+    use AuthenticationLoggable;
 
     /**
      * The attributes that are mass assignable.

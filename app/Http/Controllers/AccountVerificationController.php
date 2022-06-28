@@ -25,4 +25,14 @@ class AccountVerificationController extends Controller
     public function UpdateAccount(){
         return view('account.account-update'); 
     }
+
+    public function ProcessUpdate(Request $request){
+        
+        //Get ID
+        $username=$request->username; 
+
+        return view('account.account-update', compact('username'));
+
+
+    }
 }
