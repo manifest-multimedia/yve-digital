@@ -105,7 +105,7 @@
                                         <label for="name">Twitter</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="twitter" id="" class="form-control" placeholder="Twitter Profile" wire:model="instagram">
+                                        <input type="text" name="twitter" id="" class="form-control" placeholder="Twitter Profile" wire:model="twitter">
 
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                         <label for="name">Instagram</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="instagram" id="" class="form-control" placeholder="Instagram Profile" wire:model="twitter">
+                                        <input type="text" name="instagram" id="" class="form-control" placeholder="Instagram Profile" wire:model="instagram">
 
                                     </div>
                                 </div>

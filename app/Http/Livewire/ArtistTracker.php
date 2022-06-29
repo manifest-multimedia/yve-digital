@@ -21,6 +21,7 @@ class ArtistTracker extends Component
     public $terms;
     public $selected_ID; 
     public $user_id;
+    public $old_user_id;
 
     public $facebook;
     public $instagram;
@@ -41,6 +42,11 @@ class ArtistTracker extends Component
             $this->response="success";
             $this->selected_user=$search->username;
             $this->selected_ID=$search->id; 
+
+            if(!is_null($search->user_id)){
+                $this->old_user_id=$search->user_id;
+            } 
+
             //Check Terms
             switch ($search->terms) {
                 case '':
@@ -126,31 +132,82 @@ class ArtistTracker extends Component
         
         //Update Socials
         if(!is_null($this->facebook)){
-            $updatefacebook=new Social;
-            $updatefacebook->user_id=$this->user_id;
-            $updatefacebook->platform='facebook';
-            $updatefacebook->profile=$this->facebook;
-            $updatefacebook->save();
+
+
+            $checkfacebook=Social::where('user_id', $this->old_user_id)
+            ->where('platform', 'facebook')->get();
+            
+            if($checkfacebook->count()===1){
+
+                $checkfacebook=Social::where('user_id', $this->old_user_id)
+                ->where('platform', 'facebook')->update([
+                    'profile'=>$this->facebook, 
+                    'user_id'=>$this->user_id, 
+                ]);
+
+            } else{
+
+                $updatefacebook=new Social;
+                $updatefacebook->user_id=$this->user_id;
+                $updatefacebook->platform='facebook';
+                $updatefacebook->profile=$this->facebook;
+                $updatefacebook->save();
+            }
+
         }
       
-        if(!is_null($this->witter)){
-            $updatetwitter=new Social;
-            $updatetwitter->user_id=$this->user_id;
-            $updatetwitter->platform='twitter';
-            $updatetwitter->profile=$this->twitter;
-            $updatetwitter->save();
+        if(!is_null($this->twitter)){
+
+            $checktwitter=Social::where('user_id',$this->old_user_id)
+            ->where('platform', 'twitter')->get();
+
+            if($checktwitter->count()===1){
+
+                $checktwitter=Social::where('user_id',$this->old_user_id)
+                ->where('platform', 'twitter')->update([
+                    'profile'=>$this->twitter, 
+                    'user_id' =>$this->user_id, 
+                ]);
+
+            } else{
+                
+                $updatetwitter=new Social;
+                $updatetwitter->user_id=$this->user_id;
+                $updatetwitter->platform='twitter';
+                $updatetwitter->profile=$this->twitter;
+                $updatetwitter->save();
+            }
+
         }
       
         if(!is_null($this->instagram)){
-            $updateinstagram=new Social;
-            $updateinstagram->user_id=$this->user_id;
-            $updateinstagram->platform='instagram';
-            $updateinstagram->profile=$this->twitter;
-            $updateinstagram->save();
+
+            $checkinstagram=Social::where('user_id', $this->old_user_id)
+            ->where('platform', 'instagram')->get();
+            
+            
+            if($checkinstagram->count()===1){
+                
+                $checkinstagram=Social::where('user_id', $this->old_user_id)
+                ->where('platform', 'instagram')->update([
+                    'profile' => $this->instagram,
+                    'user_id' => $this->user_id, 
+                ]);
+
+            } else{
+
+                $updateinstagram=new Social;
+                $updateinstagram->user_id=$this->user_id;
+                $updateinstagram->platform='instagram';
+                $updateinstagram->profile=$this->instagram;
+                $updateinstagram->save();
+
+            }
+
         }
 
         return redirect('login');
-        
+
     }
 
 
