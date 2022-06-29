@@ -80,7 +80,44 @@
                                         <label for="name">Email</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="email" id="" class="form-control" placeholder="Email" wire:model="email">
+                                        <input type="email" name="email" id="" class="form-control" placeholder="Email" wire:model="email">
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group m-2">
+                                <div class="row">
+                                    <div class="col-md-3">
+
+                                        <label for="name">Facebook</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" name="facebook" id="" class="form-control" placeholder="Facebook Profile" wire:model="facebook">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-2">
+                                <div class="row">
+                                    <div class="col-md-3">
+
+                                        <label for="name">Twitter</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" name="twitter" id="" class="form-control" placeholder="Twitter Profile" wire:model="instagram">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-2">
+                                <div class="row">
+                                    <div class="col-md-3">
+
+                                        <label for="name">Instagram</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" name="instagram" id="" class="form-control" placeholder="Instagram Profile" wire:model="twitter">
 
                                     </div>
                                 </div>

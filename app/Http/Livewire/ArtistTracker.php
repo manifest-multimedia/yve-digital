@@ -9,6 +9,7 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Song; 
 use App\Models\Royalties;
+use App\Models\Social;
 
 class ArtistTracker extends Component
 {
@@ -20,6 +21,10 @@ class ArtistTracker extends Component
     public $terms;
     public $selected_ID; 
     public $user_id;
+
+    public $facebook;
+    public $instagram;
+    public $twitter;
 
     public $name;
     public $email;
@@ -119,7 +124,33 @@ class ArtistTracker extends Component
             'user_id'=>$this->user_id
         ]);
         
+        //Update Socials
+        if(!is_null($this->facebook)){
+            $updatefacebook=new Social;
+            $updatefacebook->user_id=$this->user_id;
+            $updatefacebook->platform='facebook';
+            $updatefacebook->profile=$this->facebook;
+            $updatefacebook->save();
+        }
+      
+        if(!is_null($this->witter)){
+            $updatetwitter=new Social;
+            $updatetwitter->user_id=$this->user_id;
+            $updatetwitter->platform='twitter';
+            $updatetwitter->profile=$this->twitter;
+            $updatetwitter->save();
+        }
+      
+        if(!is_null($this->instagram)){
+            $updateinstagram=new Social;
+            $updateinstagram->user_id=$this->user_id;
+            $updateinstagram->platform='instagram';
+            $updateinstagram->profile=$this->twitter;
+            $updateinstagram->save();
+        }
+
         return redirect('login');
+        
     }
 
 
