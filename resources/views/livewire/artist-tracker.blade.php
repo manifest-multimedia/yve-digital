@@ -41,13 +41,13 @@
                         <h5 class="text-center"> You must accept our service agreement to proceed to using our services.</h5>
         
                         <div class="form-group text-center">
-                            <input type="checkbox" name="accept_terms" id="accept_terms" wire:model='terms'>
-                            <label for="accept_terms">Accept Terms</label>
+                            <input type="checkbox" name="accept_terms" id="accept_terms" wire:model='terms' class="form-check-input" style="width:20px; height:20px">
+                            <label for="accept_terms" style="color:red; font-size:18px" class=" px-2 pl-5">Accept Terms</label>
                            
                         </div>
                         <div class="form-group text-center mt-2">
                             @if ($terms!=0)
-                            <button @click="step=2" class="btn btn-primary mb-5">Proceed</button>
+                            <button @click="step=2" class="btn btn-primary btn-lg mb-5">Proceed</button>
                         @endif
                         </div>
                     </div>   
