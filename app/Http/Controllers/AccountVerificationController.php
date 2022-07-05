@@ -35,4 +35,10 @@ class AccountVerificationController extends Controller
 
 
     }
+
+    public function SendRecoveryEmail(){
+        
+        return view('account.recovery');
+
+    }
 }

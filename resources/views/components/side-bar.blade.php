@@ -24,6 +24,13 @@
                     Admin Area
                 </a>
             </li>
+          
+            <li class="{{ request()->is('recover')? 'active-page' : ''}}">
+                <a href="{{url('recover')}}"> 
+                    <i class="material-icons-two-tone"> restore_page </i>
+                    Account Recovery
+                </a>
+            </li>
 
             <li class="{{ request()->is('new-release')? 'active-page' : ''}}">
                 <a href="/new-release">

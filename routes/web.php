@@ -49,6 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::resource('users', UserManagementController::class); 
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
         Route::get('/account-setup', [AccountVerificationController::class, 'CompleteSetup'])->name('account-setup');
+        Route::get('/recover', [AccountVerificationController::class, 'SendRecoveryEmail'])->name('recovery');
         
     });
 
