@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User; 
+use App\Scopes\UserScope;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\AccountRecoveryNotification;
 
@@ -26,7 +27,7 @@ class AccountRecoveryModule extends Component
     public function render()
     {
 
-        $this->usernames=User::withoutGlobalScopes()->all(); 
+        $this->usernames=User::withoutGlobalScope(UserScope::class)->get(); 
 
         return view('livewire.account-recovery-module');
 
