@@ -1,72 +1,17 @@
-@extends('layouts.backend')
 
-
-@section('page-title')
-
-Dashboard - {{Auth::user()->name}}
-
-@endsection
-
-@section('sidebar')
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-
-    <div>
-
-        <div class="mt-5">
-            <p class="innerpage-site-title">YVE</p>
-        </div>
-
-        {{-- Load Menu --}}
-        @includeIf('components.menu')
-
-    </div>
-
-    <div class="line-divider">
-        
-    </div>
-
-    <div class="side-bar-bottom-text">
-        <h3>We are here to help</h3>
-        <p>Ask a question or file a 
-            suppoort ticket, manage 
-            request, report on issues. 
-            Our support team will get 
-        back to you in no time</p>
-    </div>
-
-    <div class="btn-area">
-        <a href="https://support.yvedigital.com" class="btn btn-circle btn-primary">Get Support Now</a>
-    </div>
-
-    <div>
-        <div class="terms">
-
-            <ul>
-                <li><a href="/legal">Terms</a></li>
-                <li><a href="/privacy">Privacy</a></li>
-                <li><a href="https://support.yvedigital.com">Help</a></li>
-            </ul>
-
-
-
-            <div class="developer-mention mt-4">
-                <small>Created by Manifest Multimedia</small>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!--/.sidebar-->
-@endsection
-
+<x-backend-layout>
+    <x-slot name="title"> YVE Digital Music Distribution Platform - {{Auth::user()->name}}</x-slot>
+    <x-slot name="pagedescription">
+        Upload Songs
+    </x-slot>
+    
 @section('content')
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main menu-sidearea custom-main-box">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default bo-radius">
                 <div class="panel-heading">
-                    <div class="heading-bar">
+                    {{-- <div class="heading-bar">
                         <div class="greetings">
                             <h1 class="greet">Upload Songs</h1>
                             <small>Details of how your music is performing! </small>
@@ -96,7 +41,7 @@ Dashboard - {{Auth::user()->name}}
                                 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     
                     {{-- <div class="round-tabs">
                             <ul class="nav nav-pills">
@@ -125,6 +70,6 @@ Dashboard - {{Auth::user()->name}}
 
     
    
-</div><!--/.row-->
 
-@endsection
+
+</x-backend-layout>
