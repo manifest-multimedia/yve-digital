@@ -34,7 +34,7 @@ class ArtistTracker extends Component
 
     public function mount($username){
         
-        $search=User::where('username', $username)->orWhere('user_id', $username)->first();
+        $search=User::withoutGlobalScope(UserScope::class)->where('username', $username)->orWhere('user_id', $username)->first();
 
 
         if(!is_null($search)){
@@ -79,7 +79,7 @@ class ArtistTracker extends Component
 
     public function updatedTerms(){
        //Update
-       $save=User::where('id', $this->selected_ID);
+       $save=User::withoutGlobalScope(UserScope::class)->where('id', $this->selected_ID);
        $save->update([
         'terms'=>$this->terms, 
        ]);
@@ -110,7 +110,7 @@ class ArtistTracker extends Component
         $this->user_id=IdGenerator::generate(['table' => 'users', 'field'=>'user_id', 'length' => 15, 'prefix' => 'usr_'.date('y').'_']);
         
         //Update Details
-        $update=User::where('id', $this->selected_ID)->first();
+        $update=User::withoutGlobalScope(UserScope::class)->where('id', $this->selected_ID)->first();
         $update=$update->update([
             'name'=>$this->name, 
             'email'=>$this->email, 
@@ -121,12 +121,12 @@ class ArtistTracker extends Component
         //Assign ID to all Models 
         $username=$this->selected_user;
         //Songs
-        $updatesongs=Song::where('username', $username)->update([
+        $updatesongs=Song::withoutGlobalScope(UserScope::class)->where('username', $username)->update([
             'user_id'=>$this->user_id
         ]);
         
         //Royalties
-        $updateroyalties=Royalties::where('username', $username)->update([
+        $updateroyalties=Royalties::withoutGlobalScope(UserScope::class)->where('username', $username)->update([
             'user_id'=>$this->user_id
         ]);
         
