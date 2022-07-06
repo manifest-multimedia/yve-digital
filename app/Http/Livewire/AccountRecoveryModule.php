@@ -26,7 +26,7 @@ class AccountRecoveryModule extends Component
     public function render()
     {
 
-        $this->usernames=User::all(); 
+        $this->usernames=User::withoutGlobalScopes()->all(); 
 
         return view('livewire.account-recovery-module');
 
