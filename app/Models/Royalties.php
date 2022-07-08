@@ -19,8 +19,6 @@ class Royalties extends Model
         'platform',
         'total_streams', 
         'user_id',
-        
-
 
     ];
 

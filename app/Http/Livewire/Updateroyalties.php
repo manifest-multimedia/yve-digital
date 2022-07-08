@@ -9,6 +9,8 @@ use App\Models\Platform;
 use App\Models\Song;
 use Auth; 
 
+use App\Scopes\UserScope;
+
 /*  *   Written by Johnson Sebire
 
     *   Date: 8/23/2021 
@@ -56,9 +58,9 @@ class Updateroyalties extends Component
 
     public function mount() {
 
-        $this->users=User::orderBy('name','asc')->get(); 
+        $this->users=User::withoutGlobalScope(UserScope::class)->orderBy('name','asc')->get(); 
         $this->releases=collect(); 
-        $this->platforms=Platform::all();
+        $this->platforms=Platform::withoutGlobalScope(UserScope::class)->get();
       
     }
     
