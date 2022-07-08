@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Release; 
 use App\Models\Song; 
 use App\Models\User;
+use App\Scopes\UserScope;
 
 use Livewire\WithFileUploads;
 
@@ -27,7 +28,7 @@ class Uploadsongs extends Component
 
     public function mount(){
 
-        $this->artists=User::orderBy('name','asc')->get(); 
+        $this->artists=User::withoutGlobalScope(UserScope::class)->orderBy('name','asc')->get(); 
     }
 
     public function render()
@@ -48,7 +49,7 @@ class Uploadsongs extends Component
 
         if(!is_null($this->selectedArtist)){
 
-            $releases= Release::where('artist_name', $this->selectedArtist)->get()->unique('release_name'); 
+            $releases= Release::withoutGlobalScope(UserScope::class)->where('artist_name', $this->selectedArtist)->get()->unique('release_name'); 
             $this->releases =$releases;
             
             $this->username=null; 
@@ -64,11 +65,11 @@ class Uploadsongs extends Component
         if(!is_null($this->release_name)){
             
 
-            $name_of_artist=collect(Release::where('release_name', $this->release_name)->get()->unique('artist_name'));
+            $name_of_artist=collect(Release::withoutGlobalScope(UserScope::class)->where('release_name', $this->release_name)->get()->unique('artist_name'));
                      
             $name_of_artist=$name_of_artist[0]['artist_name']; 
            
-            $number_of_songs=Release::where('release_name', $this->release_name)->get();
+            $number_of_songs=Release::withoutGlobalScope(UserScope::class)->where('release_name', $this->release_name)->get();
            
             $count=$number_of_songs->count();
             $this->songs_count=$count;

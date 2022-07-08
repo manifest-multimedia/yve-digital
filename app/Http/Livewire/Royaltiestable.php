@@ -43,7 +43,14 @@ class Royaltiestable extends Component
 
         $this->user=Auth::User();
         $this->status="show";
-        $this->totalrevenue=Royalties::sum('revenue');
+
+        if (Gate::allows('isUser')){
+                $this->totalrevenue=Royalties::sum('revenue');
+        }
+
+        if(Gate::allows('isAdmin')){
+            $this->totalrevenue=Royalties::sum('revenue');
+        }
     }
    
     public function render()

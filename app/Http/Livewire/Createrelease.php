@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 
 use App\Models\Release; 
 use App\Models\User;
+use App\Scopes\UserScope;
 
 class Createrelease extends Component
 {
@@ -51,7 +52,7 @@ class Createrelease extends Component
 
         if(!is_null($this->artist_name)) {
 
-            $artist=User::where('username', $this->artist_name)->first();
+            $artist=User::withoutGlobalScope(UserScope::class)->where('username', $this->artist_name)->first();
            
            
             if(!is_null($artist->name))
