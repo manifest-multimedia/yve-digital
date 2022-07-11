@@ -72,8 +72,8 @@ class Updateroyalties extends Component
     public function updatedSelectedUser($value){
        
         if(!is_null($value)) {
-            // $this->releases=Royalties::where('username', $value)->get()->unique('song_name');
-            $this->releases=Song::withoutGlobalScope(UserScope::class)->where('username', $value)->get()->unique('song');
+           
+            $this->releases=Song::withoutGlobalScope(UserScope::class)->where('user_id', $value)->get()->unique('song');
 
         }
    
