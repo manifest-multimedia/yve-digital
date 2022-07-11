@@ -12,7 +12,7 @@
             <div class="panel-body custom-body">  
                 <div class="card">
                     <div class="card-header">        
-                        <h1> Update Royalties </h1>   
+                        <h1> Record Royalties </h1>   
                         <h1 class="card-title">Howdy {{getFirstName(Auth::user()->name)}}!</h1>
                         <small> You are logged in as an Administrator. </small>
                     </div>
