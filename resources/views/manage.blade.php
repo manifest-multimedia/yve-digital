@@ -4,7 +4,6 @@
 
 <x-slot name="pagedescription"> Manager </x-slot>
 
-
 @section('content')
 
     <div class="row">

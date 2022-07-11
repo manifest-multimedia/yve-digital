@@ -1,5 +1,4 @@
 <div>
-    {{-- Be like water. wire:submit.prevent="insertRecord"--}}
 
     <div class="col-md-12"> 
         @if (session()->has('message'))

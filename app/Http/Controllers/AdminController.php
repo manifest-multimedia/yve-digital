@@ -25,51 +25,7 @@ class AdminController extends Controller
 
      public function __invoke(Request $request)
     {
-        
-
-        // $chart_options=[
-        //     'chart_title' => 'Streams', 
-        //     'report_type' => 'group_by_date', 
-        //     'model' => 'App\Models\Royalties',
-        //     'group_by_field' => 'created_at',
-        //     'group_by_period'=> 'month',
-        //     'filter_field'   => 'created_at',
-
-        //     'conditions' => [
-        //         [
-        //             'name'=>'user', 
-        //             'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
-        //             'color'=>'orange', 
-        //             'fill' => true
-        //         ], 
-                
-        //     ], 
-        //     'chart_type' => 'line'
-        // ]; 
-
-        // $chart_options2=[
-        //     'chart_title' => 'Downloads', 
-        //     'report_type' => 'group_by_date', 
-        //     'model' => 'App\Models\Royalties',
-        //     'group_by_field' => 'created_at',
-        //     'group_by_period'=> 'month',
-        //     'filter_field'   => 'created_at',
-
-        //     'conditions' => [
-        //         [
-        //             'name'=>'user', 
-        //             'condition'=>"username="."\"".Auth::user()->username."\""."&& platform='spotify'", 
-        //             'color'=>'blue', 
-        //             'fill' => true
-        //         ], 
-                
-        //     ], 
-        //     'chart_type' => 'line'
-        // ]; 
-
-        // $chart1 = new LaravelChart($chart_options, $chart_options2); 
-
-
+    
         $user=Auth::user(); 
 
         $username=$user->username;
@@ -92,8 +48,9 @@ class AdminController extends Controller
                         getTotalStreams($username, 'Tidal')+
                         getTotalStreams($username, 'Amazon');
 
-        $releases=Release::where('username', $username)->get()->unique()->count();
-        $songs=Song::where('username', $username)->get()->unique()->count(); 
+        $releases=Release::get()->unique()->count();
+        $songs=Song::get()->unique()->count(); 
+
         $data=[
         [
 

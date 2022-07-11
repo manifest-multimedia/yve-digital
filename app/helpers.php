@@ -1,6 +1,8 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use App\Models\Royalties;
 
 if(!function_exists("getFirstName")){
     function getFirstName($name){
@@ -34,8 +36,11 @@ if (! function_exists('getTotalStreams')) {
      $username=$username;
      $platform=$platform; 
     
-     $streams=DB::table('royalties')->where('username', $username)
-     ->where('platform', $platform)->sum('total_streams');
+    //  $streams=DB::table('royalties')->where('username', $username)
+    //  ->where('platform', $platform)->sum('total_streams');
+
+    $streams=Royalties::where('platform', $platform)->get()->sum('total_streams');
+    
      return $streams; 
      }
     

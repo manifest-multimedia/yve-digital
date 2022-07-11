@@ -23,7 +23,6 @@ class UserController extends Controller
 
     public function __invoke(Request $request)
 
-    // Pull Details from DB for Display in the User Dashboard
 
     {
         $user=Auth::user(); 
@@ -48,8 +47,10 @@ class UserController extends Controller
                         getTotalStreams($username, 'Tidal')+
                         getTotalStreams($username, 'Amazon');
 
-        $releases=Release::where('username', $username)->get()->unique()->count();
-        $songs=Song::where('username', $username)->get()->unique()->count(); 
+        $releases=Release::get()->unique()->count();
+        $songs=Song::get()->unique()->count(); 
+       
+
         $data=[
        
         
