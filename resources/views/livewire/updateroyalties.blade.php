@@ -1,15 +1,8 @@
 <div>
-{{-- 
-        <form action=""> 
-           
-            @csrf --}}
 
 
-            <div class="row"> 
-                
-          
 
-        {{-- Display Success/Error Messages --}}
+<div class="row">                 
 
         <div class="col-md-12" style='padding:30px 0px 20px 16px; margin-top:-20px'> 
 
@@ -62,7 +55,7 @@
                         @endif
                         
                         @if($releases->count() == 0)
-                            <option value="no songs"> No song(s) found for the selected user</option>
+                            <option value="no songsg"> No song(s) found for the selected user</option>
                         @endif
                 </select>
 
