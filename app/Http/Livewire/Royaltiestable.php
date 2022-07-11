@@ -87,7 +87,6 @@ class Royaltiestable extends Component
 
             } else{
 
-
                 $period=$royalties=Royalties::all()->unique('period_gained');
                  
                 $royalties=Royalties::latest()->paginate(5);
@@ -100,10 +99,8 @@ class Royaltiestable extends Component
 
                 }
                 
-                
             }
-            
-           
+         
         }
 
         

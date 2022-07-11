@@ -119,10 +119,13 @@ class Updateroyalties extends Component
         $period_gained = $this->periodStart.' - '.$this->periodEnd; 
 
         $period_gained=retrieveMonths($period_gained);
+
+        $user_id=$this->selectedUser;
+        $username=User::where('user_id', $user_id)->first()->username;
         
         Royalties::create([
 
-            'username' => $this->selectedUser, 
+            'username' => $username, 
             'song_name' => $this->selectedSong, 
             'downloads' => $this->downloads, 
             'revenue' => $this->earnings, 
@@ -131,7 +134,7 @@ class Updateroyalties extends Component
 
             'platform' => $this->selectedPlatform, 
             'total_streams' =>$this->streams, 
-            ''
+            'user_id' => $user_id,
         ]); 
 
         session()->flash('message', "Record Saved Successfully for $this->selectedPlatform");

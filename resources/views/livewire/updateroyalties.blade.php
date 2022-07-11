@@ -40,7 +40,9 @@
                 <select wire:model="selectedUser" class="form-control" style="height:46px"> 
                     <option value=""> Select A User </option>
                         @foreach ($users as $user)
-                            <option value="{{$user->username}}"> {{$user->name}} </option> 
+
+                            <option value="{{$user->user_id}}"> {{$user->name}} </option> 
+
                         @endforeach
                 </select>
                 
