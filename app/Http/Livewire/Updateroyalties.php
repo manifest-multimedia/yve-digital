@@ -61,6 +61,7 @@ class Updateroyalties extends Component
         $this->users=User::withoutGlobalScope(UserScope::class)->orderBy('name','asc')->get(); 
         $this->releases=collect(); 
         $this->platforms=Platform::withoutGlobalScope(UserScope::class)->get();
+        $this->selectedSong='';
       
     }
     

@@ -33,11 +33,11 @@
 
         </div> 
 
-            <div class="col-md-6"> 
+            <div class="col-md-6" wire:ignore.self> 
                 
                 <label> Select A User </label>
                 
-                <select wire:model="selectedUser" class="form-control" style="height:46px"> 
+                <select wire:model="selectedUser" class="form-select" style="height:46px"> 
                     <option value=""> Select A User </option>
                         @foreach ($users as $user)
 
@@ -48,13 +48,13 @@
                 
             </div> 
 
-            <div class="col-md-6">
+            <div class="col-md-6" wire:ignore.self>
 
                 <label> Select A Song </label>
             
-                <select wire:model="selectedSong" class="form-control" style="height:46px"> 
+                <select wire:model="selectedSong" class="form-select" style="height:46px"> 
                     
-                        <option value=""> Select A Song </option>
+                        <option value="" selected> Select A Song </option>
                         @if(!is_null($selectedUser))
                             @foreach ($releases as $item)
                                 <option value="{{$item->song}}"> {{$item->song}} </option>
@@ -62,7 +62,7 @@
                         @endif
                         
                         @if($releases->count() == 0)
-                            <option value=""> No song(s) found for the selected user</option>
+                            <option value="no songs"> No song(s) found for the selected user</option>
                         @endif
                 </select>
 
@@ -96,9 +96,9 @@
                 <label for="Entries"> Select Distribution Platform </label> 
                 
                 {{-- Select Music Distribution Platform --}}
-                <select class="form-control" name="platform" style="height:46px" wire:model="selectedPlatform">
+                <select class="form-select" name="platform" style="height:46px" wire:model="selectedPlatform">
                 
-                    <option value=""> Select Music Distribution Platform </option>
+                    <option value="" selected> Select Music Distribution Platform </option>
                     @if(!is_null($platforms))
                         
                             @foreach ($platforms as $platform)
