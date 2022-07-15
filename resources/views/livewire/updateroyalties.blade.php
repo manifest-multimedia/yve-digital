@@ -55,7 +55,7 @@
                         @endif
                         
                         @if($releases->count() == 0)
-                            <option value="no songsg"> No song(s) found for the selected user</option>
+                            <option value="no songs"> No song(s) found for the selected user</option>
                         @endif
                 </select>
 

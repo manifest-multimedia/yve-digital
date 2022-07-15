@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Validator;
 
 class UserManagementController extends Controller
 {
-    //
+    
     public function index() {
-        return view('users'); 
+        return view('users.list'); 
     }
 
     public function edit($id){
@@ -22,7 +22,6 @@ class UserManagementController extends Controller
         $user=User::where('id', $id)->firstOrfail(); 
 
         return view('users.edit', compact('user')); 
-
 
     }
 

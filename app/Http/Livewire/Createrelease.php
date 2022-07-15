@@ -14,7 +14,10 @@ class Createrelease extends Component
     use WithFileUploads;
 
     public $release_name; 
-    public $artist_name; 
+    public $selected_user; 
+
+    public $user_id;
+
     public $no_of_songs; 
     public $record_label; 
     public $territory; 
@@ -26,7 +29,7 @@ class Createrelease extends Component
 
     public function mount(){
         
-        $this->artist=User::orderBy('name','asc')->get(); 
+        $this->artist=User::withoutGlobalScope(UserScope::class)->orderBy('name','asc')->get(); 
 
     }
 
@@ -38,7 +41,7 @@ class Createrelease extends Component
     public function resetInput(){
 
     $this->release_name=null;  
-    $this->artist_name=null; 
+    $this->selected_user=null; 
     $this->no_of_songs=null;
     $this->record_label=null;
     $this->territory=null;
@@ -48,20 +51,17 @@ class Createrelease extends Component
 
     }
 
-    public function updatedArtistName(){
+    public function updatedSelectedUser(){
 
-        if(!is_null($this->artist_name)) {
+        if(!is_null($this->selected_user)) {
 
-            $artist=User::withoutGlobalScope(UserScope::class)->where('username', $this->artist_name)->first();
-           
+            $artist=User::withoutGlobalScope(UserScope::class)->where('user_id', $this->selected_user)->first();
            
             if(!is_null($artist->name))
             {
                 $this->display_name=$artist->name;
-
-                $this->username=$this->artist_name;
+                $this->username=$artist->username;
             }
-
 
         }
 
@@ -73,7 +73,7 @@ class Createrelease extends Component
     $this->validate([
 
         'release_name'=>'required',
-        'artist_name'=>'required',
+        'selected_user'=>'required',
         'no_of_songs'=>'required',
         'record_label'=>'required',
         'territory'=>'required', 
@@ -83,7 +83,7 @@ class Createrelease extends Component
     ], [
 
         'release_name.required' => 'Please provide a name for this release.', 
-        'artiste_name.required' => 'Provide a vadlid Artist for this release',
+        'artiste_name.required' => 'Provide a valid Artist for this release',
         'no_of_songs.required' => 'You have not entered the number of songs for the release', 
         'record_label.required' => 'What is the Record Label for this release?', 
         'release_date.required'=>'Please supply a date for this release.', 
@@ -96,6 +96,7 @@ class Createrelease extends Component
 
     Release::create(
         [
+            'user_id'=>$this->selected_user,
             'release_name' =>$this->release_name, 
             'cover_art' => $filepath, 
             'genre' => 'N/A',

@@ -92,7 +92,7 @@ class AdminController extends Controller
 
     $data=json_decode(json_encode($data));
 
-        return view('admin', compact(
+        return view('admin.dashboard', compact(
         'user', 
         'royalties', 
         'releases',

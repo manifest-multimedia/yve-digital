@@ -17,43 +17,71 @@
                     Overview
                 </a>
             </li>
-            
-            <li class="{{ request()->is('manage')? 'active-page' : ''}}">
-                <a href="{{url('manage')}}"> 
+
+            <li class="{{ request()->is('royalties')? 'active-page' : ''}}">
+                <a href="/royalties">
+                    <i class="material-icons-two-tone"> paid </i>
+                    Royalties</a>
+            </li>
+
+            <li class="sidebar-title">
+                ADMIN FUNCTIONS
+             </li>
+            <li class="{{ request()->is('record-royalties')? 'active-page' : ''}}">
+                <a href="{{url('record-royalties')}}"> 
+                    <i class="material-icons-two-tone"> view_kanban </i>
+                    Record Royalties
+                </a>
+            </li>
+            <li class="{{ request()->is('manage-royalties')? 'active-page' : ''}}">
+                <a href="{{url('manage-royalties')}}"> 
                     <i class="material-icons-two-tone"> dashboard_customize </i>
-                    Admin Area
+                    Manage Royalties
                 </a>
             </li>
           
-            <li class="{{ request()->is('recover')? 'active-page' : ''}}">
+            {{-- <li class="{{ request()->is('recover')? 'active-page' : ''}}">
                 <a href="{{url('recover')}}"> 
                     <i class="material-icons-two-tone"> restore_page </i>
                     Account Recovery
                 </a>
-            </li>
+            </li> --}}
 
             <li class="{{ request()->is('new-release')? 'active-page' : ''}}">
                 <a href="/new-release">
                     <i class="material-icons-two-tone"> library_music </i>
-                    Releases
+                    Create Releases
                 </a>
             </li>
 
             <li class="{{ request()->is('upload-songs')? 'active-page' : ''}}">
                 <a href="/upload-songs">
                     <i class="material-icons-two-tone"> library_add </i>
-                    Uploads</a>
+                    Upload Songs</a>
             </li>
-            <li class="{{ request()->is('royalties')? 'active-page' : ''}}">
-                <a href="/royalties">
-                    <i class="material-icons-two-tone"> paid </i>
-                    Royalties</a>
-            </li>
-            <li class="{{ request()->is('users')? 'active-page' : ''}}"> 
+           
+            {{-- <li class="{{ request()->is('users')? 'active-page' : ''}}"> 
                 <a href="/users">
                     <i class="material-icons-two-tone"> people </i>
-                    Users</a>
+                    Manage Users</a>
+            </li> --}}
+
+            <li>
+                <a href="#settings"><i class="material-icons-two-tone">settings</i>Settings<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                <ul class="sub-menu" style="">
+                    <li>
+                        <a href="{{url('users')}}">Manage users</a>
+                    </li>
+                    <li>
+                        <a href="{{url('recover')}}">Account Recovery</a>
+                    </li>
+                    {{-- <li>
+                        <a href="{{url('user/profile')}}">User Profile</a>
+                    </li> --}}
+                  
+                </ul>
             </li>
+
             <x-logout-link />
     
         @break

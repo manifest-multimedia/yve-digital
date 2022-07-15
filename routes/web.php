@@ -45,7 +45,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::get('/upload-songs', UploadSongsController::class)->name('upload-songs');
         Route::get('profile', ProfileController::class)->name('profile');
         Route::get('/royalties', [DashboardController::class, 'Royalties'])->name('royalties');
-        Route::get('/manage', function () { return view('manage'); })->name('manage');
+        Route::get('/manage-royalties', function () { return view('admin.manage-royalties'); })->name('manage-royalties');
+        Route::get('/record-royalties', function () { return view('admin.record-royalties'); })->name('manage');
         Route::resource('users', UserManagementController::class); 
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
         Route::get('/account-setup', [AccountVerificationController::class, 'CompleteSetup'])->name('account-setup');

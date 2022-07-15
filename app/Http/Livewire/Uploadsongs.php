@@ -25,10 +25,12 @@ class Uploadsongs extends Component
     public $releases=[]; 
     public $genre;
     public $username;
+    public $artist_name;
 
     public function mount(){
 
         $this->artists=User::withoutGlobalScope(UserScope::class)->orderBy('name','asc')->get(); 
+
     }
 
     public function render()
@@ -49,34 +51,24 @@ class Uploadsongs extends Component
 
         if(!is_null($this->selectedArtist)){
 
-            $releases= Release::withoutGlobalScope(UserScope::class)->where('artist_name', $this->selectedArtist)->get()->unique('release_name'); 
+            $releases= Release::withoutGlobalScope(UserScope::class)->where('user_id', $this->selectedArtist)->get()->unique('release_name'); 
             $this->releases =$releases;
             
-            $this->username=null; 
-
-            foreach ($releases as $item) {
-             $this->username=$item->username;
-            }
-            
+            $artist=User::withoutGlobalScope(UserScope::class)->where('user_id', $this->selectedArtist)->first();
+            $this->username=$artist->username;
+            $this->artist_name=$artist->name;
         }
     }
     public function updatedReleaseName(){
 
         if(!is_null($this->release_name)){
             
-
             $name_of_artist=collect(Release::withoutGlobalScope(UserScope::class)->where('release_name', $this->release_name)->get()->unique('artist_name'));
-                     
             $name_of_artist=$name_of_artist[0]['artist_name']; 
-           
             $number_of_songs=Release::withoutGlobalScope(UserScope::class)->where('release_name', $this->release_name)->get();
-           
             $count=$number_of_songs->count();
             $this->songs_count=$count;
-
-
             $number_of_songs=$number_of_songs[0]['number_of_songs'];
-           // $this->artist=$name_of_artist;
             $this->number_of_songs=$number_of_songs; 
         
         }
@@ -121,10 +113,11 @@ class Uploadsongs extends Component
             Song::create(
 
                 [
+                    'user_id' => $this->selectedArtist, 
                     'release' =>$this->release_name, 
                     'song' => $this->song, 
                     'song_url' => $uploadpath,
-                    'artist' => $this->selectedArtist, 
+                    'artist' => $this->artist_name, 
                     'genre' => $this->genre, 
                     'username'=>$this->username,
                 ]

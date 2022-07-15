@@ -19,59 +19,61 @@
                 </ul>
             </div>
         @endif
+<div class="card">
+    <div class="card-body">
+        <h2><strong>Users</strong>  </h2> 
 
-{{-- 
-    @if($errors->any())
-    {{ implode('', $errors->all('<div class="alert alert-danger">:message</div>')) }}
-@endif --}}
+        <input type="Text" placeholder="Enter Search Terms" class="form-control" wire:model="searchTerm"/>
 
-    <h2><strong>Users</strong>  </h2> 
+    <table class="table dataTable no-footer" style="margin-top:20px">
+        
 
-    <input type="Text" placeholder="Enter Search Terms" class="form-control" wire:model="searchTerm"/>
 
-<table class="table dataTable no-footer" style="margin-top:20px">
+        <tr><td>Username</td> <td>Email</td> <td>Account Status</td> <td style="width:35% !important">Action</td> </tr>
     
-
-
-    <tr><td>Username</td> <td>Email</td> <td>Account Status</td> <td style="width:25% !important">Action</td> </tr>
-   
-    @if (empty($results))
-    Nothing Found
-@endif
-    
-    @foreach ($results as $item)
-    
-        <tr> <td> {{$item->username}} </td> <td> {{$item->email}} </td> <td> {{$item->account_status}}</td> 
-            <td>
-                <a href="{{ route('users.edit', $item->id) }}" class="btn btn-primary" style="display:inline-block !important;  float:left !important; vertical-align:top !important; margin:0px 5px 0px 0px"> Edit </a>
-                
-                <form action="{{ route('users.update', $item->id) }}" method="POST"> 
-                    @csrf
-                    @method('PUT')
-
-                    <input type="hidden" name="role" id="" value="{{$item->user_role}}">
-                    <input type="hidden" name="status" id="" value="{{$item->account_status}}">
-
-                <button type="submit" class="btn btn-primary" style="display:inline-block !important; float:left !important; vertical-align:top !important; margin:0px 5px 0px 0px"> Activate </button>
-                
-                </form> 
-
-                <form action="{{ route('users.destroy', $item->id) }}" method="post"> 
-                    @csrf
-                    @method('DELETE')
+        @if (empty($results))
+        Nothing Found
+    @endif
+        
+        @foreach ($results as $item)
+        
+            <tr> <td> {{$item->username}} </td> <td> {{$item->email}} </td> <td> {{$item->account_status}}</td> 
+                <td>
+                    <a href="{{ route('users.edit', $item->id) }}" class="btn btn-primary" style="display:inline-block !important;  float:left !important; vertical-align:top !important; margin:0px 5px 0px 0px"> Edit </a>
                     
+                    <form action="{{ route('users.update', $item->id) }}" method="POST"> 
+                        @csrf
+                        @method('PUT')
 
-                   <button type="submit" class="btn btn-danger" style="display:inline-block !important ; float:left !important; vertical-align:top !important"> Delete </button> 
+                        <input type="hidden" name="role" id="" value="{{$item->user_role}}">
+                        <input type="hidden" name="status" id="" value="{{$item->account_status}}">
 
-                </form>
+                    <button type="submit" class="btn btn-primary" style="display:inline-block !important; float:left !important; vertical-align:top !important; margin:0px 5px 0px 0px"> Activate </button>
+                    
+                    </form> 
 
-            </td>
-         </tr>
-    @endforeach
-   
+                    <form action="{{ route('users.destroy', $item->id) }}" method="post"> 
+                        @csrf
+                        @method('DELETE')
+                        
+
+                    <button type="submit" class="btn btn-danger" style="display:inline-block !important ; float:left !important; vertical-align:top !important"> Delete </button> 
+
+                    </form>
+
+                </td>
+            </tr>
+        @endforeach
     
-</table>
-{{ $results->links() }}
+        
+    </table>
+    {{ $results->links() }}
+    </div>
+           
+
+</div>
+
+    
 
     
 </div>

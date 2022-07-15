@@ -5,8 +5,6 @@
         Upload Songs
     </x-slot>
     
-    <div class="row">
         @livewire('uploadsongs')
-    </div>
 
 </x-backend-layout>

@@ -2,7 +2,7 @@
 
     <x-slot name="title"> Administration - {{Auth::user()->name}}</x-slot>
 
-<x-slot name="pagedescription"> Manager </x-slot>
+<x-slot name="pagedescription"> Record Royalties </x-slot>
 
 @section('content')
 
