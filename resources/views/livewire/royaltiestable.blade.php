@@ -10,8 +10,8 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="dataTables_length" id="datatable1_length">
                                 <label> Select Period 
-                                    <select name="datatable1_length" aria-controls="datatable1" class="custom-select custom-select-sm form-control form-control-sm" wire:model="sort_period">
-                                        <option value="">All</option>
+                                    <select name="datatable1_length" aria-controls="datatable1" class="form-select form-select-sm" wire:model="sort_period">
+                                        <option value="all">All</option>
                                         @foreach ($period as $item)                
                                             <option value="{{$item->period_gained}}">{{$item->period_gained}}</option>
                                         @endforeach

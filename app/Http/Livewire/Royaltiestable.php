@@ -73,6 +73,14 @@ class Royaltiestable extends Component
         
         }
        
-    
+    public function updatedSortPeriod()
+    {   $period=$this->sort_period; 
+        $royalties=Royalties::paginate(10);
+        $earnings=Royalties::sum('revenue');
+
+        dd($royalties);
+
+        return view('livewire.royaltiestable', compact('royalties', 'earnings', 'period'));
+    }
 
 }

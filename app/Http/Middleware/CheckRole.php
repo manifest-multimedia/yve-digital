@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CheckRole
 {
@@ -54,8 +54,8 @@ class CheckRole
                     else if ($account_status=='old'){
                         $dashboard="profile";
                     } 
-                    else {
-                        $dashboard="account-setup";
+                    else if ($account_status=='pending'){
+                        $dashboard="user";
                     }
                     break;
 
@@ -69,7 +69,7 @@ class CheckRole
         }
     }
     
-    catch (exception $e) {
+    catch (\exception $e) {
         return $e->getmessage(); 
     }
         
