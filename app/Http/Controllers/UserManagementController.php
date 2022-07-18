@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User; 
+use App\Scopes\UserScope;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,7 +20,7 @@ class UserManagementController extends Controller
 
     public function edit($id){
 
-        $user=User::where('id', $id)->firstOrfail(); 
+        $user=User::withoutGlobalScope(UserScope::class)->where('id', $id)->firstOrfail(); 
 
         return view('users.edit', compact('user')); 
 
@@ -58,7 +59,7 @@ class UserManagementController extends Controller
                 break;
         }
         
-        User::where('id', $user_id)
+        User::withoutGlobalScope(UserScope::class)->where('id', $user_id)
         ->update([
             'account_status' => $update_status,
             'user_role' => $update_role
@@ -108,7 +109,7 @@ class UserManagementController extends Controller
 
             switch ($request->password) {
                 case null:
-                    User::where('id', $request->id)
+                    User::withoutGlobalScope(UserScope::class)->where('id', $request->id)
                     ->update([
                     'account_status' => $request->account_status, 
                     'username'=>$request->username,  
@@ -122,7 +123,7 @@ class UserManagementController extends Controller
                     break;
                 
                 default:
-                User::where('id', $request->id)
+                User::withoutGlobalScope(UserScope::class)->where('id', $request->id)
                 ->update([
                 'account_status' => $request->account_status, 
                 'username'=>$request->username, 
@@ -143,7 +144,7 @@ class UserManagementController extends Controller
 
     public function destroy(Request $request, $id) {
     
-        $user=User::where('id', $id)->firstOrFail(); 
+        $user=User::withoutGlobalScope(UserScope::class)->where('id', $id)->firstOrFail(); 
         $request_type=null; 
         if(!is_null($request->request_type))
         {
@@ -155,10 +156,8 @@ class UserManagementController extends Controller
                 
                 //Delete 
 
-                User::where('id', $id)
+                User::withoutGlobalScope(UserScope::class)->where('id', $id)
                 ->delete(); 
-
-
 
                 return 'Deleted Successfully'; 
 
@@ -170,9 +169,6 @@ class UserManagementController extends Controller
                 break;
         }
     
-
-
-
     }
 
 }
