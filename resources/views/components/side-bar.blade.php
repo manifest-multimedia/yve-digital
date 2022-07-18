@@ -88,13 +88,13 @@
                 <a href="#finance"><i class="material-icons-two-tone">payments</i>Finance<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu" style="">
                     <li>
-                        <a href="{{url('new-release')}}">Record Payment</a>
+                        <a href="{{url('record-payment')}}">Record Payment</a>
                     </li>
                     <li>
-                        <a href="{{url('new-release')}}">Manage Payouts</a>
+                        <a href="{{url('manage-payouts')}}">Manage Payouts</a>
                     </li>
                     <li>
-                        <a href="{{url('upload-songs')}}">Generate Report</a>
+                        <a href="{{url('generate-reports')}}">Generate Report</a>
                     </li>
                 </ul>
             </li>
