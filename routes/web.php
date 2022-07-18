@@ -52,6 +52,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::get('/record-royalties', function () { return view('admin.record-royalties'); })->name('manage');
         Route::get('/record-payment', function () { return view('admin.record-payment'); })->name('manage-payouts');
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
+        Route::get('/platforms', function () { return view('admin.platforms');})->name('platforms');
         Route::resource('users', UserManagementController::class); 
         Route::get('/recover', [AccountVerificationController::class, 'SendRecoveryEmail'])->name('recovery');
         

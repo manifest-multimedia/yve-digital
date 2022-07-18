@@ -56,7 +56,7 @@ class AdminController extends Controller
 
             "name"=>"Manage",
             "icon"=>"settings", 
-            "url"=>"manage", 
+            "url"=>"manage-royalties", 
             "type"=>"warning"
 
         ], 

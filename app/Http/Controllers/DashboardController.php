@@ -54,7 +54,7 @@ class DashboardController extends Controller
 
             "name"=>"Manage",
             "icon"=>"settings", 
-            "url"=>"manage", 
+            "url"=>"royalties", 
             "type"=>"warning"
 
         ], 
