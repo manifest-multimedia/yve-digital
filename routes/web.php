@@ -37,19 +37,22 @@ Route::get('auth/twitter/callback', [TwitterAuthController::class, 'handleTwitte
 
 Route::middleware(['auth:sanctum', 'verified'])->group(
     function(){
-
-        Route::get('/dashboard', DashboardController::class)->middleware(['CheckRole'])->name('dashboard');
-        Route::get('/admin', AdminController::class)->name('admin'); 
+        //User Functions
         Route::get('/user', UserController::class)->name('user');
+        Route::get('/dashboard', DashboardController::class)->middleware(['CheckRole'])->name('dashboard');
         Route::get('/account-verification', AccountVerificationController::class)->name('account-verification');
-        Route::get('/upload-songs', UploadSongsController::class)->name('upload-songs');
         Route::get('profile', ProfileController::class)->name('profile');
+        Route::get('/account-setup', [AccountVerificationController::class, 'CompleteSetup'])->name('account-setup');
         Route::get('/royalties', [DashboardController::class, 'Royalties'])->name('royalties');
+
+        //Admin Functions 
+        Route::get('/admin', AdminController::class)->name('admin'); 
+        Route::get('/upload-songs', UploadSongsController::class)->name('upload-songs');
         Route::get('/manage-royalties', function () { return view('admin.manage-royalties'); })->name('manage-royalties');
         Route::get('/record-royalties', function () { return view('admin.record-royalties'); })->name('manage');
-        Route::resource('users', UserManagementController::class); 
+        Route::get('/record-payment', function () { return view('admin.record-payment'); })->name('manage-payouts');
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
-        Route::get('/account-setup', [AccountVerificationController::class, 'CompleteSetup'])->name('account-setup');
+        Route::resource('users', UserManagementController::class); 
         Route::get('/recover', [AccountVerificationController::class, 'SendRecoveryEmail'])->name('recovery');
         
     });

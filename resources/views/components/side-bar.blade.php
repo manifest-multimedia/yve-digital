@@ -27,18 +27,19 @@
             <li class="sidebar-title">
                 ADMIN FUNCTIONS
              </li>
-            <li class="{{ request()->is('record-royalties')? 'active-page' : ''}}">
+            {{-- <li class="{{ request()->is('record-royalties')? 'active-page' : ''}}">
                 <a href="{{url('record-royalties')}}"> 
                     <i class="material-icons-two-tone"> view_kanban </i>
                     Record Royalties
                 </a>
-            </li>
-            <li class="{{ request()->is('manage-royalties')? 'active-page' : ''}}">
+            </li> --}}
+            {{-- <li class="{{ request()->is('manage-royalties')? 'active-page' : ''}}">
                 <a href="{{url('manage-royalties')}}"> 
                     <i class="material-icons-two-tone"> dashboard_customize </i>
                     Manage Royalties
                 </a>
-            </li>
+            </li> --}}
+           
           
             {{-- <li class="{{ request()->is('recover')? 'active-page' : ''}}">
                 <a href="{{url('recover')}}"> 
@@ -47,7 +48,7 @@
                 </a>
             </li> --}}
 
-            <li class="{{ request()->is('new-release')? 'active-page' : ''}}">
+            {{-- <li class="{{ request()->is('new-release')? 'active-page' : ''}}">
                 <a href="/new-release">
                     <i class="material-icons-two-tone"> library_music </i>
                     Create Releases
@@ -58,19 +59,54 @@
                 <a href="/upload-songs">
                     <i class="material-icons-two-tone"> library_add </i>
                     Upload Songs</a>
-            </li>
-           
-            {{-- <li class="{{ request()->is('users')? 'active-page' : ''}}"> 
-                <a href="/users">
-                    <i class="material-icons-two-tone"> people </i>
-                    Manage Users</a>
             </li> --}}
+           
+
+            <li>
+                <a href="#music"><i class="material-icons-two-tone">view_kanban</i>Royalties<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                <ul class="sub-menu" style="">
+                    <li>
+                        <a href="{{url('record-royalties')}}">Record Royalties</a>
+                    </li>
+                    <li>
+                        <a href="{{url('manage-royalties')}}">Manage Royalties</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#music"><i class="material-icons-two-tone">library_music</i>Music<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                <ul class="sub-menu" style="">
+                    <li>
+                        <a href="{{url('new-release')}}">Create Releases</a>
+                    </li>
+                    <li>
+                        <a href="{{url('upload-songs')}}">Upload Songs</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#finance"><i class="material-icons-two-tone">payments</i>Finance<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                <ul class="sub-menu" style="">
+                    <li>
+                        <a href="{{url('new-release')}}">Record Payment</a>
+                    </li>
+                    <li>
+                        <a href="{{url('new-release')}}">Manage Payouts</a>
+                    </li>
+                    <li>
+                        <a href="{{url('upload-songs')}}">Generate Report</a>
+                    </li>
+                </ul>
+            </li>
 
             <li>
                 <a href="#settings"><i class="material-icons-two-tone">settings</i>Settings<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu" style="">
                     <li>
-                        <a href="{{url('users')}}">Manage users</a>
+                        <a href="{{url('users')}}">Manage Users</a>
+                    </li>
+                    <li>
+                        <a href="{{url('platforms')}}">Manage Platforms</a>
                     </li>
                     <li>
                         <a href="{{url('recover')}}">Account Recovery</a>
