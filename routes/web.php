@@ -50,7 +50,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(
         Route::get('/upload-songs', UploadSongsController::class)->name('upload-songs');
         Route::get('/manage-royalties', function () { return view('admin.manage-royalties'); })->name('manage-royalties');
         Route::get('/record-royalties', function () { return view('admin.record-royalties'); })->name('manage');
-        Route::get('/record-payment', function () { return view('admin.record-payment'); })->name('manage-payouts');
+        Route::get('/record-payment', function () { return view('admin.record-payment'); })->name('record-payment');
         Route::get('/manage-payouts', function () { return view('admin.manage-payment'); })->name('manage-payouts');
         Route::get('/generate-reports', function () { return view('admin.generate-reports'); })->name('generate-reports');
         Route::get('/new-release', function () { return view('new-release');})->name('new-release');
