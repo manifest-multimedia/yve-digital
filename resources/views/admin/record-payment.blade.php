@@ -4,6 +4,6 @@
         Manage Payouts
     </x-slot>
     <div class="row">
-        @livewire('manage-royalties')     
+       
     </div>
 </x-backend-layout>
