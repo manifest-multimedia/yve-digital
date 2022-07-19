@@ -122,9 +122,10 @@ class Updateroyalties extends Component
         $period_gained=retrieveMonths($period_gained);
 
         $user_id=$this->selectedUser;
-        $username=User::where('user_id', $user_id)->first()->username;
+
+        $username=User::withoutGlobalScope(UserScope::class)->where('user_id', $user_id)->first()->username;
         
-        Royalties::create([
+        Royalties::withoutGlobalScope(UserScope::class)->create([
 
             'username' => $username, 
             'song_name' => $this->selectedSong, 
